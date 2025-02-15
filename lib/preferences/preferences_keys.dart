@@ -1,0 +1,15 @@
+enum PreferencesKeys {
+  lang,
+  isLoggedIn,
+  token,
+  id,
+  userName,
+  showOnboarding,
+  userId,
+  email,
+  isAllowNotifications,
+  screenStatusWhileRecording,
+  downloadImagesStatus,
+  isGuest,
+  profileImage,
+}
