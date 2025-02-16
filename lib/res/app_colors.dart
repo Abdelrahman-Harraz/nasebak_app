@@ -42,6 +42,13 @@ abstract final class AppColors {
   static const Color _codGrayWithOp90 = Color(0xE6090909);
   static const Color _cinderella = Color(0xFFFDEBE2);
 
+  /// New
+  static const Color _mineralGreen = Color(0xFF374C47);
+  static const Color _doveGray = Color(0xFF707070);
+  static const Color _scorpion = Color(0x61606060);
+  static const Color _brickRed = Color(0xFFC52943);
+  static const Color _outrageousOrange = Color(0xFFFF5C3D);
+
   /// app main theme ...
   static const colorSchemeSeed = _sherpaBlue;
   static const colorPrimary = _sherpaBlue;
@@ -154,6 +161,11 @@ abstract final class AppColors {
   /// auth
   static const divider = _dustyGray;
   static const continueWithOutLoginButtonBorder = _dustyGray;
+  static const countryCode = _mineralGreen;
+  static const countryCodeDivider = _doveGray;
+  static const authHintText = _scorpion;
+  static const authSigninBtnGradient1 = _brickRed;
+  static const authSigninBtnGradient2 = _outrageousOrange;
 
   /// Filter
   static const selectedTabBackgroundColor = _sherpaBlue;
@@ -271,14 +283,14 @@ abstract final class AppColors {
 ///   65% - A6
 ///   60% - 99
 ///   55% - 8C
-///    50% - 80
-///    45% - 73
-///    40% - 66
-///    35% - 59
+///   50% - 80
+///   45% - 73
+///   40% - 66
+///   35% - 59
 ///   30% - 4D
 ///   25% - 40
 ///   20% - 33
 ///   15% - 26
 ///   10% - 1A
-///    5% - 0D
+///   5% - 0D
 ///   0% - 00

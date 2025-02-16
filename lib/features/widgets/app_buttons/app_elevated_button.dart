@@ -64,22 +64,37 @@ class AppElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        elevation: 0,
-        fixedSize: Size(width ?? 320, 46),
-        padding:
-            padding ?? const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-        shape:
-            shape ??
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(borderRadius ?? 5),
-              side: BorderSide(color: borderColor ?? Colors.transparent),
-            ),
-        backgroundColor: color ?? AppColors.buttonBackground,
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(borderRadius ?? 24),
+        gradient: LinearGradient(
+          colors: [
+            AppColors.authSigninBtnGradient1,
+            AppColors.authSigninBtnGradient1,
+            AppColors.authSigninBtnGradient2,
+          ],
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+        ),
       ),
-      onPressed: onPressed,
-      child: label,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          elevation: 0,
+          fixedSize: Size(width ?? 358, 51),
+          padding:
+              padding ??
+              const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+          shape:
+              shape ??
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(borderRadius ?? 24),
+                side: BorderSide(color: borderColor ?? Colors.transparent),
+              ),
+          backgroundColor: Colors.transparent,
+        ),
+        onPressed: onPressed,
+        child: label,
+      ),
     );
   }
 }

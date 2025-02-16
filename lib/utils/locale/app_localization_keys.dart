@@ -2,7 +2,7 @@ class LocalizationKeys {
   static const fullAppName = 'full_app_name';
   static const appName = 'app_name';
   static const plzWait = 'plz_wait';
-  static const login = 'login';
+
   static const forgotPass = 'forgot_pass';
   static const required = 'required';
   static const next = 'next';
@@ -283,4 +283,11 @@ class LocalizationKeys {
   static const deleteAccountMessage = "delete_account_message";
   static const contactWithUs = "contact_with_us";
   static const contactingUs = "contacting_us";
+
+  /// New
+  static const registerScreenTxt = "register_screen_text";
+  static const privacyPolicyText = "privacy_policy_text";
+  static const ours = "ours";
+  static const login = 'login';
+  static const singInAsAGuest = 'sign_in_as_a_guest';
 }

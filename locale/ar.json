@@ -2,7 +2,7 @@
   "full_app_name": "تطبيق درب",
   "app_name": "درب",
   "plz_wait": "من فضلك انتظر ...",
-  "login": "تسجيل الدخول",
+
   "forgot_pass": "نسيت كلمه السر ؟",
   "required": "مطلوب",
   "next": "التالى",
@@ -213,7 +213,7 @@
   "first_name_family_name": "الاسم الأول واسم العائلة",
   "please_enter_first_name_family_name": "برجاء ادخل الاسم الاول و اسم العائلة",
   "please_enter_email_address": "برجاء ادخل البريد الالكتروني",
-  "please_enter_mobile_number": "برجاء ادخل رقم الجوال",
+
   "message": "رسالة",
   "enter_your_message": "ادخال رسالتك",
   "message_sent": "تم إرسال الرسالة",
@@ -246,5 +246,11 @@
   "error_survey_link": "لا يمكن فتح الاستبيان",
   "delete_account_message": "هل أنت متأكد من أنك تريد حذف حسابك؟ سيتم توصيلك بالعمليات للمتابعة بحذف حسابك",
   "contact_with_us": "تواصل معنا",
-  "contacting_us": "التواصل معنا"
+  "contacting_us": "التواصل معنا",
+  "register_screen_text": "عن طريق تسجيل الدخول، فإنك توافق على شروطنا. تعرف على كيفية معالجتنا لبياناتك في",
+  "privacy_policy_text": " سياسة الخصوصية وسياسة ملفات تعريف الارتباط",
+  "ours": "الخاصة بنا",
+  "please_enter_mobile_number": "ادخل رقم الهاتف الخاص بك",
+  "login": "دخول",
+  "sign_in_as_a_guest" : "الدخول كزائر"
 }

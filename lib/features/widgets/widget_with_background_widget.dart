@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class WidgetWithBackgroundWidget extends StatelessWidget {
   const WidgetWithBackgroundWidget({
@@ -13,10 +12,7 @@ class WidgetWithBackgroundWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       fit: StackFit.expand,
-      children: [
-        SvgPicture.asset(backgroundImage, fit: BoxFit.fill),
-        child,
-      ],
+      children: [Image.asset(backgroundImage, fit: BoxFit.fill), child],
     );
   }
 }

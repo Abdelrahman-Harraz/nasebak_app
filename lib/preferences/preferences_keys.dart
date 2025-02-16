@@ -1,4 +1,5 @@
 enum PreferencesKeys {
+  name,
   lang,
   isLoggedIn,
   token,
@@ -12,4 +13,5 @@ enum PreferencesKeys {
   downloadImagesStatus,
   isGuest,
   profileImage,
+  userGender,
 }

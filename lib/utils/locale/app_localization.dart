@@ -6,8 +6,10 @@ import 'package:flutter/services.dart';
 const codeEn = 'en';
 const codeAr = 'ar';
 
-const conUs = 'US';
-const conSa = 'SA';
+const codeUs = 'US';
+const codeSa = 'SA';
+const codeEnUS = '$codeEn-$codeUs';
+const codeArSA = '$codeAr-$codeSa';
 
 class AppLocalizations {
   final Locale locale;
@@ -24,8 +26,9 @@ class AppLocalizations {
 
   Future<bool> load() async {
     /// 1- Load the language JSON file from the "lang" folder
-    final String jsonString =
-        await rootBundle.loadString('locale/${locale.languageCode}.json');
+    final String jsonString = await rootBundle.loadString(
+      'locale/${locale.languageCode}.json',
+    );
 
     /// 2- mapping the json string that we loaded from the file to json map
     /// with dynamic value.
@@ -50,16 +53,16 @@ class AppLocalizations {
   }
 
   bool isRTL() {
-    return locale.languageCode == codeAr;
+    return locale.languageCode == codeArSA;
   }
 
   bool isLTR() {
-    return locale.languageCode == codeEn;
+    return locale.languageCode == codeEnUS;
   }
 
   static List<Locale> supportedLocales = [
-    const Locale(codeEn, conUs),
-    const Locale(codeAr, conSa),
+    const Locale(codeEn, codeUs),
+    const Locale(codeAr, codeSa),
   ];
 
   static const LocalizationsDelegate<AppLocalizations> delegate =

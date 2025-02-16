@@ -2,7 +2,6 @@ import 'package:nasebak_app/_base/widgets/base_stateful_screen_widget.dart';
 import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/app_navigation/bloc/app_navigation_bloc.dart';
 import 'package:nasebak_app/features/app_navigation/widgets/app_nav_item_widget.dart';
-import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:nasebak_app/res/app_colors.dart';
 import 'package:nasebak_app/utils/extensions/extension_localization.dart';
 import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
@@ -95,27 +94,27 @@ class _AppNavigationScreenWithBlocState
             child: BottomNavigationBar(
               items: [
                 _createBottomNavigationItem(
-                  icon: AppAssetPaths.homeAppNavIcon,
+                  icon: "AppAssetPaths.homeAppNavIcon",
                   label: LocalizationKeys.home,
                   isSelected: _selectedBottomNavigationIndex == 0,
                 ),
                 _createBottomNavigationItem(
-                  icon: AppAssetPaths.associationAppNavIcon,
+                  icon: "AppAssetPaths.associationAppNavIcon,",
                   label: LocalizationKeys.association,
                   isSelected: _selectedBottomNavigationIndex == 1,
                 ),
                 _createBottomNavigationItem(
-                  icon: AppAssetPaths.tracksAppNavIcon,
+                  icon: "AppAssetPaths.tracksAppNavIcon",
                   label: LocalizationKeys.tracks,
                   isSelected: _selectedBottomNavigationIndex == 2,
                 ),
                 _createBottomNavigationItem(
-                  icon: AppAssetPaths.trackRecordingAppNavIcon,
+                  icon: "AppAssetPaths.trackRecordingAppNavIcon",
                   label: LocalizationKeys.trackRecording,
                   isSelected: _selectedBottomNavigationIndex == 3,
                 ),
                 _createBottomNavigationItem(
-                  icon: AppAssetPaths.moreAppNavIcon,
+                  icon: "AppAssetPaths.moreAppNavIcon",
                   label: LocalizationKeys.more,
                   isSelected: _selectedBottomNavigationIndex == 4,
                 ),

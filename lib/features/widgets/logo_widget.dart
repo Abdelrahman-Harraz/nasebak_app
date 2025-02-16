@@ -1,4 +1,3 @@
-import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:flutter/material.dart';
 
 class LogoWidget extends StatelessWidget {
@@ -7,6 +6,6 @@ class LogoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(AppAssetPaths.nasebakLogo, fit: fit ?? BoxFit.cover);
+    return Image.asset("AppAssetPaths.nasebakLogo", fit: fit ?? BoxFit.cover);
   }
 }

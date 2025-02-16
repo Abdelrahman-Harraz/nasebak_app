@@ -2,7 +2,6 @@
   "full_app_name": "nasebak App",
   "app_name": "nasebak",
   "plz_wait": "Please wait ...",
-  "login": "Login",
   "forgot_pass": "Forgot password ?",
   "required": "Required",
   "next": "Next",
@@ -199,7 +198,7 @@
   "first_and_last_name": "First and last name",
   "please_enter_your_first_and_last_name": "Please enter your first and last name",
   "mobile": "Mobile",
-  "please_enter_mobile_number": "Please enter your mobile number",
+
   "association_membership_number_if_any": "Association membership number (if any)",
   "please_enter_your_membership_number": "Please enter your membership number",
   "the_area_you_would_like_to_volunteer_in": "The area you would like to volunteer in",
@@ -246,7 +245,11 @@
   "error_survey_link": "cannot open survey",
   "delete_account_message": "Are you sure you want delete your account ? you will be connected to operations to proceed with deletion of your account",
   "contact_with_us": "Contact with us",
-  "contacting_us": "contacting_us"
-
-
+  "contacting_us": "contacting_us",
+  "register_screen_text": "",
+  "privacy_policy_text": "",
+  "ours": "",
+  "please_enter_mobile_number": "Please enter your mobile number",
+  "login": "Login",
+  "sign_in_as_a_guest" : ""
 }

@@ -6,42 +6,41 @@ import 'package:nasebak_app/utils/locale/app_localization.dart';
 class LocaleCubit extends Cubit<Locale> {
   final PreferencesManager preferenceManager;
 
-  LocaleCubit(this.preferenceManager) : super(const Locale(codeAr)) {
+  LocaleCubit(this.preferenceManager) : super(LocaleApp.ar.toLocale()) {
     getDefaultLocale();
   }
 
   void changeLocale(LocaleApp selectedLanguage) async {
     final defaultLanguageCode = await preferenceManager.getLocale();
 
-    if (selectedLanguage == LocaleApp.ar && defaultLanguageCode != codeAr) {
-      emit(const Locale(codeAr));
-      await preferenceManager.setLocale(
-        LocaleApp.mapFromString(codeAr).mapToPreferenceKey(),
-      );
+    if (selectedLanguage == LocaleApp.ar && defaultLanguageCode != codeArSA) {
+      emit(LocaleApp.ar.toLocale());
+      await preferenceManager.setLocale(selectedLanguage.mapToPreferenceKey());
     } else if (selectedLanguage == LocaleApp.en &&
-        defaultLanguageCode != codeEn) {
-      emit(const Locale(codeEn));
-      await preferenceManager.setLocale(
-        LocaleApp.mapFromString(codeEn).mapToPreferenceKey(),
-      );
+        defaultLanguageCode != codeArSA) {
+      emit(LocaleApp.en.toLocale());
+      await preferenceManager.setLocale(selectedLanguage.mapToPreferenceKey());
     }
   }
 
   void getDefaultLocale() async {
     final defaultLanguageCode = await preferenceManager.getLocale();
+    // const defaultLanguageCode = null;
     Locale locale;
     if (defaultLanguageCode == null) {
-      locale = Locale(defaultSystemLocale);
+      locale = defaultSystemLocale;
       await preferenceManager.setLocale(
         LocaleApp.mapFromString(locale.languageCode).mapToPreferenceKey(),
       );
     } else {
-      locale = Locale(defaultLanguageCode);
-      if (locale.languageCode == codeEn) {
+      if (defaultLanguageCode == codeEn) {
+        locale = LocaleApp.en.toLocale();
+        Locale(defaultLanguageCode);
         await preferenceManager.setLocale(
           LocaleApp.mapFromString(locale.languageCode).mapToPreferenceKey(),
         );
       } else {
+        locale = LocaleApp.ar.toLocale();
         await preferenceManager.setLocale(
           LocaleApp.mapFromString(locale.languageCode).mapToPreferenceKey(),
         );
@@ -50,45 +49,50 @@ class LocaleCubit extends Cubit<Locale> {
     emit(locale);
   }
 
-  // TODO: Set the default for now for the first time usre open the app is Arabic
-  // instead of the device language
-  //
-  // import 'dart:io';
-  //
   // String get defaultSystemLocale => Platform.localeName.substring(0, 2);
-  String get defaultSystemLocale => LocaleApp.ar.name;
+  Locale get defaultSystemLocale => LocaleApp.ar.toLocale();
 }
 
 enum LocaleApp {
   en,
   ar;
 
-  int mapToApiKey() {
+  String mapToApiKey() {
     switch (this) {
       case LocaleApp.en:
-        return 1;
+        return codeEnUS;
       case LocaleApp.ar:
-        return 2;
+        return codeArSA;
+    }
+  }
+
+  Locale toLocale() {
+    switch (this) {
+      case LocaleApp.en:
+        return const Locale(codeEn, codeUs);
+
+      case LocaleApp.ar:
+        return const Locale(codeAr, codeSa);
     }
   }
 
   static LocaleApp mapFromString(String languageCode) {
     switch (languageCode) {
-      case "en":
+      case codeEn:
         return LocaleApp.en;
-      case "ar":
+      case codeAr:
         return LocaleApp.ar;
       default:
-        return LocaleApp.en;
+        return LocaleApp.ar;
     }
   }
 
   String mapToPreferenceKey() {
     switch (this) {
       case LocaleApp.en:
-        return "$codeEn-$conUs";
+        return codeEn;
       case LocaleApp.ar:
-        return "$codeAr-$conSa";
+        return codeAr;
     }
   }
 }
