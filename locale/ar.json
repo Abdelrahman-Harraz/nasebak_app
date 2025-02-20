@@ -252,5 +252,12 @@
   "ours": "الخاصة بنا",
   "please_enter_mobile_number": "ادخل رقم الهاتف الخاص بك",
   "login": "دخول",
-  "sign_in_as_a_guest" : "الدخول كزائر"
+  "sign_in_as_a_guest" : "الدخول كزائر",
+  "otp_required": "رمز التحقق مطلوب",
+  "otp_invalid" : "رمز التحقق (OTP) غير صالح",
+  "didnt_receive_otp" : "لم أستلم رمز ؟",
+  "enter_otp": "إدخال رمز OTP",
+  "otp_sent": "تم إرسال رسالة إلى هاتفك بها رمز OTP الخاص بك",
+  "resend_otp" : "أعد إرسال رمز  OTP",
+  "confirm_otp" : "تأكيد الرمز"
 }
