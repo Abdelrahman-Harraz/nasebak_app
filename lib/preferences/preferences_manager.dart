@@ -121,4 +121,16 @@ class PreferencesManager {
   Future<bool> isGuest() async {
     return await PreferencesUtils.getBool(PreferencesKeys.isGuest.name);
   }
+
+  Future<void> setUserInfo({
+    required int userId,
+    required String userFullName,
+    bool allowNotification = true,
+    required String token,
+  }) async {
+    await setToken(token);
+    await setUserId(userId);
+    await setUserName(userFullName);
+    await setIsAllowNotifications(allowNotification);
+  }
 }

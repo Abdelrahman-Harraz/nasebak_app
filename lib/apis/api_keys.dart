@@ -28,4 +28,5 @@ class ApiKeys {
   /// Authentication
   static const registerWithPhoneUrl = '$apiKeyUrl/';
   static const signUpUrl = '$apiKeyUrl/';
+  static const registerWithOtpUrl = "$apiKeyUrl/";
 }

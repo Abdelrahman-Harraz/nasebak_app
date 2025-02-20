@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:nasebak_app/features/app_navigation/screen/app_navigation_screen.dart';
+import 'package:nasebak_app/features/otp/screen/otp_screen.dart';
 import 'package:nasebak_app/features/phone_registration/screen/phone_registration_screen.dart';
 import 'package:nasebak_app/only_debug/user_debug_model.dart';
 import 'package:nasebak_app/utils/build_type/build_type.dart';
@@ -8,6 +9,7 @@ class AppRouter {
   static const initialRoute = phoneRegistrationScreen;
   static const phoneRegistrationScreen = "/phone-registration-screen";
   static const appNavigationScreen = "/app-navigation-screen";
+  static const otpScreen = "/otp-screen";
 
   static GoRouter router = GoRouter(
     debugLogDiagnostics: true,
@@ -37,6 +39,8 @@ class AppRouter {
           return PhoneRegistrationScreen(initialPhoneCode: phoneCode);
         },
       ),
+
+      GoRoute(path: otpScreen, builder: (context, state) => OtpScreen()),
     ],
   );
 }

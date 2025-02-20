@@ -32,9 +32,8 @@ class PhoneRegistrationNotValidatedState extends PhoneRegistrationState {
 
 class PhoneRegistrationSuccessfullyState extends PhoneRegistrationState {
   final String message;
-  final bool isExist;
 
-  const PhoneRegistrationSuccessfullyState(this.isExist, this.message);
+  const PhoneRegistrationSuccessfullyState(this.message);
 }
 
 /// ChangCountryCode State

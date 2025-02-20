@@ -290,4 +290,11 @@ class LocalizationKeys {
   static const ours = "ours";
   static const login = 'login';
   static const singInAsAGuest = 'sign_in_as_a_guest';
+  static const otpRequired = 'otp_required';
+  static const otpInvalid = 'otp_invalid';
+  static const iDidNotReceiveCode = 'didnt_receive_otp';
+  static const enterOtp = 'enter_otp';
+  static const otpSent = 'otp_sent';
+  static const resendOtp = 'resend_otp';
+  static const confirmOtp = 'confirm_otp';
 }

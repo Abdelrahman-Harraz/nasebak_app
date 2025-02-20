@@ -40,7 +40,6 @@ abstract final class AppColors {
   static const Color _porcelain = Color(0xffEEF2F2);
   static const Color _codGrayWithOp15 = Color(0x26090909);
   static const Color _codGrayWithOp90 = Color(0xE6090909);
-  static const Color _cinderella = Color(0xFFFDEBE2);
 
   /// New
   static const Color _mineralGreen = Color(0xFF374C47);
@@ -48,11 +47,13 @@ abstract final class AppColors {
   static const Color _scorpion = Color(0x61606060);
   static const Color _brickRed = Color(0xFFC52943);
   static const Color _outrageousOrange = Color(0xFFFF5C3D);
+  static const Color _blackWith67Opacity = Color(0xAB000000);
+  static const Color _concrete = Color(0xFFF2F2F2);
 
   /// app main theme ...
   static const colorSchemeSeed = _sherpaBlue;
-  static const colorPrimary = _sherpaBlue;
-  static const scaffoldBackground = _sinbad;
+  static const colorPrimary = _white;
+  static const scaffoldBackground = _white;
   static const appBarBackground = _sherpaBlue;
   static const transparentColor = _transparent;
   static const buttonBackground = _sherpaBlue;
@@ -87,6 +88,7 @@ abstract final class AppColors {
   static const dropDownBorder = _cararra;
   static const filterBorder = _alto2;
   static const filterIcon = _alto2;
+  static const blackColor = _black;
 
   /// text colors
   static const headlineMedium = _sherpaBlue;
@@ -234,41 +236,18 @@ abstract final class AppColors {
   static const deleteButtonBackground = _red2;
   static const cancelButtonBorder = _alto2;
 
-  /// language settings
-  static const languageWidgetBackground = _white;
-  static const languageWidgetBorder = _cararra;
-
-  /// notification settings
-  static const notificationSettingsBackground = _white;
-  static const notificationSettingsBorder = _cararra;
-
-  /// Terms and Condidtions
-  static const termsAndConditionsBackground = _white;
-  static const termsOfUseBorder = _cararra;
-
-  /// privacy policy
-  static const privacyPolicyBackground = _white;
-  static const privacyPolicyBorder = _cararra;
-
-  /// Track importance
-  static const trackImportanceKey = _jaffa;
-  static const trackImportanceContainer = _white;
-  static const trackImportanceBorder = _cararra;
-  static const criteriaImage = _cinderella;
-
-  /// cart
-  static const cartDivider = _cararra;
-
-  /// Contribute To Association
-  static const unSelectedDonationButtonBackground = _white;
-  static const selectedDonationButtonBackground = _jaffa;
-  static const donationButttonBorder = _jaffa;
-
-  /// Survey
-  static final blurContainer = _black.withOpacity(0.5);
-
-  /// Tracks screen
-  static const tracksContainerColor = _porcelain;
+  /// Otp
+  static const otpSentText = _blackWith67Opacity;
+  static const otpActiveFillColor = _concrete;
+  static const otpSelectedFillColor = _white;
+  static const otpInactiveFillColor = _white;
+  static const otpInactiveBorderColor = _doveGray;
+  static const otpActiveBorderColor = _white;
+  static const otpSelectedBorderColor = _doveGray;
+  static const otpFocusTextColor = _mineralGreen;
+  static const dontReceiveOtpTxtColor = _scorpion;
+  static const resendOtpTxtColor = _mineralGreen;
+  static const otpBackIconColor = _doveGray;
 }
 
 ///

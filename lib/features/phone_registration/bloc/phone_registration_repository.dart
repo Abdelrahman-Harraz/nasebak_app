@@ -29,7 +29,6 @@ class PhoneRegistrationRepository implements BasePhoneRegistrationRepository {
       /// Success
       (response) {
         phoneRegistrationState = PhoneRegistrationSuccessfullyState(
-          response.isExist,
           response.message,
         );
       },

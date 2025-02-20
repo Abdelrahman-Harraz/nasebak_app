@@ -162,10 +162,13 @@ class Validator {
     }
   }
 
-  static ValidationState validateNumber(String? number) {
+  static ValidationState validateNumber(
+    String? number, {
+    List<int> lengths = const [9],
+  }) {
     if (number.isNullOrEmpty) {
       return ValidationState.empty;
-    } else if (!isNumber(number!)) {
+    } else if (!isNumber(number!) || !lengths.contains(number.length)) {
       return ValidationState.formatting;
     } else {
       return ValidationState.valid;

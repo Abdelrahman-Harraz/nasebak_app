@@ -43,9 +43,7 @@ class PhoneRegistrationScreen extends StatelessWidget {
       create:
           (context) => PhoneRegistrationBloc(
             PhoneRegistrationRepository(
-              authApiManager: AuthApiManager(
-                dioApiManager: GetIt.I<DioApiManager>(),
-              ),
+              authApiManager: AuthApiManager(GetIt.I<DioApiManager>()),
             ),
           ),
       child: PhoneRegistrationScreenWithBloc(phoneCode: initialPhoneCode),
@@ -59,10 +57,10 @@ class PhoneRegistrationScreenWithBloc extends BaseStatefulScreenWidget {
 
   @override
   BaseScreenState<PhoneRegistrationScreenWithBloc> baseScreenCreateState() =>
-      _SignUpScreenWithBlocState();
+      _PhoneRegistrationScreenWithBlocState();
 }
 
-class _SignUpScreenWithBlocState
+class _PhoneRegistrationScreenWithBlocState
     extends BaseScreenState<PhoneRegistrationScreenWithBloc>
     with AppValidate {
   GlobalKey<FormState> signUpFormKey = GlobalKey();
@@ -111,7 +109,7 @@ class _SignUpScreenWithBlocState
             _updateCountryCodeValues(state.country);
           } else if (state is PhoneRegistrationSuccessfullyState) {
             showFeedbackMessage(state.message);
-            _openLoginOrOtpScreen(state.isExist);
+            _openLoginOrOtpScreen();
           }
         },
         child: WidgetWithBackgroundWidget(
@@ -191,7 +189,7 @@ class _SignUpScreenWithBlocState
         phoneFormKey: phoneFormKey,
         onSavedPhoneNumber: _onSavedPhoneNumber,
         phoneNumber: _phoneNumber,
-        onSelectCountryCode: (_) {},
+        onSelectCountryCode: _onSelectCountryCode,
         selectedCountryCode: _selectedCountryCode,
         autovalidateMode: autovalidateMode,
       ),
@@ -210,7 +208,7 @@ class _SignUpScreenWithBlocState
             color: AppColors.buttonTextColor,
           ),
         ),
-        onPressed: () {},
+        onPressed: _continueClicked,
       ),
     );
   }
@@ -265,12 +263,12 @@ class _SignUpScreenWithBlocState
     _selectedCountryCode = country.phoneCode;
   }
 
-  void _openLoginOrOtpScreen(bool isExist) {
-    if (isExist) {
-      // LoginScreen.open(_fullPhoneNumber);
-    } else {
-      // OtpScreen.open(_fullPhoneNumber);
-    }
+  void _continueClicked() {
+    context.push(AppRouter.otpScreen);
+  }
+
+  void _openLoginOrOtpScreen() {
+    context.push(AppRouter.otpScreen);
   }
 
   void _onSavedPhoneNumber(String? value) {

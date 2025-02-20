@@ -23,7 +23,7 @@ class LightAppTheme implements BaseAppTheme {
         primary: AppColors.colorPrimary,
       ),
       primaryColor: AppColors.colorPrimary,
-      scaffoldBackgroundColor: AppColors.scaffoldBackground.withOpacity(0.05),
+      scaffoldBackgroundColor: AppColors.scaffoldBackground,
       iconTheme: ThemeData.light(
         useMaterial3: false,
       ).iconTheme.copyWith(color: AppColors.iconTheme),
