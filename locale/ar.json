@@ -262,5 +262,12 @@
   "confirm_otp" : "تأكيد الرمز",
   "welcome_in_nasebak": "مرحبا بك في نصيبك",
   "please_follow_rules" : "الرجاء اتباع القواعد التالية",
-  "i_agree" : "انا موافق"
+  "i_agree" : "انا موافق",
+  "whats_your_first_name" :"ما هو اسمك الأول؟",
+  "enter_your_first_name" :"ادخل اسمك الأول",
+  "the_name_will_appear_in_your_profile" :"اسمك الذي سيظهر في الملف الشخصي لك",
+  "cant_change_in_future" :"لا يمكنك تغييره في المستقبل",
+  "hi" : "مرحبا",
+  "lets_continue_your_profile" : "هناك الكثير من الأمور لاكتشافها لكن دعنا أولا نكمل ملفك الشخصي",
+  "lets_start" : "هيا بنا"
 }

@@ -67,15 +67,23 @@ class AppElevatedButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadius ?? 24),
-        gradient: LinearGradient(
-          colors: [
-            AppColors.authSigninBtnGradient1,
-            AppColors.authSigninBtnGradient1,
-            AppColors.authSigninBtnGradient2,
-          ],
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-        ),
+        gradient:
+            onPressed != null
+                ? LinearGradient(
+                  colors: [
+                    AppColors.authSigninBtnGradient1,
+                    AppColors.authSigninBtnGradient1,
+                    AppColors.authSigninBtnGradient2,
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                )
+                : LinearGradient(
+                  colors: [
+                    AppColors.disabledButtonColor,
+                    AppColors.disabledButtonColor,
+                  ],
+                ),
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(

@@ -47,10 +47,8 @@ class Validator {
   }
 
   static bool isName(String name) {
-    // const String pattern = r'^[a-zA-Z]+$';
-    const String pattern = r"^[a-zA-Z]+(?:[\s.'-][a-zA-Z]+)*$";
-
-    final regExp = RegExp(pattern);
+    const String pattern = r"^[\p{L}]+(?:[\s.'-][\p{L}]+)*$";
+    final regExp = RegExp(pattern, unicode: true);
     return regExp.hasMatch(name.trim());
   }
 

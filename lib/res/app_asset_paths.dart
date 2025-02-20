@@ -7,4 +7,7 @@ abstract final class AppAssetPaths {
   /// phone registration
   static const phoneRegistrationBackground =
       "assets/images/phone_register_background.png";
+
+  /// user Info
+  static const alertStartImage = "assets/images/start_icon.png";
 }

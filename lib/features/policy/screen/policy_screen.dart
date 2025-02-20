@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:nasebak_app/_base/widgets/base_stateful_screen_widget.dart';
+import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/policy/bloc/policy_bloc.dart';
 import 'package:nasebak_app/features/policy/bloc/policy_repository.dart';
 import 'package:nasebak_app/features/policy/model/policy_ui_model.dart';
@@ -113,7 +115,7 @@ class _PolicyScreenWithBlocState extends BaseScreenState<PolicyScreenWithBloc> {
             padding: const EdgeInsets.symmetric(horizontal: 53),
             child: Center(
               child: AppElevatedButton(
-                onPressed: () {},
+                onPressed: _openUpdateUserInfoScreen,
                 label: Text(
                   context.translate(LocalizationKeys.iAgree),
                   style: context.headlineSmall?.copyWith(
@@ -177,5 +179,9 @@ class _PolicyScreenWithBlocState extends BaseScreenState<PolicyScreenWithBloc> {
 
   void _getAboutUsDataEvent() {
     currentBloc.add(GetPolicyDataEvent());
+  }
+
+  void _openUpdateUserInfoScreen() {
+    context.push(AppRouter.updateUserInfoScreen);
   }
 }

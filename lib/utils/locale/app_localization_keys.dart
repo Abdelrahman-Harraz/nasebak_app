@@ -300,4 +300,12 @@ class LocalizationKeys {
   static const welcomeInNasebak = 'welcome_in_nasebak';
   static const pleaseFollowTheRules = 'please_follow_rules';
   static const iAgree = 'i_agree';
+  static const whatsYourFirstName = 'whats_your_first_name';
+  static const enterYourFirstName = 'enter_your_first_name';
+  static const theNameWillAppearInYourProfile =
+      'the_name_will_appear_in_your_profile';
+  static const cantChangeInFuture = 'cant_change_in_future';
+  static const hi = 'hi';
+  static const letsContinueYourProfile = 'lets_continue_your_profile';
+  static const letsStart = 'lets_start';
 }

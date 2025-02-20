@@ -257,9 +257,16 @@
   "didnt_receive_otp" : "لم أستلم رمز ؟",
   "enter_otp": "Enter Otp",
   "otp_sent": "تم إرسال رسالة إلى هاتفك بها رمز OTP الخاص بك",
-   "resend_otp" : "أعد إرسال رمز  OTP",
-   "confirm_otp" : "Confirm OTP",
-   "welcome_in_nasebak": "Welcome in nasebak app",
-   "please_follow_rules" : "please follow this rules",
-   "i_agree" : "I Agree"
+  "resend_otp" : "أعد إرسال رمز  OTP",
+  "confirm_otp" : "Confirm OTP",
+  "welcome_in_nasebak": "Welcome in nasebak app",
+  "please_follow_rules" : "please follow this rules",
+  "i_agree" : "I Agree",
+  "whats_your_first_name" :"What's your first name?",
+  "enter_your_first_name" :"enter your first name",
+  "the_name_will_appear_in_your_profile" :"That name will appear in your profile",
+  "cant_change_in_future" :"Can't change your name in the future",
+  "hi" :"Hi",
+  "lets_continue_your_profile" : "There are many things to discover. But first, let's complete your profile",
+  "lets_start" : "Lets Start"
 }

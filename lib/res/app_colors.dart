@@ -168,6 +168,7 @@ abstract final class AppColors {
   static const authHintText = _scorpion;
   static const authSigninBtnGradient1 = _brickRed;
   static const authSigninBtnGradient2 = _outrageousOrange;
+  static const disabledButtonColor = _dustyGray;
 
   /// Filter
   static const selectedTabBackgroundColor = _sherpaBlue;
@@ -253,6 +254,13 @@ abstract final class AppColors {
   static const policyTxtBlackColor = _black;
   static const policyTxtWhiteColor = _white;
   static const policyDescriptionTxtColor = _blackWith67Opacity;
+
+  /// User Info
+  static const userInfoHintText = _blackWith67Opacity;
+  static const userInfoButtonText = _white;
+  static const userInfoEnabledText = _red;
+  static const userInfoDisenabledText = _black;
+  static const userInfoDialogBackground = _white;
 }
 
 ///

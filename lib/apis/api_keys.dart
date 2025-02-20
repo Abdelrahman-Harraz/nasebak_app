@@ -32,4 +32,8 @@ class ApiKeys {
 
   /// Policy
   static const policyUrl = "$apiKeyUrl/";
+
+  /// user Info
+  static const userInfoUrl = "$apiKeyUrl/";
+  static const updateUserInfoUrl = "$apiKeyUrl/";
 }
