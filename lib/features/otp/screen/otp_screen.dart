@@ -58,20 +58,7 @@ class _OtpScreenWithBlocState extends BaseScreenState<OtpScreenWithBloc>
   @override
   Widget baseScreenBuild(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        leading: GestureDetector(
-          onTap: _backClicked,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 26),
-            child: Icon(
-              Icons.arrow_back,
-              color: AppColors.otpBackIconColor,
-              size: 41,
-            ),
-          ),
-        ),
-      ),
+      appBar: _appBar(),
       body: BlocListener<OtpBloc, OtpState>(
         listener: (context, state) {
           if (state is OtpLoadingState) {
@@ -99,6 +86,20 @@ class _OtpScreenWithBlocState extends BaseScreenState<OtpScreenWithBloc>
         child: AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle.light,
           child: _buildOtpWidget(),
+        ),
+      ),
+    );
+  }
+
+  AppBar _appBar() {
+    return AppBar(
+      backgroundColor: Colors.transparent,
+      leading: InkWell(
+        onTap: _backClicked,
+        child: Icon(
+          Icons.arrow_back,
+          color: AppColors.otpBackIconColor,
+          size: 41,
         ),
       ),
     );
