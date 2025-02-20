@@ -3,10 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nasebak_app/_base/widgets/base_stateful_screen_widget.dart';
 import 'package:nasebak_app/apis/_base/dio_api_manager.dart';
 import 'package:nasebak_app/apis/managers/auth_api_manager.dart';
 import 'package:nasebak_app/apis/models/otp/successful_otp_response.dart';
+import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/otp/bloc/otp_bloc.dart';
 import 'package:nasebak_app/features/otp/bloc/otp_repository.dart';
 import 'package:nasebak_app/features/otp/widgets/otp_timer_widget.dart';
@@ -78,7 +80,7 @@ class _OtpScreenWithBlocState extends BaseScreenState<OtpScreenWithBloc>
           } else if (state is ValidateOTPApiSuccessfullyState) {
             _saveUserInfoDataEvent(state.response);
           } else if (state is SaveUserDataSuccessfullyState) {
-            _openUserDataScreen();
+            _openPolicyScreen();
           } else if (state is ResendOTPApiSuccessfullyState) {
             showFeedbackMessage(state.message);
           }
@@ -175,7 +177,7 @@ class _OtpScreenWithBlocState extends BaseScreenState<OtpScreenWithBloc>
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 53, vertical: 25),
       child: AppElevatedButton(
-        onPressed: _nextClicked,
+        onPressed: _openPolicyScreen,
 
         label: Text(
           context.translate(LocalizationKeys.confirmOtp),
@@ -216,7 +218,7 @@ class _OtpScreenWithBlocState extends BaseScreenState<OtpScreenWithBloc>
     Navigator.of(context).pop();
   }
 
-  void _openUserDataScreen() {
-    // UserDataScreen.open(context);
+  void _openPolicyScreen() {
+    context.push(AppRouter.policyScreen);
   }
 }

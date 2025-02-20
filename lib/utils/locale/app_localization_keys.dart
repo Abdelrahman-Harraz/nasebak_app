@@ -297,4 +297,7 @@ class LocalizationKeys {
   static const otpSent = 'otp_sent';
   static const resendOtp = 'resend_otp';
   static const confirmOtp = 'confirm_otp';
+  static const welcomeInNasebak = 'welcome_in_nasebak';
+  static const pleaseFollowTheRules = 'please_follow_rules';
+  static const iAgree = 'i_agree';
 }

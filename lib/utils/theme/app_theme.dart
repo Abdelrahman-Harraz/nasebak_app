@@ -63,40 +63,42 @@ class LightAppTheme implements BaseAppTheme {
       .textTheme
       .copyWith(
         // Sherpa Blue
-        headlineMedium: GoogleFonts.cairo().copyWith(
+        headlineMedium: GoogleFonts.tajawal().copyWith(
           color: AppColors.headlineMedium,
         ),
 
         // Silver
-        bodySmall: GoogleFonts.cairo().copyWith(color: AppColors.bodySmall),
+        bodySmall: GoogleFonts.tajawal().copyWith(color: AppColors.bodySmall),
 
         ///Gray
-        titleSmall: GoogleFonts.cairo().copyWith(color: AppColors.titleSmall),
+        titleSmall: GoogleFonts.tajawal().copyWith(color: AppColors.titleSmall),
 
         /// jaffa
-        bodyMedium: GoogleFonts.cairo().copyWith(color: AppColors.bodyMedium),
+        bodyMedium: GoogleFonts.tajawal().copyWith(color: AppColors.bodyMedium),
 
         /// white
-        bodyLarge: GoogleFonts.cairo().copyWith(color: AppColors.bodyLarge),
+        bodyLarge: GoogleFonts.tajawal().copyWith(color: AppColors.bodyLarge),
 
         /// black
-        titleMedium: GoogleFonts.cairo().copyWith(color: AppColors.titleMedium),
+        titleMedium: GoogleFonts.tajawal().copyWith(
+          color: AppColors.titleMedium,
+        ),
 
         /// dusty gray
-        headlineSmall: GoogleFonts.cairo().copyWith(
+        headlineSmall: GoogleFonts.tajawal().copyWith(
           color: AppColors.headlineSmall,
         ),
 
         /// mine shaft
-        headlineLarge: GoogleFonts.cairo().copyWith(
+        headlineLarge: GoogleFonts.tajawal().copyWith(
           color: AppColors.headlineLarge,
         ),
 
         // alto2
-        labelSmall: GoogleFonts.cairo().copyWith(color: AppColors.labelSmall),
+        labelSmall: GoogleFonts.tajawal().copyWith(color: AppColors.labelSmall),
 
         // amaranth
-        displaySmall: GoogleFonts.cairo().copyWith(
+        displaySmall: GoogleFonts.tajawal().copyWith(
           color: AppColors.displaySmall,
         ),
       );
@@ -107,5 +109,5 @@ class LightAppTheme implements BaseAppTheme {
   @override
   TextTheme get txtThemeDark => txtThemeLight;
 
-  String get fontFamily => "Cairo";
+  String get fontFamily => "Tajawal";
 }

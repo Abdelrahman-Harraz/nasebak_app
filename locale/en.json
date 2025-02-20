@@ -258,5 +258,8 @@
   "enter_otp": "Enter Otp",
   "otp_sent": "تم إرسال رسالة إلى هاتفك بها رمز OTP الخاص بك",
    "resend_otp" : "أعد إرسال رمز  OTP",
-   "confirm_otp" : "Confirm OTP"
+   "confirm_otp" : "Confirm OTP",
+   "welcome_in_nasebak": "Welcome in nasebak app",
+   "please_follow_rules" : "please follow this rules",
+   "i_agree" : "I Agree"
 }

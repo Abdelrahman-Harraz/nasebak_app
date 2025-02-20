@@ -259,5 +259,8 @@
   "enter_otp": "إدخال رمز OTP",
   "otp_sent": "تم إرسال رسالة إلى هاتفك بها رمز OTP الخاص بك",
   "resend_otp" : "أعد إرسال رمز  OTP",
-  "confirm_otp" : "تأكيد الرمز"
+  "confirm_otp" : "تأكيد الرمز",
+  "welcome_in_nasebak": "مرحبا بك في نصيبك",
+  "please_follow_rules" : "الرجاء اتباع القواعد التالية",
+  "i_agree" : "انا موافق"
 }

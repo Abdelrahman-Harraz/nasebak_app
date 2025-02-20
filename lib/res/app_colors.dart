@@ -248,6 +248,11 @@ abstract final class AppColors {
   static const dontReceiveOtpTxtColor = _scorpion;
   static const resendOtpTxtColor = _mineralGreen;
   static const otpBackIconColor = _doveGray;
+
+  /// Policy
+  static const policyTxtBlackColor = _black;
+  static const policyTxtWhiteColor = _white;
+  static const policyDescriptionTxtColor = _blackWith67Opacity;
 }
 
 ///

@@ -29,4 +29,7 @@ class ApiKeys {
   static const registerWithPhoneUrl = '$apiKeyUrl/';
   static const signUpUrl = '$apiKeyUrl/';
   static const registerWithOtpUrl = "$apiKeyUrl/";
+
+  /// Policy
+  static const policyUrl = "$apiKeyUrl/";
 }
