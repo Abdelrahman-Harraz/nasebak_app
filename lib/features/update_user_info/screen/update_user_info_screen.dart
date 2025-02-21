@@ -79,6 +79,10 @@ class _UpdateUserInfoScreenWithBlocState
       setState(() {
         _currentPage = _pageController.page?.round() ?? 0;
       });
+      FocusScope.of(context).unfocus();
+    });
+    Future.delayed(Duration(milliseconds: 100), () {
+      FocusScope.of(context).unfocus();
     });
     Future.microtask(() => _getProfileDataEvent());
     setStatusBarColor(color: AppColors.transparentColor);
@@ -252,6 +256,7 @@ class _UpdateUserInfoScreenWithBlocState
       },
       selectedGenderId: selectedGenderId,
       onNextPressed: () {
+        FocusScope.of(context).unfocus();
         _pageController.nextPage(
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,

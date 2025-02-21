@@ -31,8 +31,8 @@ class UpdateUserInfoRepository implements BaseUpdateUserInfoRepository {
         id: 1,
         gender: "",
         marriageType: "",
-        userDescription: "",
-        userNotes: "",
+        description: "",
+        conditions: "",
       ),
     );
   }

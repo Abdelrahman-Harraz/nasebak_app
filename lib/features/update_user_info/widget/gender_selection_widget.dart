@@ -75,7 +75,7 @@ class GenderSelectionWidget extends StatelessWidget {
           ),
           const Spacer(),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 53, horizontal: 7),
+            padding: const EdgeInsets.symmetric(vertical: 53),
             child: AppElevatedButton(
               onPressed: selectedGenderId != null ? onNextPressed : null,
               label: Text(context.translate(LocalizationKeys.next)),
