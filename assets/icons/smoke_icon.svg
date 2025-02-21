@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21.809" height="14.817" viewBox="0 0 21.809 14.817">
+  <g id="smoke" transform="translate(-6.08 -18.24)" opacity="0.47">
+    <path id="Path_363" data-name="Path 363" d="M6.08,91.2v5.7H22.417V91.2ZM20.9,95.379H7.6V92.72H20.9Z" transform="translate(0 -63.842)"/>
+    <path id="Path_364" data-name="Path 364" d="M145.92,91.2h1.52v5.7h-1.52Z" transform="translate(-122.363 -63.842)"/>
+    <path id="Path_365" data-name="Path 365" d="M167.2,91.2h1.52v5.7H167.2Z" transform="translate(-140.984 -63.842)"/>
+    <path id="Path_366" data-name="Path 366" d="M133.678,24.191a1.519,1.519,0,0,1,.11-1.824,3.027,3.027,0,0,0,.165-3.737l-.278-.389h-1.737l-.086.062.865,1.211a1.511,1.511,0,0,1-.082,1.865,3.044,3.044,0,0,0-.221,3.656l.283.425h1.826Z" transform="translate(-110.054)"/>
+    <path id="Path_367" data-name="Path 367" d="M161.038,24.191a1.519,1.519,0,0,1,.11-1.824,3.027,3.027,0,0,0,.165-3.737l-.278-.389H159.3l-.086.062.865,1.211a1.511,1.511,0,0,1-.082,1.865,3.044,3.044,0,0,0-.221,3.656l.283.425h1.826Z" transform="translate(-133.995)"/>
+  </g>
+</svg>

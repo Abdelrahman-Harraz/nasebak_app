@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
+  <g id="Layer_2" data-name="Layer 2" transform="translate(0 0.495)" opacity="0.25">
+    <g id="invisible_box" data-name="invisible box">
+      <rect id="Rectangle_1744" data-name="Rectangle 1744" width="21" height="21" transform="translate(0 -0.495)" fill="none"/>
+    </g>
+    <g id="icons_Q2" data-name="icons Q2" transform="translate(0.854 1.709)">
+      <g id="Group_740" data-name="Group 740">
+        <ellipse id="Ellipse_240" data-name="Ellipse 240" cx="0.5" cy="1" rx="0.5" ry="1" transform="translate(15.146 12.796)"/>
+        <ellipse id="Ellipse_241" data-name="Ellipse 241" cx="0.5" cy="1" rx="0.5" ry="1" transform="translate(12.146 12.796)"/>
+        <ellipse id="Ellipse_242" data-name="Ellipse 242" cx="0.5" cy="1" rx="0.5" ry="1" transform="translate(15.146 7.796)"/>
+        <ellipse id="Ellipse_243" data-name="Ellipse 243" cx="0.5" cy="1" rx="0.5" ry="1" transform="translate(12.146 7.796)"/>
+        <path id="Path_378" data-name="Path 378" d="M19.942,4H2.854A.854.854,0,0,0,2,4.854V9.981a.854.854,0,0,0,.854.854H19.087v3.417H13.107a.854.854,0,0,0,0,1.709h5.981v3.417H13.107a.854.854,0,0,0,0,1.709h6.835a.854.854,0,0,0,.854-.854V4.854A.854.854,0,0,0,19.942,4ZM3.709,9.126V5.709H19.087V9.126Z" transform="translate(-2 -4)"/>
+        <ellipse id="Ellipse_244" data-name="Ellipse 244" cx="0.5" cy="1.5" rx="0.5" ry="1.5" transform="translate(15.146 1.796)"/>
+        <ellipse id="Ellipse_245" data-name="Ellipse 245" cx="0.5" cy="1.5" rx="0.5" ry="1.5" transform="translate(12.146 1.796)"/>
+        <path id="Path_379" data-name="Path 379" d="M10.092,26.371,5.564,30.9,4.453,29.788a.812.812,0,0,0-1.282.085.9.9,0,0,0,.085,1.153l1.709,1.666a.812.812,0,0,0,1.2,0l5.126-5.126a.854.854,0,0,0-1.2-1.2Z" transform="translate(-2.573 -16.716)"/>
+      </g>
+    </g>
+  </g>
+</svg>

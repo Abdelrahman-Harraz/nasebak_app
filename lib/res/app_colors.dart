@@ -49,6 +49,7 @@ abstract final class AppColors {
   static const Color _outrageousOrange = Color(0xFFFF5C3D);
   static const Color _blackWith67Opacity = Color(0xAB000000);
   static const Color _concrete = Color(0xFFF2F2F2);
+  static const Color _thunderbird = Color(0xFFD5381B);
 
   /// app main theme ...
   static const colorSchemeSeed = _sherpaBlue;
@@ -261,6 +262,17 @@ abstract final class AppColors {
   static const userInfoEnabledText = _red;
   static const userInfoDisenabledText = _black;
   static const userInfoDialogBackground = _white;
+  static const genderSelectedBorder = _outrageousOrange;
+  static const genderUnSelectedBorder = _black;
+  static const marriageTypeSelectedBackground = _concrete;
+  static const marriageSelectedBorder = _outrageousOrange;
+  static const marriageUnSelectedBorder = _black;
+  static const skipBackgroundColor = _wildSand;
+  static const talkAboutText = _blackWith67Opacity;
+  static const talkAboutBtnText = _white;
+  static const stepFourTitle = _black;
+  static const sliderColor = _outrageousOrange;
+  static const sliderThumbColor = _thunderbird;
 }
 
 ///

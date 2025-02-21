@@ -26,7 +26,14 @@ class UpdateUserInfoRepository implements BaseUpdateUserInfoRepository {
   Future<UpdateUserInfoState> getUpdateUserInfo() async {
     await Future.delayed(Duration(seconds: 1));
     return EditUserInfoLoadedState(
-      userInfoUiModel: UserInfoUiModel(firstName: "", id: 1),
+      userInfoUiModel: UserInfoUiModel(
+        firstName: "",
+        id: 1,
+        gender: "",
+        marriageType: "",
+        userDescription: "",
+        userNotes: "",
+      ),
     );
   }
 }

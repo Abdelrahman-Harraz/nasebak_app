@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nasebak_app/_base/widgets/base_stateful_screen_widget.dart';
 import 'package:nasebak_app/features/update_user_info/bloc/update_user_info_bloc.dart';
 import 'package:nasebak_app/features/update_user_info/bloc/update_user_info_repository.dart';
+import 'package:nasebak_app/features/update_user_info/widget/about_your_self_widget.dart';
+import 'package:nasebak_app/features/update_user_info/widget/gender_selection_widget.dart';
+import 'package:nasebak_app/features/update_user_info/widget/marriage_selection_widget.dart';
+import 'package:nasebak_app/features/update_user_info/widget/user_info_step_five_widget.dart';
+import 'package:nasebak_app/features/update_user_info/widget/user_info_step_four_widget.dart';
+import 'package:nasebak_app/features/update_user_info/widget/user_info_step_seven_widget.dart';
+import 'package:nasebak_app/features/update_user_info/widget/user_info_step_six_widget.dart';
+import 'package:nasebak_app/features/update_user_info/widget/user_info_step_three_widget.dart';
 import 'package:nasebak_app/features/user_info/model/user_info_ui_model.dart';
 import 'package:nasebak_app/features/widgets/app_buttons/app_elevated_button.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
@@ -52,12 +61,23 @@ class _UpdateUserInfoScreenWithBlocState
 
   bool isButtonEnabled = false;
 
+  final PageController _pageController = PageController(initialPage: 0);
+  int? selectedGenderId;
+  int? selectedMarriageId;
+
+  int _currentPage = 0;
+
   @override
   void initState() {
     super.initState();
     firstNameTextEditingController.addListener(() {
       setState(() {
         isButtonEnabled = firstNameTextEditingController.text.trim().isNotEmpty;
+      });
+    });
+    _pageController.addListener(() {
+      setState(() {
+        _currentPage = _pageController.page?.round() ?? 0;
       });
     });
     Future.microtask(() => _getProfileDataEvent());
@@ -103,7 +123,21 @@ class _UpdateUserInfoScreenWithBlocState
         child: BlocBuilder<UpdateUserInfoBloc, UpdateUserInfoState>(
           builder: (context, state) {
             if (userInfoUiModel != null) {
-              return _buildEditProfileForm(userInfoUiModel!);
+              return PageView(
+                controller: _pageController,
+                physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  _buildEditProfileForm(userInfoUiModel!),
+                  _buildGenderSelectionPage(),
+                  _marriageTypeSelectionPage(),
+                  _aboutYourSelfWidget(),
+                  _userInfoStepThreeWidget(),
+                  _userInfoStepFourWidget(),
+                  _userInfoStepFiveWidget(),
+                  _userInfoStepSixWidget(),
+                  _userInfoStepSevenWidget(),
+                ],
+              );
             } else {
               return const Center(child: CircularProgressIndicator());
             }
@@ -121,13 +155,45 @@ class _UpdateUserInfoScreenWithBlocState
     return AppBar(
       backgroundColor: Colors.transparent,
       leading: InkWell(
-        onTap: _backClicked,
+        onTap: () {
+          if (_currentPage > 0) {
+            _pageController.previousPage(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+            );
+          } else {
+            _backClicked();
+          }
+        },
         child: Icon(
           Icons.arrow_back,
           color: AppColors.otpBackIconColor,
           size: 41,
         ),
       ),
+
+      actions:
+          _currentPage >= 3
+              ? [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30),
+                  child: InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: 99,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        color: AppColors.skipBackgroundColor,
+                        borderRadius: BorderRadius.circular(13),
+                      ),
+                      child: Center(
+                        child: Text(context.translate(LocalizationKeys.skip)),
+                      ),
+                    ),
+                  ),
+                ),
+              ]
+              : null,
     );
   }
 
@@ -174,6 +240,107 @@ class _UpdateUserInfoScreenWithBlocState
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildGenderSelectionPage() {
+    return GenderSelectionWidget(
+      onGenderSelected: (int? id) {
+        setState(() {
+          selectedGenderId = id;
+        });
+      },
+      selectedGenderId: selectedGenderId,
+      onNextPressed: () {
+        _pageController.nextPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      },
+    );
+  }
+
+  Widget _marriageTypeSelectionPage() {
+    return MarriageSelectionWidget(
+      selectedMarriageId: selectedMarriageId,
+      onMarriageSelected: (int? id) {
+        setState(() {
+          selectedMarriageId = id;
+        });
+      },
+      onNextPressed: () {
+        _pageController.nextPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      },
+    );
+  }
+
+  Widget _aboutYourSelfWidget() {
+    return AboutYourSelfWidget(
+      onNextPressed: () {
+        _pageController.nextPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      },
+    );
+  }
+
+  Widget _userInfoStepThreeWidget() {
+    return UserInfoStepThreeWidget(
+      onNextPressed: () {
+        _pageController.nextPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      },
+    );
+  }
+
+  Widget _userInfoStepFourWidget() {
+    return UserInfoStepFourWidget(
+      userName:
+          ("${firstNameTextEditingController.text}, ${context.translate(LocalizationKeys.letsTalkAboutLife)}"),
+      onNextPressed: () {
+        _pageController.nextPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      },
+    );
+  }
+
+  Widget _userInfoStepFiveWidget() {
+    return UserInfoStepFiveWidget(
+      userName:
+          ("${firstNameTextEditingController.text}, ${context.translate(LocalizationKeys.truthContinue)}"),
+      onNextPressed: () {
+        _pageController.nextPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      },
+    );
+  }
+
+  Widget _userInfoStepSixWidget() {
+    return UserInfoStepSixWidget(
+      onNextPressed: () {
+        _pageController.nextPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      },
+    );
+  }
+
+  Widget _userInfoStepSevenWidget() {
+    return UserInfoStepSevenWidget(
+      onNextPressed: () {
+        _showNextDialog();
+      },
     );
   }
 
@@ -287,6 +454,8 @@ class _UpdateUserInfoScreenWithBlocState
     oldUserInfoUiModel = UserInfoUiModel(
       id: userInfoUiModel.id,
       firstName: userInfoUiModel.firstName,
+      gender: userInfoUiModel.gender,
+      marriageType: userInfoUiModel.marriageType,
     );
   }
 
@@ -328,8 +497,66 @@ class _UpdateUserInfoScreenWithBlocState
                   width: 194,
                   onPressed: () {
                     Navigator.pop(context);
+                    _pageController.nextPage(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
                   },
                   label: Text(context.translate(LocalizationKeys.letsStart)),
+                ),
+              ),
+            ],
+          ),
+    );
+  }
+
+  void _showNextDialog() {
+    showDialog(
+      context: context,
+      builder:
+          (context) => AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+            backgroundColor: AppColors.userInfoDialogBackground,
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SvgPicture.asset(AppAssetPaths.rocketIcon),
+                SizedBox(height: 7),
+                Center(
+                  child: Text(
+                    "${context.translate(LocalizationKeys.congratulations)}, ${firstNameTextEditingController.text}",
+                    style: context.titleMedium!.copyWith(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+
+                Text(
+                  context.translate(LocalizationKeys.youCompleteYourProfile),
+                  style: context.titleMedium!.copyWith(fontSize: 14),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+            actions: [
+              Center(
+                child: AppElevatedButton(
+                  width: 194,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  label: Text(
+                    context.translate(LocalizationKeys.letsStart),
+                    style: context.titleMedium!.copyWith(
+                      fontSize: 23,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
             ],
