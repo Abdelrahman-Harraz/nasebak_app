@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:lottie/lottie.dart';
 import 'package:nasebak_app/_base/widgets/base_stateful_screen_widget.dart';
+import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/update_user_info/bloc/update_user_info_bloc.dart';
 import 'package:nasebak_app/features/update_user_info/bloc/update_user_info_repository.dart';
 import 'package:nasebak_app/features/update_user_info/widget/about_your_self_widget.dart';
@@ -49,7 +52,7 @@ class UpdateUserInfoScreenWithBloc extends BaseStatefulScreenWidget {
 
 class _UpdateUserInfoScreenWithBlocState
     extends BaseScreenState<UpdateUserInfoScreenWithBloc>
-    with AppValidate {
+    with AppValidate, SingleTickerProviderStateMixin {
   UserInfoUiModel? userInfoUiModel;
   late UserInfoUiModel oldUserInfoUiModel;
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
@@ -66,6 +69,10 @@ class _UpdateUserInfoScreenWithBlocState
   int? selectedMarriageId;
 
   int _currentPage = 0;
+
+  late AnimationController _animationController;
+  OverlayEntry? _overlayEntry;
+  bool _isAnimating = false;
 
   @override
   void initState() {
@@ -84,8 +91,21 @@ class _UpdateUserInfoScreenWithBlocState
     Future.delayed(Duration(milliseconds: 100), () {
       FocusScope.of(context).unfocus();
     });
+    _animationController = AnimationController(vsync: this);
     Future.microtask(() => _getProfileDataEvent());
     setStatusBarColor(color: AppColors.transparentColor);
+  }
+
+  @override
+  void dispose() {
+    _cleanupAnimation();
+    super.dispose();
+  }
+
+  @override
+  void deactivate() {
+    _cleanupAnimation();
+    super.deactivate();
   }
 
   @override
@@ -553,6 +573,7 @@ class _UpdateUserInfoScreenWithBlocState
                   width: 194,
                   onPressed: () {
                     Navigator.pop(context);
+                    _showAnimationAndNavigate();
                   },
                   label: Text(
                     context.translate(LocalizationKeys.letsStart),
@@ -567,5 +588,41 @@ class _UpdateUserInfoScreenWithBlocState
             ],
           ),
     );
+  }
+
+  void _showAnimationAndNavigate() {
+    if (_isAnimating) return; // Prevent multiple animations
+    _isAnimating = true;
+
+    _overlayEntry = OverlayEntry(
+      builder:
+          (context) => Material(
+            color: Colors.transparent,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Lottie.asset(
+                AppAssetPaths.rocketAnimation,
+                controller: _animationController,
+                onLoaded: (composition) {
+                  _animationController
+                    ..duration = composition.duration
+                    ..forward().whenComplete(() {
+                      _cleanupAnimation();
+                      context.push(AppRouter.appNavigationScreen);
+                    });
+                },
+              ),
+            ),
+          ),
+    );
+
+    Overlay.of(context).insert(_overlayEntry!);
+  }
+
+  void _cleanupAnimation() {
+    _overlayEntry?.remove();
+    _overlayEntry = null;
+    _isAnimating = false;
+    _animationController.reset();
   }
 }
