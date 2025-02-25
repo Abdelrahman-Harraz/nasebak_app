@@ -12,7 +12,6 @@
   "user_logged_out": "تم تسجيل الخروج للمستخدم",
   "home": "الرئيسية",
   "report": "التقارير",
-  "settings": "اعدادات",
   "logout": "تسجيل الخروج",
   "show_menu": "اظهار القائمة",
   "notifications": "الاشعارات",
@@ -95,7 +94,6 @@
   "other_reports": "تقارير أخرى",
   "more": "المزيد",
   "hicking_trips": "رحلات المشي",
-  "membership": "العضوية",
   "media_center": "المركز الاعلامي",
   "contact_us": "تواصل معنا",
   "join_the_association_membership": "انضم لعضويةالجمعية",
@@ -316,5 +314,8 @@
   "hair" : "الشعر",
   "health" : "الحالة الصحية",
   "congratulations" : "تهانينا",
-  "you_complete_your_profile" : "انتهينا من اكمال ملفك الشخصي"
+  "you_complete_your_profile" : "انتهينا من اكمال ملفك الشخصي",
+  "chat" : "الدردشة",
+  "membership": "الاشتراك",
+  "settings": "الاعدادات"
 }

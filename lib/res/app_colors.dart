@@ -179,9 +179,9 @@ abstract final class AppColors {
   static const unSelectedFilterBorder = _aquaHaze;
 
   /// app navigation
-  static const appNavigationSelectedIcon = _sherpaBlue;
-  static const appNavigationUnSelectedIcon = _alto2;
+  static const appNavigationIconColor = _white;
   static const bottomNavBarShadow = _black;
+  static const bottomNavBarBackground = _black;
 
   /// more
   static const moreExpansionborder = _cararra;

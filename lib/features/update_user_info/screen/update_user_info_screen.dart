@@ -99,12 +99,15 @@ class _UpdateUserInfoScreenWithBlocState
   @override
   void dispose() {
     _cleanupAnimation();
+    _pageController.dispose();
+    _animationController.dispose();
     super.dispose();
   }
 
   @override
   void deactivate() {
     _cleanupAnimation();
+
     super.deactivate();
   }
 

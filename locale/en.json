@@ -11,7 +11,6 @@
   "user_logged_out": "User logged out",
   "home": "Home",
   "report": "Report",
-  "settings": "Settings",
   "logout": "Logout",
   "show_menu": "Show Menu",
   "notifications": "Notifications",
@@ -94,7 +93,6 @@
   "other_reports": "Other Reports",
   "more": "More",
   "hicking_trips": "Hicking trips",
-  "membership": "Membership",
   "media_center": "Media center",
   "contact_us": "Contact us",
   "join_the_association_membership": "Join the association membership",
@@ -314,6 +312,8 @@
   "hair" : "الشعر",
   "health" : "الحالة الصحية",
   "congratulations" : "تهانينا",
-  "you_complete_your_profile" : "انتهينا من اكمال ملفك الشخصي"
-
+  "you_complete_your_profile" : "انتهينا من اكمال ملفك الشخصي",
+  "chat" : "الدردشة",
+  "membership": "Membership",
+  "settings": "Settings"
 }

@@ -17,7 +17,8 @@ class AppRouter {
 
   static GoRouter router = GoRouter(
     debugLogDiagnostics: true,
-    initialLocation: initialRoute,
+    //!Change later
+    initialLocation: appNavigationScreen,
     routes: <RouteBase>[
       GoRoute(
         path: appNavigationScreen,

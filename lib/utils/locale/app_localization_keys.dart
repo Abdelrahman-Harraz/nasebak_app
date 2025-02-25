@@ -12,7 +12,6 @@ class LocalizationKeys {
   static const userLoggedOut = 'user_logged_out';
   static const home = 'home';
   static const report = 'report';
-  static const settings = 'settings';
   static const logout = 'logout';
   static const showMenu = 'show_menu';
   static const notifications = 'notifications';
@@ -106,7 +105,6 @@ class LocalizationKeys {
   static const otherReports = "other_reports";
   static const more = "more";
   static const hikingTrips = "hicking_trips";
-  static const membership = "membership";
   static const mediaCenter = "media_center";
   static const contactUs = "contact_us";
   static const joinTheAssociationMembership = "join_the_association_membership";
@@ -355,4 +353,7 @@ class LocalizationKeys {
   static const health = 'health';
   static const congratulations = 'congratulations';
   static const youCompleteYourProfile = 'you_complete_your_profile';
+  static const chat = 'chat';
+  static const membership = "membership";
+  static const settings = 'settings';
 }

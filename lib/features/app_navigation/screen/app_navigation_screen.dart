@@ -2,6 +2,7 @@ import 'package:nasebak_app/_base/widgets/base_stateful_screen_widget.dart';
 import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/app_navigation/bloc/app_navigation_bloc.dart';
 import 'package:nasebak_app/features/app_navigation/widgets/app_nav_item_widget.dart';
+import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:nasebak_app/res/app_colors.dart';
 import 'package:nasebak_app/utils/extensions/extension_localization.dart';
 import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
@@ -83,44 +84,36 @@ class _AppNavigationScreenWithBlocState
   Widget _buildBottomNavigationBarWidget() {
     return BlocBuilder<AppNavigationBloc, AppNavigationState>(
       builder: (context, state) {
-        return ClipRRect(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(10.r)),
-          child: Container(
-            decoration: const BoxDecoration(
-              boxShadow: <BoxShadow>[
-                BoxShadow(color: AppColors.bottomNavBarShadow, blurRadius: 15),
-              ],
-            ),
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 9),
+          child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(28.r)),
             child: BottomNavigationBar(
               items: [
                 _createBottomNavigationItem(
-                  icon: "AppAssetPaths.homeAppNavIcon",
+                  icon: AppAssetPaths.homeNavIcon,
                   label: LocalizationKeys.home,
                   isSelected: _selectedBottomNavigationIndex == 0,
                 ),
                 _createBottomNavigationItem(
-                  icon: "AppAssetPaths.associationAppNavIcon,",
-                  label: LocalizationKeys.association,
+                  icon: AppAssetPaths.chatNavIcon,
+                  label: LocalizationKeys.chat,
                   isSelected: _selectedBottomNavigationIndex == 1,
                 ),
                 _createBottomNavigationItem(
-                  icon: "AppAssetPaths.tracksAppNavIcon",
-                  label: LocalizationKeys.tracks,
+                  icon: AppAssetPaths.membershipNavIcon,
+                  label: LocalizationKeys.membership,
                   isSelected: _selectedBottomNavigationIndex == 2,
                 ),
                 _createBottomNavigationItem(
-                  icon: "AppAssetPaths.trackRecordingAppNavIcon",
-                  label: LocalizationKeys.trackRecording,
+                  icon: AppAssetPaths.settingNavIcon,
+                  label: LocalizationKeys.settings,
                   isSelected: _selectedBottomNavigationIndex == 3,
-                ),
-                _createBottomNavigationItem(
-                  icon: "AppAssetPaths.moreAppNavIcon",
-                  label: LocalizationKeys.more,
-                  isSelected: _selectedBottomNavigationIndex == 4,
                 ),
               ],
               currentIndex: _selectedBottomNavigationIndex,
-              type: BottomNavigationBarType.fixed,
+              type: BottomNavigationBarType.shifting,
+
               onTap: _selectBottomNavigationItemEvent,
               selectedLabelStyle: textTheme.headlineMedium!.copyWith(
                 fontSize: 0,
@@ -148,6 +141,8 @@ class _AppNavigationScreenWithBlocState
         icon: icon,
         label: context.translate(label),
       ),
+      backgroundColor: AppColors.bottomNavBarBackground,
+
       label: '',
     );
   }

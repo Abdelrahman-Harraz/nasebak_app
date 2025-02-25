@@ -43,4 +43,10 @@ abstract final class AppAssetPaths {
 
   /// Lottie
   static const rocketAnimation = "assets/lottie/rocket.json";
+
+  /// Bottom nav
+  static const homeNavIcon = "assets/icons/home_icon.svg";
+  static const chatNavIcon = "assets/icons/chat_icon.svg";
+  static const membershipNavIcon = "assets/icons/membership_icon.svg";
+  static const settingNavIcon = "assets/icons/setting_icon.svg";
 }
