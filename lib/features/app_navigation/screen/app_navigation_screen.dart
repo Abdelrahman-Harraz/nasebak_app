@@ -2,6 +2,7 @@ import 'package:nasebak_app/_base/widgets/base_stateful_screen_widget.dart';
 import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/app_navigation/bloc/app_navigation_bloc.dart';
 import 'package:nasebak_app/features/app_navigation/widgets/app_nav_item_widget.dart';
+import 'package:nasebak_app/features/home/screen/home_screen.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:nasebak_app/res/app_colors.dart';
 import 'package:nasebak_app/utils/extensions/extension_localization.dart';
@@ -48,7 +49,7 @@ class _AppNavigationScreenWithBlocState
   late int _selectedBottomNavigationIndex;
 
   final List<Widget> _appNavChildren = [
-    const _AppNavTempBodyWidget(screenName: "Track Recording"),
+    const HomeScreen(),
     const _AppNavTempBodyWidget(screenName: "Track Recording"),
     const _AppNavTempBodyWidget(screenName: "Track Recording"),
     const _AppNavTempBodyWidget(screenName: "Track Recording"),
@@ -73,7 +74,15 @@ class _AppNavigationScreenWithBlocState
           return _appNavChildren[_selectedBottomNavigationIndex];
         },
       ),
-      bottomNavigationBar: _buildBottomNavigationBarWidget(),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(AppAssetPaths.homeBackground),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: _buildBottomNavigationBarWidget(),
+      ),
     );
   }
 

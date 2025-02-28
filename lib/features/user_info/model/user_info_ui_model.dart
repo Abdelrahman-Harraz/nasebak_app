@@ -3,6 +3,7 @@ import 'package:nasebak_app/apis/models/user_info/get_user_info/get_user_info_ap
 
 class UserInfoUiModel {
   final int id;
+  String? userImage;
   String? firstName;
   final String gender;
   final String marriageType;
@@ -20,7 +21,7 @@ class UserInfoUiModel {
   final String? education;
   final String? islam;
   final String? perspective;
-  final double? age;
+  final int? age;
   final double? weight;
   final double? height;
   final String? skinColor;
@@ -31,6 +32,10 @@ class UserInfoUiModel {
   final String? look;
   final String? hair;
   final String? health;
+  final bool? verified;
+  final int? diamondCount;
+  final bool? online;
+  final int? messageCount;
 
   UserInfoUiModel({
     required this.gender,
@@ -62,6 +67,11 @@ class UserInfoUiModel {
     this.look,
     this.hair,
     this.health,
+    this.userImage,
+    this.verified,
+    this.diamondCount,
+    this.online,
+    this.messageCount,
   });
 
   factory UserInfoUiModel.fromApi(GetUserInfoApiModel e) {
@@ -90,6 +100,11 @@ class UserInfoUiModel {
       skinColor: e.skinColor,
       tribe: e.tribe,
       acceptNationality: e.acceptNationality,
+      userImage: e.userImage,
+      verified: e.verified,
+      diamondCount: e.diamondCount,
+      online: e.online,
+      messageCount: e.messageCount,
     );
   }
 }

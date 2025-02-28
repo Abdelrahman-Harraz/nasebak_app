@@ -10,6 +10,8 @@ abstract final class AppColors {
   static const Color _white = Colors.white;
   static const Color _transparent = Colors.transparent;
   static const Color _red = Colors.red;
+  static const Color _green = Colors.lightGreenAccent;
+  static const Color _grey = Colors.grey;
   static const Color _jaffa = Color(0xFFF47B3D);
   static const Color _sherpaBlue = Color(0xFF004053);
   static const Color _alto = Color(0xffD9D9D9);
@@ -50,6 +52,12 @@ abstract final class AppColors {
   static const Color _blackWith67Opacity = Color(0xAB000000);
   static const Color _concrete = Color(0xFFF2F2F2);
   static const Color _thunderbird = Color(0xFFD5381B);
+  static const Color _castro = Color(0xFF4E001C);
+  static const Color _coffeeBean = Color(0xFF1E0B11);
+  static const Color _coffeeBean2 = Color(0xFF1F0B11);
+  static const Color _radicalRed = Color(0xFFFD2B74);
+  static const Color _flamingo = Color(0xFFF25031);
+  static const Color _mePink = Color(0xFFFE79A7);
 
   /// app main theme ...
   static const colorSchemeSeed = _sherpaBlue;
@@ -273,6 +281,19 @@ abstract final class AppColors {
   static const stepFourTitle = _black;
   static const sliderColor = _outrageousOrange;
   static const sliderThumbColor = _thunderbird;
+
+  /// Home
+  static const homeBackgroundGradient1 = _outrageousOrange;
+  static const homeBackgroundGradient2 = _coffeeBean2;
+  static const homeBackgroundGradient3 = _coffeeBean;
+  static const homeBackgroundGradient4 = _castro;
+  static const homePersonalInfoCardGradient1 = _black;
+  static const homePersonalInfoCardGradient2 = _radicalRed;
+  static const homePersonalInfoCardGradient3 = _flamingo;
+  static const userInfoCardBorder = _outrageousOrange;
+  static const diamondCountColor = _mePink;
+  static const onlineColor = _green;
+  static const offlineColor = _grey;
 }
 
 ///

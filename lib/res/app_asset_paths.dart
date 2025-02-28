@@ -49,4 +49,20 @@ abstract final class AppAssetPaths {
   static const chatNavIcon = "assets/icons/chat_icon.svg";
   static const membershipNavIcon = "assets/icons/membership_icon.svg";
   static const settingNavIcon = "assets/icons/setting_icon.svg";
+
+  /// Home
+  static const homeBackground = "assets/images/scaffold_background.png";
+  static const heartIcon = "assets/icons/heart_icon.svg";
+  static const notificationsIcon = "assets/icons/notification_icon.svg";
+  static const personalInfoBackground =
+      "assets/images/personal_info_card_background.png";
+  static const personalInfoDummyProfileImage =
+      "assets/images/dummy_profile_image.png";
+  static const maleIcon = "assets/icons/male_icon.svg";
+  static const femaleIcon = "assets/icons/women_icon.svg";
+  static const searchIcon = "assets/icons/search_icon.svg";
+  static const verifiedIcon = "assets/icons/verified_icon.svg";
+  static const diamondIcon = "assets/icons/diamond_icon.png";
+  static const chattingIcon = "assets/icons/chatting_icon.svg";
+  static const eyeIcon = "assets/icons/eye_icon.svg";
 }

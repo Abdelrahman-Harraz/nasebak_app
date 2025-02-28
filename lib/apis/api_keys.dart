@@ -36,4 +36,7 @@ class ApiKeys {
   /// user Info
   static const userInfoUrl = "$apiKeyUrl/";
   static const updateUserInfoUrl = "$apiKeyUrl/";
+
+  /// Home
+  static const homeUrl = "$apiKeyUrl/";
 }

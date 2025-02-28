@@ -325,7 +325,7 @@ class LocalizationKeys {
   static const exerciseCount = 'exercise_count';
   static const havePets = 'have_pets';
   static const truthContinue = 'truth_continue';
-  static const position = 'position';
+  static const positionStatus = 'position_status';
   static const income = 'income';
   static const education = 'education';
   static const consistency = 'consistency';
@@ -356,4 +356,10 @@ class LocalizationKeys {
   static const chat = 'chat';
   static const membership = "membership";
   static const settings = 'settings';
+  static const undefined = 'undefined';
+  static const status = 'status';
+  static const position = 'position';
+  static const online = 'online';
+  static const offline = 'offline';
+  static const ageYear = 'age_year';
 }

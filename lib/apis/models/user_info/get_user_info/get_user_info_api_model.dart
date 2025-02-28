@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class GetUserInfoApiModel extends Equatable {
   final int id;
   final String firstName;
+  final String userImage;
   final String gender;
   final String marriageType;
   final String? userNotes;
@@ -20,7 +21,7 @@ class GetUserInfoApiModel extends Equatable {
   final String? education;
   final String? islam;
   final String? perspective;
-  final double? age;
+  final int? age;
   final double? weight;
   final double? height;
   final String? skinColor;
@@ -31,12 +32,17 @@ class GetUserInfoApiModel extends Equatable {
   final String? look;
   final String? hair;
   final String? health;
+  final bool? verified;
+  final int? diamondCount;
+  final bool? online;
+  final int? messageCount;
 
   const GetUserInfoApiModel({
     required this.gender,
     required this.marriageType,
     required this.id,
     required this.firstName,
+    required this.userImage,
     this.userNotes,
     this.userDescription,
     this.nationality,
@@ -62,6 +68,10 @@ class GetUserInfoApiModel extends Equatable {
     this.look,
     this.hair,
     this.health,
+    this.verified,
+    this.diamondCount,
+    this.online,
+    this.messageCount,
   });
 
   factory GetUserInfoApiModel.fromJson(Map<String, dynamic> json) {
@@ -95,6 +105,11 @@ class GetUserInfoApiModel extends Equatable {
       look: json['look'],
       hair: json['hair'],
       health: json['health'],
+      userImage: json['userImage'],
+      verified: json['verified'],
+      diamondCount: json['diamondCount'],
+      online: json['online'],
+      messageCount: json['messageCount'],
     );
   }
 
@@ -111,5 +126,9 @@ class GetUserInfoApiModel extends Equatable {
     look,
     hair,
     health,
+    userImage,
+    diamondCount,
+    online,
+    messageCount,
   ];
 }

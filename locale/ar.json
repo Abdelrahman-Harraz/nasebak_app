@@ -287,7 +287,7 @@
   "exercise_count" : "كم مرة تمارس الرياضة ؟",
   "have_pets" : "هل لديك أي حيوانات أليفة ؟",
   "truth_continue" : "الحقيقة تستمر وتتعمق مع مرور الوقت",
-  "position" : "الحالة الوظيفية",
+  "position_status" : "الحالة الوظيفية",
   "income" : "الحالة المادية ( الدخل الشهري )",
   "education" : "المؤهل الدراسي",
   "consistency" : "درجة الالتزام",
@@ -317,5 +317,11 @@
   "you_complete_your_profile" : "انتهينا من اكمال ملفك الشخصي",
   "chat" : "الدردشة",
   "membership": "الاشتراك",
-  "settings": "الاعدادات"
+  "settings": "الاعدادات",
+  "undefined": "غير محدد",
+  "status" : "الحالة",
+  "position" : "الوظيفة",
+  "online" : "متصل",
+  "offline" : "غير متصل",
+  "age_year" : "عام"
 }

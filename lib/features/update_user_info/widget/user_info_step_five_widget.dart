@@ -81,7 +81,7 @@ class _UserInfoStepFiveWidgetState extends State<UserInfoStepFiveWidget> {
                 SizedBox(height: 17),
                 _buildChoiceSection(
                   AppAssetPaths.positionIcon,
-                  context.translate(LocalizationKeys.position),
+                  context.translate(LocalizationKeys.positionStatus),
                   choices[0],
                   (index) => setState(() => groupOneSelectedIndex = index),
                   groupOneSelectedIndex,
