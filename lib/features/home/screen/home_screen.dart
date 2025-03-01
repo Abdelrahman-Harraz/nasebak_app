@@ -2,21 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:nasebak_app/_base/widgets/base_stateful_screen_widget.dart';
-import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/home/bloc/home_bloc.dart';
 import 'package:nasebak_app/features/home/bloc/home_repository.dart';
 import 'package:nasebak_app/features/home/model/home_ui_model.dart';
+import 'package:nasebak_app/features/home/widget/filter_row_widget.dart';
 import 'package:nasebak_app/features/home/widget/personal_info_card_widget.dart';
 import 'package:nasebak_app/features/home/widget/user_info_card_widget.dart';
-
 import 'package:nasebak_app/res/app_asset_paths.dart';
-import 'package:nasebak_app/res/app_colors.dart';
 import 'package:nasebak_app/utils/empty/empty_widgets.dart';
-import 'package:nasebak_app/utils/extensions/extension_localization.dart';
-import 'package:nasebak_app/utils/extensions/extension_theme.dart';
-import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
 import 'package:nasebak_app/utils/status_bar/statusbar_controller.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -147,24 +141,7 @@ class _HomeScreenWithBlocState extends BaseScreenState<HomeScreenWithBloc> {
 
   Widget _filterRow() {
     //! finish it later
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 11),
-      child: Row(
-        children: [
-          Text(
-            context.translate(LocalizationKeys.filter),
-            style: context.headlineSmall?.copyWith(
-              color: AppColors.policyTxtBlackColor,
-              fontSize: 18,
-            ),
-          ),
-          SvgPicture.asset(AppAssetPaths.femaleIcon),
-          SizedBox(width: 10),
-          SvgPicture.asset(AppAssetPaths.maleIcon),
-          SvgPicture.asset(AppAssetPaths.searchIcon),
-        ],
-      ),
-    );
+    return FilterRowWidget(isMaleSelected: true);
   }
 
   ///////////////////////////////////////////////////////////

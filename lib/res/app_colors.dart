@@ -294,6 +294,11 @@ abstract final class AppColors {
   static const diamondCountColor = _mePink;
   static const onlineColor = _green;
   static const offlineColor = _grey;
+  static const filterSelectedBorder = _outrageousOrange;
+  static final filterNotSelectedBorder = _doveGray.withValues(alpha: 0.46);
+  static final filterDropDown = _doveGray.withValues(alpha: 0.62);
+  static final filterDropDownText = _white.withValues(alpha: 0.78);
+  static final filterDropDownBackground = _doveGray;
 }
 
 ///
