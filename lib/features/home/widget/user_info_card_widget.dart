@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:nasebak_app/features/home/model/home_ui_model.dart';
+import 'package:nasebak_app/features/user_info/model/user_info_ui_model.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:nasebak_app/res/app_colors.dart';
 import 'package:nasebak_app/utils/extensions/extension_localization.dart';
@@ -8,7 +8,7 @@ import 'package:nasebak_app/utils/extensions/extension_theme.dart';
 import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
 
 class UserInfoCardWidget extends StatelessWidget {
-  final HomeUiModel model;
+  final UserInfoUiModel model;
   const UserInfoCardWidget({super.key, required this.model});
 
   @override
@@ -51,12 +51,11 @@ class UserInfoCardWidget extends StatelessWidget {
                 CircleAvatar(
                   radius: 25,
                   backgroundImage:
-                      model.otherUserInfo.userImage == null
+                      model.userImage == null
                           ? AssetImage(
                             AppAssetPaths.personalInfoDummyProfileImage,
                           )
-                          : NetworkImage(model.otherUserInfo.userImage!)
-                              as ImageProvider,
+                          : NetworkImage(model.userImage!) as ImageProvider,
                 ),
                 Positioned(
                   top: -5,
@@ -71,7 +70,7 @@ class UserInfoCardWidget extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Text(
-              model.otherUserInfo.firstName!,
+              model.firstName!,
               style: context.headlineSmall?.copyWith(
                 color: Colors.white,
                 fontSize: 18,
@@ -83,7 +82,7 @@ class UserInfoCardWidget extends StatelessWidget {
         Row(
           children: [
             Text(
-              model.otherUserInfo.diamondCount.toString(),
+              model.diamondCount.toString(),
               style: context.headlineSmall?.copyWith(
                 color: AppColors.diamondCountColor,
                 fontSize: 16,
@@ -101,7 +100,7 @@ class UserInfoCardWidget extends StatelessWidget {
               height: 10,
               decoration: BoxDecoration(
                 color:
-                    model.otherUserInfo.online!
+                    model.online!
                         ? AppColors.onlineColor
                         : AppColors.offlineColor,
                 shape: BoxShape.circle,
@@ -109,12 +108,12 @@ class UserInfoCardWidget extends StatelessWidget {
             ),
             const SizedBox(width: 5),
             Text(
-              model.otherUserInfo.online!
+              model.online!
                   ? context.translate(LocalizationKeys.online)
                   : context.translate(LocalizationKeys.offline),
               style: context.headlineSmall?.copyWith(
                 color:
-                    model.otherUserInfo.online!
+                    model.online!
                         ? AppColors.onlineColor
                         : AppColors.offlineColor,
                 fontSize: 14,
@@ -133,27 +132,20 @@ class UserInfoCardWidget extends StatelessWidget {
       children: [
         _infoChip(
           context.translate(LocalizationKeys.age),
-          "${model.otherUserInfo.age} ${context.translate(LocalizationKeys.ageYear)}",
+          "${model.age} ${context.translate(LocalizationKeys.ageYear)}",
         ),
         _infoChip(
           context.translate(LocalizationKeys.nationality),
-          model.otherUserInfo.nationality,
+          model.nationality,
         ),
         _infoChip(
           context.translate(LocalizationKeys.status),
-          model.userInfo.martialStatus,
+          model.martialStatus,
         ),
-        _infoChip(
-          context.translate(LocalizationKeys.position),
-          model.userInfo.position,
-        ),
-        _infoChip(
-          "${model.otherUserInfo.weight} ${context.translate(LocalizationKeys.kg)}",
-        ),
-        _infoChip(
-          "${model.otherUserInfo.height} ${context.translate(LocalizationKeys.cm)}",
-        ),
-        _infoChip(model.otherUserInfo.skinColor!),
+        _infoChip(context.translate(LocalizationKeys.position), model.position),
+        _infoChip("${model.weight} ${context.translate(LocalizationKeys.kg)}"),
+        _infoChip("${model.height} ${context.translate(LocalizationKeys.cm)}"),
+        _infoChip(model.skinColor!),
       ],
     );
   }
@@ -179,7 +171,7 @@ class UserInfoCardWidget extends StatelessWidget {
       children: [
         Expanded(
           child: Text(
-            model.userInfo.description!,
+            model.description ?? "",
             style: TextStyle(
               color: Colors.white.withOpacity(0.8),
               fontSize: 14,
@@ -203,7 +195,7 @@ class UserInfoCardWidget extends StatelessWidget {
 
             const SizedBox(width: 5),
             Text(
-              model.otherUserInfo.messageCount.toString(),
+              model.messageCount.toString(),
               style: context.headlineSmall?.copyWith(
                 color: Colors.white.withValues(alpha: 0.81),
                 fontSize: 15,

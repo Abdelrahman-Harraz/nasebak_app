@@ -136,7 +136,18 @@ class _HomeScreenWithBlocState extends BaseScreenState<HomeScreenWithBloc> {
   }
 
   Widget _userInfoWidget(HomeUiModel userInfo) {
-    return UserInfoCardWidget(model: userInfo);
+    return ListView.builder(
+      padding: const EdgeInsets.all(0),
+      shrinkWrap: true,
+      itemCount: userInfo.otherUserInfo.length,
+      physics: const NeverScrollableScrollPhysics(),
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.only(top: 16),
+          child: UserInfoCardWidget(model: userInfo.otherUserInfo[index]),
+        );
+      },
+    );
   }
 
   Widget _filterRow() {
