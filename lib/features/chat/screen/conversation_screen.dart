@@ -120,7 +120,7 @@ class _ConversationScreenWithBlocState
             onTap: () {},
             child: SvgPicture.asset(AppAssetPaths.reportIcon),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 25),
           GestureDetector(
             onTap: () {},
             child: SvgPicture.asset(AppAssetPaths.notificationsIcon),
