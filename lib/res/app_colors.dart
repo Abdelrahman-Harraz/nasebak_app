@@ -299,6 +299,11 @@ abstract final class AppColors {
   static final filterDropDown = _doveGray.withValues(alpha: 0.62);
   static final filterDropDownText = _white.withValues(alpha: 0.78);
   static final filterDropDownBackground = _doveGray;
+
+  /// Chat
+  static final chatScreenBorder = _alto.withValues(alpha: 0.34);
+  static final messageBadgeColor = _outrageousOrange;
+  static final chatWhiteText = _white;
 }
 
 ///

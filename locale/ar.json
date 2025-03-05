@@ -323,5 +323,6 @@
   "position" : "الوظيفة",
   "online" : "متصل",
   "offline" : "غير متصل",
-  "age_year" : "عام"
+  "age_year" : "عام",
+  "enter_message" : " ادخل نص الرسالة"
 }

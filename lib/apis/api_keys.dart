@@ -39,4 +39,8 @@ class ApiKeys {
 
   /// Home
   static const homeUrl = "$apiKeyUrl/";
+
+  /// Chat
+  static const getChatUrl = "$apiKeyUrl/";
+  static const sendChatUrl = "$apiKeyUrl/";
 }

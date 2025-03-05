@@ -362,4 +362,5 @@ class LocalizationKeys {
   static const online = 'online';
   static const offline = 'offline';
   static const ageYear = 'age_year';
+  static const enterMessage = 'enter_message';
 }

@@ -65,4 +65,8 @@ abstract final class AppAssetPaths {
   static const diamondIcon = "assets/icons/diamond_icon.png";
   static const chattingIcon = "assets/icons/chatting_icon.svg";
   static const eyeIcon = "assets/icons/eye_icon.svg";
+
+  /// Chat
+  static const reportIcon = "assets/icons/report_icon.svg";
+  static const sendIcon = "assets/icons/send_icon.svg";
 }

@@ -38,22 +38,6 @@ class LightAppTheme implements BaseAppTheme {
         elevation: 0,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
-      appBarTheme: ThemeData.light().appBarTheme.copyWith(
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(5)),
-        ),
-        iconTheme: ThemeData.light(
-          useMaterial3: false,
-        ).iconTheme.copyWith(color: AppColors.appBarIconColor),
-        titleTextStyle: txtThemeLight.titleMedium?.copyWith(
-          fontSize: 20,
-          fontWeight: FontWeight.w700,
-          color: AppColors.appBarTextColor,
-        ),
-        elevation: 0,
-        centerTitle: false,
-        backgroundColor: AppColors.appBarBackground,
-      ),
     );
   }
 
