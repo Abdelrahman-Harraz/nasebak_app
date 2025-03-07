@@ -4,6 +4,7 @@ import 'package:nasebak_app/features/app_navigation/bloc/app_navigation_bloc.dar
 import 'package:nasebak_app/features/app_navigation/widgets/app_nav_item_widget.dart';
 import 'package:nasebak_app/features/chat/screen/chat_screen.dart';
 import 'package:nasebak_app/features/home/screen/home_screen.dart';
+import 'package:nasebak_app/features/subscription/screen/subscription_screen.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:nasebak_app/res/app_colors.dart';
 import 'package:nasebak_app/utils/extensions/extension_localization.dart';
@@ -52,7 +53,7 @@ class _AppNavigationScreenWithBlocState
   final List<Widget> _appNavChildren = [
     const HomeScreen(),
     const ChatScreen(),
-    const _AppNavTempBodyWidget(screenName: "Track Recording"),
+    const SubscriptionScreen(),
     const _AppNavTempBodyWidget(screenName: "Track Recording"),
   ];
 

@@ -69,4 +69,16 @@ abstract final class AppAssetPaths {
   /// Chat
   static const reportIcon = "assets/icons/report_icon.svg";
   static const sendIcon = "assets/icons/send_icon.svg";
+
+  /// subscription
+  static const nasebakMembershipIcon =
+      "assets/icons/nasebak_membership_icon.svg";
+  static const redArrowIcon = "assets/icons/red_arrow_icon.svg";
+  static const vipMembershipIcon = "assets/icons/vip_memberships_icon.png";
+  static const greenArrowIcon = "assets/icons/green_arrow_icon.svg";
+  static const campaignIcon = "assets/icons/campaign_icon.svg";
+  static const blueArrowIcon = "assets/icons/blue_arrow_icon.svg";
+  static const editSubscriptionIcon = "assets/icons/edit_subscription_icon.svg";
+  static const cancelSubscriptionIcon =
+      "assets/icons/cancel_subscription_icon.svg";
 }

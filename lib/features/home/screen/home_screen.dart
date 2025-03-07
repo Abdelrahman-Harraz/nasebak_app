@@ -44,6 +44,7 @@ class _HomeScreenWithBlocState extends BaseScreenState<HomeScreenWithBloc> {
   @override
   Widget baseScreenBuild(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       body: BlocListener<HomeBloc, HomeState>(
         listener: (context, state) {
           if (state is LoadingState) {

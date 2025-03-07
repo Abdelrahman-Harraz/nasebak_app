@@ -324,5 +324,15 @@
   "online" : "متصل",
   "offline" : "غير متصل",
   "age_year" : "عام",
-  "enter_message" : " ادخل نص الرسالة"
+  "enter_message" : " ادخل نص الرسالة",
+  "subscription_management" : "إدارة الاشتراك",
+  "nasebak_membership" : "اشتراكات نصيبك",
+  "promote_your_profile" : "اعلن عن ملفك الشخصي",
+  "subscription_time_remaining" : "باقي على انتهاء الاشتراك",
+  "vip_memberships" : "VIP اشتراكات",
+  "subscription_type" : "نوع الاشتراك",
+  "bundle_type" : "نوع الباقة",
+  "renew" : "تجديد",
+  "change_subscription" : "تغيير باقة الاشتراك",
+  "cancel_subscription" : "الغاء الاشتراك"
 }

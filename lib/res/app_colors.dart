@@ -58,6 +58,9 @@ abstract final class AppColors {
   static const Color _radicalRed = Color(0xFFFD2B74);
   static const Color _flamingo = Color(0xFFF25031);
   static const Color _mePink = Color(0xFFFE79A7);
+  static const Color _newYorkPink = Color(0xFFD18374);
+  static const Color _oceanGreen = Color(0xFF44B775);
+  static const Color _fountainBlue = Color(0xFF5BBDC1);
 
   /// app main theme ...
   static const colorSchemeSeed = _sherpaBlue;
@@ -304,6 +307,14 @@ abstract final class AppColors {
   static final chatScreenBorder = _alto.withValues(alpha: 0.34);
   static final messageBadgeColor = _outrageousOrange;
   static final chatWhiteText = _white;
+
+  /// Subscription
+  static final nasebakSubscriptionGradient1 = _newYorkPink;
+  static final nasebakSubscriptionGradient2 = _white;
+  static final vipSubscriptionGradient1 = _oceanGreen;
+  static final vipSubscriptionGradient2 = _white;
+  static final promoteProfileGradient1 = _fountainBlue;
+  static final promoteProfileGradient2 = _white;
 }
 
 ///

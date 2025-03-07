@@ -43,4 +43,7 @@ class ApiKeys {
   /// Chat
   static const getChatUrl = "$apiKeyUrl/";
   static const sendChatUrl = "$apiKeyUrl/";
+
+  /// subscription
+  static const subscriptionUrl = "$apiKeyUrl/";
 }

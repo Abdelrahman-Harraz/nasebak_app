@@ -363,4 +363,14 @@ class LocalizationKeys {
   static const offline = 'offline';
   static const ageYear = 'age_year';
   static const enterMessage = 'enter_message';
+  static const subscriptionManagement = 'subscription_management';
+  static const nasebakMembership = 'nasebak_membership';
+  static const promoteYourProfile = 'promote_your_profile';
+  static const subscriptionTimeRemaining = 'subscription_time_remaining';
+  static const vipMemberships = 'vip_memberships';
+  static const subscriptionType = 'subscription_type';
+  static const bundleType = 'bundle_type';
+  static const renew = 'renew';
+  static const changeSubscription = 'change_subscription';
+  static const cancelSubscription = 'cancel_subscription';
 }
