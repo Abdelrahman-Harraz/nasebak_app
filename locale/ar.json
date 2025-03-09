@@ -67,7 +67,6 @@
   "register_with_apple": "تسجيل الدخول بواسطة أبل",
   "already_have_an_account": "لديك حساب؟",
   "dont_have_an_account": "ليس لديك حساب؟",
-  "subscription": "اشتراك",
   "send": "ارسل",
   "wrong_format": "صيغة خاطئة",
   "enter_number_less_than": "أدخل رقمًا أقل من",
@@ -334,5 +333,17 @@
   "bundle_type" : "نوع الباقة",
   "renew" : "تجديد",
   "change_subscription" : "تغيير باقة الاشتراك",
-  "cancel_subscription" : "الغاء الاشتراك"
+  "cancel_subscription" : "الغاء الاشتراك",
+  "free" : "مجاني",
+  "golden" : "الذهبية",
+  "subscription": "اشتراك",
+  "vat" : "ضريبة القيمة المضافة",
+  "total_price" : "إجمالي السعر",
+  "card_number" : "رقم البطاقة",
+  "cvv" : "الرمز السري",
+  "expiry_date" : "تاريخ الانتهاء",
+  "card_holder_name" : "اسم صاحب البطاقة",
+  "pay" : "ادفع",
+  "enter_name_on_card" : "ادخل الاسم المسجل في البطافة",
+  "invoice_details" : "تفاصيل  الفاتورة"
 }

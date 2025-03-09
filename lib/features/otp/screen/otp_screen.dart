@@ -181,7 +181,7 @@ class _OtpScreenWithBlocState extends BaseScreenState<OtpScreenWithBloc>
 
         label: Text(
           context.translate(LocalizationKeys.confirmOtp),
-          style: TextStyle(color: AppColors.banksCardBoarder, fontSize: 16),
+          style: TextStyle(color: AppColors.otpBoarder, fontSize: 16),
         ),
       ),
     );

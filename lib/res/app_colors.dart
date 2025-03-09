@@ -13,8 +13,6 @@ abstract final class AppColors {
   static const Color _green = Colors.lightGreenAccent;
   static const Color _grey = Colors.grey;
   static const Color _jaffa = Color(0xFFF47B3D);
-  static const Color _sherpaBlue = Color(0xFF004053);
-  static const Color _alto = Color(0xffD9D9D9);
   static const Color _yellowOrange = Color(0xffFAAF40);
   static const Color _frenchGray = Color(0xffCFCFD0);
   static const Color _cloudBurst = Color(0xff183059);
@@ -23,27 +21,9 @@ abstract final class AppColors {
   static const Color _mineShaft = Color(0xff2D2D2D);
   static const Color _dustyGray = Color(0xff9A9A9A);
   static const Color _cararra = Color(0xffF1F2EC);
-  static const Color _jaggedIce = Color(0xffB9E8E0);
+  static const Color _aquaSpring = Color(0xffECF9F6);
   static const Color _wildSand = Color(0xFFF5F5F5);
   static const Color _greenHaze = Color(0xff009444);
-  static const Color _aquaSpring = Color(0xffECF9F6);
-  static const Color _geyser = Color(0xffCBD6DE);
-  static const Color _hintOfRed = Color(0xffF6F4F3);
-  static const Color _bluish = Color(0xff276FBF);
-  static const Color _nobel = Color(0xffB7B7B7);
-  static const Color _alto2 = Color(0xffCECECE);
-  static const Color _sinbad = Color(0xff9AD6CC);
-  static const Color _amaranth = Color(0xffF03A47);
-  static const Color _sherpaBlueWithOpacity = Color(0xE6004053);
-  static const Color _provincialPink = Color(0xFFFEF4F4);
-  static const Color _cinderell = Color(0xFFFDEBE2);
-  static const Color _red2 = Color(0xffF90000);
-  static const Color _aquaHaze = Color(0xFFEDF4F2);
-  static const Color _porcelain = Color(0xffEEF2F2);
-  static const Color _codGrayWithOp15 = Color(0x26090909);
-  static const Color _codGrayWithOp90 = Color(0xE6090909);
-
-  /// New
   static const Color _mineralGreen = Color(0xFF374C47);
   static const Color _doveGray = Color(0xFF707070);
   static const Color _scorpion = Color(0x61606060);
@@ -61,49 +41,35 @@ abstract final class AppColors {
   static const Color _newYorkPink = Color(0xFFD18374);
   static const Color _oceanGreen = Color(0xFF44B775);
   static const Color _fountainBlue = Color(0xFF5BBDC1);
+  static const Color _roseBud = Color(0xFFF9BB8B);
+  static const Color _sweetCorn = Color(0xFFF9DF8B);
+  static const Color _nobel = Color(0xFFB5B5B5);
+  static const Color _goldenGrass = Color(0xFFD6B326);
+  static const Color _silverChalice = Color(0xFFAEAEAE);
+  static const Color _corn = Color(0xFFDFAB00);
+  static const Color _alto = Color(0xffD9D9D9);
+  static const Color _alto2 = Color(0xffCECECE);
+  static const Color _geyser = Color(0xffCBD6DE);
 
   /// app main theme ...
-  static const colorSchemeSeed = _sherpaBlue;
   static const colorPrimary = _white;
   static const scaffoldBackground = _white;
-  static const appBarBackground = _sherpaBlue;
+  static const appBarBackground = _white;
   static const transparentColor = _transparent;
-  static const buttonBackground = _sherpaBlue;
-  static const verifyEmailText = _sherpaBlue;
-  static const verifyEmailDescriptionText = _black;
-  static const dropDownButtonColor = _black;
-  static const titleColor = _white;
-  static const containerColor = _white;
   static const buttonTextColor = _white;
-  static const leadingButtonBackroundColor = _white;
-  static const leadingButtonColor = _black;
   static const iconTheme = _jaffa;
-  static const dotsIndicator = _jaffa;
-  static const dotsIndicatorActive = _jaffa;
-  static const floatActionBtnBackgroundColor = _sherpaBlue;
-  static const tagGreenColor = _greenHaze;
+  static const floatActionBtnBackgroundColor = _white;
   static const floatActionBtnforegroundColor = _white;
   static const bottomNavigationBarBackground = _white;
   static const appBarTextColor = _white;
-  static const appBarIconColor = _white;
-  static const expandedDropDownColor = _yellowOrange;
-  static const dropDownText = _sherpaBlue;
-  static const selectedNavBarItem = _sherpaBlue;
-  static const unSelectedNavBarItem = _alto;
-  static const logOutButtonColor = _red;
-  static const redButtonColor = _red;
   static const appButtonGreenText = _greenHaze;
   static const appButtonWhiteBackground = _white;
   static const appButtonBorder = _white;
-  static const banksCardBoarder = _wildSand;
-  static const containerBorder = _cararra;
   static const dropDownBorder = _cararra;
-  static const filterBorder = _alto2;
-  static const filterIcon = _alto2;
   static const blackColor = _black;
 
   /// text colors
-  static const headlineMedium = _sherpaBlue;
+  static const headlineMedium = _white;
   static const bodySmall = _silver;
   static const titleSmall = _gray;
   static const bodyMedium = _jaffa;
@@ -112,7 +78,6 @@ abstract final class AppColors {
   static const headlineLarge = _mineShaft;
   static const titleMedium = _black;
   static const labelSmall = _alto2;
-  static const displaySmall = _amaranth;
 
   /// app form field
   static const appFormFieldFill = _white;
@@ -142,35 +107,10 @@ abstract final class AppColors {
   static const modalBottomSheetCloseIcon = _geyser;
   static const modalBottomSheetBackground = _aquaSpring;
 
-  /// filter modal sheet
-  static const filterUnitTypeUnselectedItemBackGround = _wildSand;
-  static const filterUnitTypeSelectedItemBorder = _bluish;
-  static const filterUnitTypeUnSelectedItemBorder = _wildSand;
-  static const filterUnitTypeSelectedItemBackground = _white;
-  static const filterUnitTypeItemTitle = _greenHaze;
-  static const investmentTypeBorder = _hintOfRed;
-  static const chooseInvestmentType = _bluish;
-  static const notChooseInvestmentType = _alto;
-  static const filterDropDownMenuBorder = _hintOfRed;
-  static const filterDropDownMenuIcon = _geyser;
-  static const filterDropDownMenuHintText = _geyser;
-  static const filterResetAllButtonBackground = _alto;
-  static const filterResetAllButtonText = _nobel;
-  static const filterDropDownMenu = _white;
-
-  /// association
-  static const aboutAssociationItemBackground = _porcelain;
-  static const strategicDirectionsItemBackground = _white;
-  static const aboutAssociationBorder = _cararra;
-  static const aboutAssociationItemBorder = _cararra;
-  static const foundersItemBackground = _white;
-  static const reportItemImageBackground = _jaggedIce;
-  static const reportItemBackground = _white;
-  static const directorImageBackground = _sinbad;
-  static const directorItemBackground = _white;
-  static const associationLicenseCertificateBackground = _white;
-  static const volunteeringFormBackground = _white;
-  static const councilMeetingLocationIcon = _silver;
+  /// app navigation
+  static const appNavigationIconColor = _white;
+  static const bottomNavBarShadow = _black;
+  static const bottomNavBarBackground = _black;
 
   /// auth
   static const divider = _dustyGray;
@@ -181,73 +121,6 @@ abstract final class AppColors {
   static const authSigninBtnGradient1 = _brickRed;
   static const authSigninBtnGradient2 = _outrageousOrange;
   static const disabledButtonColor = _dustyGray;
-
-  /// Filter
-  static const selectedTabBackgroundColor = _sherpaBlue;
-  static const unSelectedTabBackgroundColor = _white;
-  static const selectedFilterText = _white;
-  static const unSelectedFilterText = _silver;
-  static const unSelectedFilterBorder = _aquaHaze;
-
-  /// app navigation
-  static const appNavigationIconColor = _white;
-  static const bottomNavBarShadow = _black;
-  static const bottomNavBarBackground = _black;
-
-  /// more
-  static const moreExpansionborder = _cararra;
-  static const moreExpansionBackground = _white;
-  static const expandedMoreExpansionIcon = _jaffa;
-  static const notExpandedMoreExpansionIcon = _sherpaBlue;
-  static const moreExpansionDivider = _cararra;
-
-  /// Video gallery
-  static const videoDialogBackground = _sherpaBlueWithOpacity;
-
-  /// Media material
-  static const pdfBackground = _provincialPink;
-  static const pdfTitleBackground = _white;
-  static const pdfBoarder = _gray;
-
-  ///Image gallery
-  static const imageContainer = _white;
-  static const selectedImageBorder = _sherpaBlue;
-  static const galleryDialogBackground = _sherpaBlueWithOpacity;
-
-  /// Track Card
-  static const trackCardTitle = _black;
-  static const trackLikeIconBackground = _cinderell;
-  static const trackLikeIcon = _jaffa;
-  static final tracknasebakBackground = _sinbad.withOpacity(0.09);
-
-  /// Track Details
-  static const trackDescriptionBorder = _cararra;
-  static const detailsIcon = _silver;
-  static const trackContainer = _white;
-  static const trackInActiveDots = _white;
-  static const trackCommentBorder = _cararra;
-  static const mapPolyLine = _red;
-
-  /// Tracks Filter
-  static const tractFilterBottomSheetIcon = _silver;
-  static const tractFilterResetIcon = _alto2;
-
-  /// News screen
-  static const startGradient = _codGrayWithOp15;
-  static const endGradient = _codGrayWithOp90;
-  static const notLoggedInProfileImageBackground = _sherpaBlue;
-  static const loginIcon = _sherpaBlue;
-
-  /// settings
-  static const customSettingsButtonBackground = _white;
-  static const customSettingsButtonBorder = _cararra;
-  static const customSettingButtonTrailingIcon = _sherpaBlue;
-  static const switchSettingsBackground = _white;
-  static const activatedSwitchSettings = _jaffa;
-
-  /// delete account
-  static const deleteButtonBackground = _red2;
-  static const cancelButtonBorder = _alto2;
 
   /// Otp
   static const otpSentText = _blackWith67Opacity;
@@ -261,6 +134,7 @@ abstract final class AppColors {
   static const dontReceiveOtpTxtColor = _scorpion;
   static const resendOtpTxtColor = _mineralGreen;
   static const otpBackIconColor = _doveGray;
+  static const otpBoarder = _wildSand;
 
   /// Policy
   static const policyTxtBlackColor = _black;
@@ -315,6 +189,36 @@ abstract final class AppColors {
   static final vipSubscriptionGradient2 = _white;
   static final promoteProfileGradient1 = _fountainBlue;
   static final promoteProfileGradient2 = _white;
+  static final diamondMembershipGradient1 = _roseBud;
+  static final diamondMembershipGradient2 = _white;
+  static final goldenMembershipGradient1 = _sweetCorn;
+  static final goldenMembershipGradient2 = _white;
+  static final silverMembershipGradient1 = _nobel;
+  static final silverMembershipGradient2 = _white;
+
+  static final diamondMembershipNameGradient1 = _white;
+  static final diamondMembershipNameGradient2 = _roseBud;
+
+  static final goldenMembershipNameGradient1 = _white;
+  static final goldenMembershipNameGradient2 = _goldenGrass;
+
+  static final silverMembershipNameGradient1 = _white;
+  static final silverMembershipNameGradient2 = _silverChalice;
+
+  static final categoryContainerBackground = _coffeeBean;
+  static final categoryContainerBorder = _doveGray;
+
+  static final membershipButtonColor1 = _corn;
+  static final membershipButtonColor2 = _white;
+
+  /// Payments
+  static final invoiceDetailsTextBackground = _outrageousOrange.withValues(
+    alpha: 0.18,
+  );
+  static final paymentScreenBorder = _doveGray;
+  static final paymentScreenTextFieldsBackground = _white.withValues(
+    alpha: 0.22,
+  );
 }
 
 ///

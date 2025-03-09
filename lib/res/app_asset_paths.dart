@@ -81,4 +81,18 @@ abstract final class AppAssetPaths {
   static const editSubscriptionIcon = "assets/icons/edit_subscription_icon.svg";
   static const cancelSubscriptionIcon =
       "assets/icons/cancel_subscription_icon.svg";
+
+  /// membership
+  static const goldenMembershipLogo = "assets/icons/golden_membership_logo.png";
+  static const silverMembershipLogo = "assets/icons/silver_membership_logo.png";
+  static const diamondMembershipLogo =
+      "assets/icons/diamond_membership_logo.png";
+  static const tickIcon = "assets/icons/tick_icon.svg";
+  static const notAvailableIcon = "assets/icons/not_available_icon.svg";
+  static const menuIcon = "assets/icons/menu_icon.svg";
+
+  /// Payment
+  static const madaPaymentIcon = "assets/icons/mada_icon.png";
+  static const applePayIcon = "assets/icons/apple_pay_icon.png";
+  static const visaIcon = "assets/icons/visa_icon.svg";
 }

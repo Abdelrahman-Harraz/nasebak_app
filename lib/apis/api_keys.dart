@@ -46,4 +46,7 @@ class ApiKeys {
 
   /// subscription
   static const subscriptionUrl = "$apiKeyUrl/";
+
+  /// memberShips
+  static const membershipUrl = "$apiKeyUrl/";
 }

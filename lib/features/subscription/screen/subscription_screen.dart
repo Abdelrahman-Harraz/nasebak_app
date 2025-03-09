@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nasebak_app/_base/widgets/base_stateful_screen_widget.dart';
 import 'package:nasebak_app/app_router.dart';
-import 'package:nasebak_app/features/policy/bloc/policy_bloc.dart';
 import 'package:nasebak_app/features/subscription/bloc/subscription_bloc.dart';
 import 'package:nasebak_app/features/subscription/bloc/subscription_repository.dart';
 import 'package:nasebak_app/features/subscription/model/subscription_ui_model.dart';
@@ -70,7 +69,7 @@ class _SubscriptionScreenWithBlocState
       ),
       body: BlocListener<SubscriptionBloc, SubscriptionState>(
         listener: (context, state) {
-          if (state is LoadingState) {
+          if (state is SubscriptionLoadingState) {
             showLoading();
           } else {
             hideLoading();
@@ -167,7 +166,7 @@ class _SubscriptionScreenWithBlocState
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: _openMembershipScreen,
               icon: SvgPicture.asset(AppAssetPaths.redArrowIcon),
             ),
           ],
@@ -326,7 +325,7 @@ class _SubscriptionScreenWithBlocState
     currentBloc.add(GetSubscriptionDataEvent());
   }
 
-  void _openUpdateUserInfoScreen() {
-    context.push(AppRouter.updateUserInfoScreen);
+  void _openMembershipScreen() {
+    context.push(AppRouter.membershipScreen);
   }
 }

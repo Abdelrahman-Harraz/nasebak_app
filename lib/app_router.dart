@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:nasebak_app/features/app_navigation/screen/app_navigation_screen.dart';
+import 'package:nasebak_app/features/membership/screen/membership_screen.dart';
 import 'package:nasebak_app/features/otp/screen/otp_screen.dart';
 import 'package:nasebak_app/features/phone_registration/screen/phone_registration_screen.dart';
 import 'package:nasebak_app/features/policy/screen/policy_screen.dart';
@@ -14,6 +15,7 @@ class AppRouter {
   static const otpScreen = "/otp-screen";
   static const policyScreen = "/policy-screen";
   static const updateUserInfoScreen = "/update-user-info-screen";
+  static const membershipScreen = "/membership-screen";
 
   static GoRouter router = GoRouter(
     debugLogDiagnostics: true,
@@ -50,6 +52,10 @@ class AppRouter {
       GoRoute(
         path: updateUserInfoScreen,
         builder: (context, state) => UpdateUserInfoScreen(),
+      ),
+      GoRoute(
+        path: membershipScreen,
+        builder: (context, state) => MembershipScreen(),
       ),
     ],
   );

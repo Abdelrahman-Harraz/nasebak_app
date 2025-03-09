@@ -18,10 +18,6 @@ class LightAppTheme implements BaseAppTheme {
       brightness: Brightness.light,
       textTheme: txtThemeLight,
       fontFamily: fontFamily,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: AppColors.colorSchemeSeed,
-        primary: AppColors.colorPrimary,
-      ),
       primaryColor: AppColors.colorPrimary,
       scaffoldBackgroundColor: AppColors.scaffoldBackground,
       iconTheme: ThemeData.light(
@@ -82,9 +78,7 @@ class LightAppTheme implements BaseAppTheme {
         labelSmall: GoogleFonts.tajawal().copyWith(color: AppColors.labelSmall),
 
         // amaranth
-        displaySmall: GoogleFonts.tajawal().copyWith(
-          color: AppColors.displaySmall,
-        ),
+        displaySmall: GoogleFonts.tajawal().copyWith(),
       );
 
   @override

@@ -76,7 +76,7 @@ class LocalizationKeys {
   static const registerWithApple = "register_with_apple";
   static const alreadyHaveAnAccount = "already_have_an_account";
   static const dontHaveAnAccount = "dont_have_an_account";
-  static const subscription = "subscription";
+
   static const wrongFormat = "wrong_format";
   static const enterNumberlessThan = "enter_number_less_than";
   static const checkOtpCode = 'check_otp_code';
@@ -373,4 +373,16 @@ class LocalizationKeys {
   static const renew = 'renew';
   static const changeSubscription = 'change_subscription';
   static const cancelSubscription = 'cancel_subscription';
+  static const free = 'free';
+  static const golden = 'golden';
+  static const subscription = "subscription";
+  static const vat = "vat";
+  static const totalPrice = "total_price";
+  static const cardNumber = "card_number";
+  static const cvv = "cvv";
+  static const expiryDate = "expiry_date";
+  static const cardHolderName = "card_holder_name";
+  static const pay = "pay";
+  static const enterNameOnCard = "enter_name_on_card";
+  static const invoiceDetails = "invoice_details";
 }
