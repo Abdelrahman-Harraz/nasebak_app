@@ -389,4 +389,7 @@ class LocalizationKeys {
       "open_new_world_of_exclusive_features_with_jewels";
   static const appInterfaceLayoutDependsOnJewelsCount =
       "app_interface_layout_depends_on_jewels_count";
+  static const increaseChancesMessage = "increase_chances_message";
+  static const investInYourHappinessSubscribeNow = "invest_happiness_message";
+  static const bookNow = "book_now";
 }

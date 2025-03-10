@@ -6,8 +6,12 @@ import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
 
 class SubscriptionEndDateWidget extends StatelessWidget {
   final DateTime endDate;
-
-  const SubscriptionEndDateWidget({super.key, required this.endDate});
+  final void Function()? onPressed;
+  const SubscriptionEndDateWidget({
+    super.key,
+    required this.endDate,
+    this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {

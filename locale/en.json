@@ -343,5 +343,9 @@
   "enter_name_on_card" : "Enter name on card",
   "invoice_details" : "Invoice details",
   "open_new_world_of_exclusive_features_with_jewels" : "!افتح عالمًا جديدًا من الميزات الحصرية مع الجواهر",
-    "app_interface_layout_depends_on_jewels_count" : "تصدر واجهة التطبيق تعتمد على عدد الجواهر في الملف الشخصي"
+  "app_interface_layout_depends_on_jewels_count" : "تصدر واجهة التطبيق تعتمد على عدد الجواهر في الملف الشخصي",
+  "increase_chances_message": "Increase your chances of finding a life partner with our special packages.",
+  "invest_happiness_message": "Invest in your happiness, subscribe now.",
+  "book_now" : "Book now"
+
 }

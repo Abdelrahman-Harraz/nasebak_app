@@ -4,6 +4,7 @@ import 'package:nasebak_app/features/membership/screen/membership_screen.dart';
 import 'package:nasebak_app/features/otp/screen/otp_screen.dart';
 import 'package:nasebak_app/features/phone_registration/screen/phone_registration_screen.dart';
 import 'package:nasebak_app/features/policy/screen/policy_screen.dart';
+import 'package:nasebak_app/features/promote_profile/screen/promote_profile_screen.dart';
 import 'package:nasebak_app/features/update_user_info/screen/update_user_info_screen.dart';
 import 'package:nasebak_app/features/vip_membership/screen/vip_membership_screen.dart';
 import 'package:nasebak_app/only_debug/user_debug_model.dart';
@@ -18,6 +19,7 @@ class AppRouter {
   static const updateUserInfoScreen = "/update-user-info-screen";
   static const membershipScreen = "/membership-screen";
   static const vipMembershipScreen = "/vip-membership-screen";
+  static const promoteProfileScreen = "/promote-profile-screen";
 
   static GoRouter router = GoRouter(
     debugLogDiagnostics: true,
@@ -62,6 +64,10 @@ class AppRouter {
       GoRoute(
         path: vipMembershipScreen,
         builder: (context, state) => VipMembershipScreen(),
+      ),
+      GoRoute(
+        path: promoteProfileScreen,
+        builder: (context, state) => PromoteProfileScreen(),
       ),
     ],
   );

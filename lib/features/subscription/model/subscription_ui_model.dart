@@ -3,14 +3,14 @@ import 'dart:ui';
 import 'package:nasebak_app/apis/models/subscription/subscription_api_model.dart';
 
 class SubscriptionUiModel {
-  final DateTime endDate;
+  final DateTime? endDate;
   final String subscriptionType;
   final String packageType;
   VoidCallback? onUpdate;
   Timer? _timer;
 
   SubscriptionUiModel({
-    required this.endDate,
+    this.endDate,
     required this.subscriptionType,
     required this.packageType,
   });
@@ -28,14 +28,14 @@ class SubscriptionUiModel {
       endDate: DateTime.now().add(
         Duration(days: 8, hours: 5, minutes: 43, seconds: 10),
       ),
-      subscriptionType: "شهري", // Monthly
-      packageType: "الذهبية", // Gold
+      subscriptionType: "شهري",
+      packageType: "الذهبية",
     );
   }
 
   Duration get remainingTime {
     final now = DateTime.now();
-    return endDate.isAfter(now) ? endDate.difference(now) : Duration.zero;
+    return endDate!.isAfter(now) ? endDate!.difference(now) : Duration.zero;
   }
 
   void startTimer() {

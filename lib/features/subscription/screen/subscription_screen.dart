@@ -120,13 +120,19 @@ class _SubscriptionScreenWithBlocState
             SizedBox(height: 12),
             _promoteProfileWidget(),
             SizedBox(height: 12),
-            SubscriptionCountdownWidget(countdown: model),
-            SizedBox(height: 12),
-            SubscriptionEndDateWidget(endDate: model.endDate),
-            SizedBox(height: 12),
-            _editSubscriptionWidget(),
-            SizedBox(height: 12),
-            _cancelSubscriptionWidget(),
+            if (model.endDate != null) ...[
+              SubscriptionCountdownWidget(countdown: model),
+              SizedBox(height: 12),
+              SubscriptionEndDateWidget(
+                endDate: model.endDate!,
+                onPressed: _openMembershipScreen,
+              ),
+              SizedBox(height: 12),
+              _editSubscriptionWidget(),
+              SizedBox(height: 12),
+              _cancelSubscriptionWidget(),
+            ],
+
             SizedBox(height: 50),
           ],
         ),
@@ -248,7 +254,7 @@ class _SubscriptionScreenWithBlocState
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: _openPromoteProfileScreen,
               icon: SvgPicture.asset(AppAssetPaths.blueArrowIcon),
             ),
           ],
@@ -279,7 +285,10 @@ class _SubscriptionScreenWithBlocState
                 fontSize: 18,
               ),
             ),
-            SvgPicture.asset(AppAssetPaths.editSubscriptionIcon),
+            GestureDetector(
+              onTap: _openChangeMembershipScreen,
+              child: SvgPicture.asset(AppAssetPaths.editSubscriptionIcon),
+            ),
           ],
         ),
       ),
@@ -331,5 +340,13 @@ class _SubscriptionScreenWithBlocState
 
   void _openVipMembershipScreen() {
     context.push(AppRouter.vipMembershipScreen);
+  }
+
+  void _openPromoteProfileScreen() {
+    context.push(AppRouter.promoteProfileScreen);
+  }
+
+  void _openChangeMembershipScreen() {
+    context.push(AppRouter.membershipScreen);
   }
 }

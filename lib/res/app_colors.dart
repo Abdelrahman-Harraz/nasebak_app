@@ -52,6 +52,14 @@ abstract final class AppColors {
   static const Color _geyser = Color(0xffCBD6DE);
   static const Color _guardsmanRed = Color(0xFFB90000);
   static const Color _redBerry = Color(0xFF9B1800);
+  static const Color _coralRed = Color(0xFFFF3D3D);
+  static const Color _brightSun = Color(0xFFFFE53D);
+  static const Color _springGreen = Color(0xFF3DFFA4);
+  static const Color _chestnut = Color(0xFFB4494F);
+  static const Color _husk = Color(0xFFBBA04F);
+  static const Color _mexicanRed = Color(0xFF9B232D);
+  static const Color _spicyMustard = Color(0xFF7E5E10);
+  static const Color _genoa = Color(0xFF1A8852);
 
   /// app main theme ...
   static const colorPrimary = _white;
@@ -228,6 +236,34 @@ abstract final class AppColors {
   static final vipDiamondPriceBackgroundGradient1 = _outrageousOrange;
   static final vipDiamondPriceBackgroundGradient2 = _redBerry;
   static final vipDiamondPriceTextColor = _concrete;
+
+  /// promote profile
+  static final promoteProfileFirstContainerGradient1 = _coralRed.withValues(
+    alpha: 0.44,
+  );
+  static final promoteProfileFirstContainerGradient2 = _white.withValues(
+    alpha: 0.44,
+  );
+  static final promoteProfileSecondContainerGradient1 = _brightSun.withValues(
+    alpha: 0.44,
+  );
+  static final promoteProfileSecondContainerGradient2 = _white.withValues(
+    alpha: 0.44,
+  );
+  static final promoteProfileThirdContainerGradient1 = _springGreen.withValues(
+    alpha: 0.44,
+  );
+  static final promoteProfileThirdContainerGradient2 = _white.withValues(
+    alpha: 0.44,
+  );
+
+  static final promoteProfileFirstContainerIconBackground = _chestnut;
+  static final promoteProfileSecondContainerIconBackground = _husk;
+  static final promoteProfileThirdContainerIconBackground = _oceanGreen;
+
+  static final promoteProfileFirstContainerBtnBackground = _mexicanRed;
+  static final promoteProfileSecondContainerBtnBackground = _spicyMustard;
+  static final promoteProfileThirdContainerBtnBackground = _genoa;
 }
 
 ///

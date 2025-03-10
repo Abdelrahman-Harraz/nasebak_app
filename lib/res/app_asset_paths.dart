@@ -106,4 +106,10 @@ abstract final class AppAssetPaths {
   static const secondBoxDiamonds = "assets/images/second_box_diamonds.png";
   static const thirdBoxDiamonds = "assets/images/third_box_diamonds.png";
   static const fourthBoxDiamonds = "assets/images/fourth_box_diamonds.png";
+
+  /// promote profile
+  static const promoteIcon = "assets/icons/promote_icon.svg";
+  static const timerIcon = "assets/icons/timer_icon.svg";
+  static const eyePromoteIcon = "assets/icons/eye__promotion_icon.svg";
+  static const cartIcon = "assets/icons/cart_icon.svg";
 }

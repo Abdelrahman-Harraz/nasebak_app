@@ -52,4 +52,7 @@ class ApiKeys {
 
   /// vip memberships
   static const vipMembershipUrl = "$apiKeyUrl/";
+
+  /// promote profile
+  static const promoteProfileUrl = "$apiKeyUrl/";
 }
