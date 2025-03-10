@@ -385,4 +385,8 @@ class LocalizationKeys {
   static const pay = "pay";
   static const enterNameOnCard = "enter_name_on_card";
   static const invoiceDetails = "invoice_details";
+  static const openNewWorldOfExclusiveFeaturesWithJewels =
+      "open_new_world_of_exclusive_features_with_jewels";
+  static const appInterfaceLayoutDependsOnJewelsCount =
+      "app_interface_layout_depends_on_jewels_count";
 }

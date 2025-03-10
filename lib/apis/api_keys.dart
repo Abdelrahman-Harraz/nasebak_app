@@ -49,4 +49,7 @@ class ApiKeys {
 
   /// memberShips
   static const membershipUrl = "$apiKeyUrl/";
+
+  /// vip memberships
+  static const vipMembershipUrl = "$apiKeyUrl/";
 }

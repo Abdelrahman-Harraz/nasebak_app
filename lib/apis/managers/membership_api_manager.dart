@@ -3,6 +3,7 @@ import 'package:nasebak_app/apis/api_keys.dart';
 import 'package:nasebak_app/apis/errors/error_api_model.dart';
 import 'package:nasebak_app/apis/models/_base/details_model.dart';
 import 'package:nasebak_app/apis/models/membership/membership_wrapper.dart';
+import 'package:nasebak_app/apis/models/vip_membership/vip_membership_wrapper.dart';
 
 class MembershipApiManager {
   final DioApiManager dioApiManager;
@@ -18,6 +19,32 @@ class MembershipApiManager {
           final Map<String, dynamic> extractedData =
               response.data as Map<String, dynamic>;
           final MembershipWrapper wrapper = MembershipWrapper.fromJson(
+            extractedData,
+          );
+          if (wrapper.isSuccess!) {
+            success(wrapper);
+          } else {
+            final ErrorApiModel errorApiModel = ErrorApiModel.fromDetailsModel(
+              wrapper.details ?? DetailsModel.getUnknownError(),
+            );
+            fail(errorApiModel);
+          }
+        })
+        .catchError((onError) {
+          fail(ErrorApiModel.identifyError());
+        });
+  }
+
+  Future<void> vipMembershipApi(
+    void Function(VipMembershipWrapper) success,
+    void Function(ErrorApiModel) fail,
+  ) async {
+    await dioApiManager.dio
+        .get(ApiKeys.vipMembershipUrl)
+        .then((response) {
+          final Map<String, dynamic> extractedData =
+              response.data as Map<String, dynamic>;
+          final VipMembershipWrapper wrapper = VipMembershipWrapper.fromJson(
             extractedData,
           );
           if (wrapper.isSuccess!) {

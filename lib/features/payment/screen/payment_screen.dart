@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nasebak_app/features/membership/model/membership_ui_model.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:nasebak_app/res/app_colors.dart';
 import 'package:nasebak_app/utils/extensions/extension_localization.dart';
@@ -9,9 +8,18 @@ import 'package:nasebak_app/utils/extensions/extension_theme.dart';
 import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
 
 class PaymentScreen extends StatefulWidget {
-  final MembershipUiModel subscription;
+  final int price;
+  final int? duration;
+  final String? dateValue;
+  final String currency;
 
-  const PaymentScreen({super.key, required this.subscription});
+  const PaymentScreen({
+    super.key,
+    required this.price,
+    this.duration,
+    this.dateValue,
+    required this.currency,
+  });
 
   @override
   State<PaymentScreen> createState() => _PaymentScreenState();
@@ -31,8 +39,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
   @override
   void initState() {
     super.initState();
-    _vatAmount = widget.subscription.price * 0.15;
-    _totalAmount = widget.subscription.price + _vatAmount;
+    _vatAmount = widget.price * 0.15;
+    _totalAmount = widget.price + _vatAmount;
 
     // Add listeners to the controllers
     _cardNumberController.addListener(_updateButtonState);
@@ -161,16 +169,17 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 ),
               ),
               const SizedBox(width: 15),
-              Text(
-                '${widget.subscription.duration} ${widget.subscription.dateValue}',
-                style: context.bodyLarge!.copyWith(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 16,
+              if (widget.duration != null && widget.dateValue != null)
+                Text(
+                  '${widget.duration} ${widget.dateValue}',
+                  style: context.bodyLarge!.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                  ),
                 ),
-              ),
               Text(
-                '${widget.subscription.price} ${widget.subscription.currency}',
+                '${widget.price} ${widget.currency}',
                 style: context.bodyLarge!.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.w400,
@@ -203,7 +212,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 ),
               ),
               Text(
-                '${_vatAmount.toStringAsFixed(2)} ${widget.subscription.currency}',
+                '${_vatAmount.toStringAsFixed(2)} ${widget.currency}',
                 style: context.bodyLarge!.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.w400,
@@ -228,7 +237,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 ),
               ),
               Text(
-                '${_totalAmount.toStringAsFixed(2)} ${widget.subscription.currency}',
+                '${_totalAmount.toStringAsFixed(2)} ${widget.currency}',
                 style: context.bodyLarge!.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,

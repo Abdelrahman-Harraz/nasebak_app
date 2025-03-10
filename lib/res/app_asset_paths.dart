@@ -95,4 +95,15 @@ abstract final class AppAssetPaths {
   static const madaPaymentIcon = "assets/icons/mada_icon.png";
   static const applePayIcon = "assets/icons/apple_pay_icon.png";
   static const visaIcon = "assets/icons/visa_icon.svg";
+
+  /// vip membership
+  static const vipContainerBackground =
+      "assets/images/vip_membership_background.png";
+  static const vipDiamondIcon = "assets/icons/vip_diamond_icon.png";
+
+  /// Vip diamonds
+  static const firstBoxDiamonds = "assets/images/first_box_diamonds.png";
+  static const secondBoxDiamonds = "assets/images/second_box_diamonds.png";
+  static const thirdBoxDiamonds = "assets/images/third_box_diamonds.png";
+  static const fourthBoxDiamonds = "assets/images/fourth_box_diamonds.png";
 }

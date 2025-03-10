@@ -50,6 +50,8 @@ abstract final class AppColors {
   static const Color _alto = Color(0xffD9D9D9);
   static const Color _alto2 = Color(0xffCECECE);
   static const Color _geyser = Color(0xffCBD6DE);
+  static const Color _guardsmanRed = Color(0xFFB90000);
+  static const Color _redBerry = Color(0xFF9B1800);
 
   /// app main theme ...
   static const colorPrimary = _white;
@@ -219,6 +221,13 @@ abstract final class AppColors {
   static final paymentScreenTextFieldsBackground = _white.withValues(
     alpha: 0.22,
   );
+
+  /// vip membership
+  static final vipMembershipBorder = _doveGray;
+  static final vipDiamondCountText = _guardsmanRed;
+  static final vipDiamondPriceBackgroundGradient1 = _outrageousOrange;
+  static final vipDiamondPriceBackgroundGradient2 = _redBerry;
+  static final vipDiamondPriceTextColor = _concrete;
 }
 
 ///

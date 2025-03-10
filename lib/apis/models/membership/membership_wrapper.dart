@@ -13,7 +13,7 @@ class MembershipWrapper extends BaseWrapper {
 
   MembershipWrapper.fromJson(super.json)
     : data = List<MembershipApiModel>.from(
-        json["data"]["surveyItems"].map((x) => MembershipApiModel.fromJson(x)),
+        json["data"].map((x) => MembershipApiModel.fromJson(x)),
       ),
       super.fromJson();
 }

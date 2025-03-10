@@ -207,7 +207,7 @@ class _SubscriptionScreenWithBlocState
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: _openVipMembershipScreen,
               icon: SvgPicture.asset(AppAssetPaths.greenArrowIcon),
             ),
           ],
@@ -327,5 +327,9 @@ class _SubscriptionScreenWithBlocState
 
   void _openMembershipScreen() {
     context.push(AppRouter.membershipScreen);
+  }
+
+  void _openVipMembershipScreen() {
+    context.push(AppRouter.vipMembershipScreen);
   }
 }

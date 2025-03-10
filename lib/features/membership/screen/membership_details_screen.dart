@@ -327,7 +327,13 @@ class MembershipDetailsScreen extends StatelessWidget {
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => PaymentScreen(subscription: subscription),
+              builder:
+                  (context) => PaymentScreen(
+                    price: subscription.price,
+                    currency: subscription.currency,
+                    dateValue: subscription.dateValue,
+                    duration: subscription.duration,
+                  ),
             ),
           );
         },
