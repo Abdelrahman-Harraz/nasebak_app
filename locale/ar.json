@@ -350,5 +350,7 @@
   "app_interface_layout_depends_on_jewels_count" : "تصدر واجهة التطبيق تعتمد على عدد الجواهر في الملف الشخصي",
   "increase_chances_message": "زود فرصك في العثور على شريك حياتك مع باقاتنا المميزة.",
   "invest_happiness_message": "استثمر في سعادتك، اشترك الآن.",
-  "book_now" : "احجز الان"
+  "book_now" : "احجز الان",
+  "no_notifications" :"لا توجد إشعارات",
+  "dear_client_no_notifications" :"عزيزنا العميل لا يوجد إشعارات حاليا"
 }

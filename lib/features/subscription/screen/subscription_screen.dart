@@ -62,7 +62,7 @@ class _SubscriptionScreenWithBlocState
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: _openNotificationsScreen,
             icon: SvgPicture.asset(AppAssetPaths.notificationsIcon),
           ),
         ],
@@ -348,5 +348,9 @@ class _SubscriptionScreenWithBlocState
 
   void _openChangeMembershipScreen() {
     context.push(AppRouter.membershipScreen);
+  }
+
+  void _openNotificationsScreen() {
+    context.push(AppRouter.notificationsScreen);
   }
 }

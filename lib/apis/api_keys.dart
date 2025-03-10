@@ -55,4 +55,7 @@ class ApiKeys {
 
   /// promote profile
   static const promoteProfileUrl = "$apiKeyUrl/";
+
+  /// notifications
+  static const notificationsUrl = '$apiKeyUrl/';
 }

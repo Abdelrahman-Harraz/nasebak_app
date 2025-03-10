@@ -392,4 +392,6 @@ class LocalizationKeys {
   static const increaseChancesMessage = "increase_chances_message";
   static const investInYourHappinessSubscribeNow = "invest_happiness_message";
   static const bookNow = "book_now";
+  static const noNotifications = "no_notifications";
+  static const dearClientNoNotifications = "dear_client_no_notifications";
 }

@@ -112,4 +112,7 @@ abstract final class AppAssetPaths {
   static const timerIcon = "assets/icons/timer_icon.svg";
   static const eyePromoteIcon = "assets/icons/eye__promotion_icon.svg";
   static const cartIcon = "assets/icons/cart_icon.svg";
+
+  /// Notifications
+  static const noNotifications = "assets/images/no_notifications_found.png";
 }
