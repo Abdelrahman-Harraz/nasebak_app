@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/membership/model/membership_ui_model.dart';
 import 'package:nasebak_app/features/payment/screen/payment_screen.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
@@ -22,7 +24,9 @@ class MembershipDetailsScreen extends StatelessWidget {
         foregroundColor: AppColors.colorPrimary,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              _openNotificationsScreen(context);
+            },
             icon: SvgPicture.asset(AppAssetPaths.notificationsIcon),
           ),
           IconButton(
@@ -354,5 +358,9 @@ class MembershipDetailsScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _openNotificationsScreen(BuildContext context) {
+    context.push(AppRouter.notificationsScreen);
   }
 }

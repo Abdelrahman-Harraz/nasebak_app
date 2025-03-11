@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nasebak_app/_base/widgets/base_stateful_screen_widget.dart';
+import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/chat/bloc/chat_bloc.dart';
 import 'package:nasebak_app/features/chat/bloc/chat_repository.dart';
 import 'package:nasebak_app/features/chat/model/chat_ui_model.dart';
@@ -11,7 +13,6 @@ import 'package:nasebak_app/res/app_colors.dart';
 import 'package:nasebak_app/utils/empty/empty_widgets.dart';
 import 'package:nasebak_app/utils/extensions/extension_theme.dart';
 import 'package:nasebak_app/utils/format/app_date_format.dart';
-
 import 'package:nasebak_app/utils/status_bar/statusbar_controller.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -45,6 +46,27 @@ class _ChatScreenWithBlocState extends BaseScreenState<ChatScreenWithBloc> {
   @override
   Widget baseScreenBuild(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: AppColors.transparentColor,
+        foregroundColor: AppColors.colorPrimary,
+        scrolledUnderElevation: .1,
+
+        actions: [
+          IconButton(
+            onPressed: _openNotificationsScreen,
+            icon: SvgPicture.asset(AppAssetPaths.searchIcon),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: SvgPicture.asset(AppAssetPaths.heartIcon),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: SvgPicture.asset(AppAssetPaths.notificationsIcon),
+          ),
+        ],
+      ),
       body: BlocListener<ChatBloc, ChatState>(
         listener: (context, state) {
           if (state is ChatLoadingState) {
@@ -81,31 +103,7 @@ class _ChatScreenWithBlocState extends BaseScreenState<ChatScreenWithBloc> {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [_chatScreenHeader(), _buildChatList()],
-      ),
-    );
-  }
-
-  Widget _chatScreenHeader() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 36, right: 36, top: 50, bottom: 18),
-      child: Row(
-        children: [
-          GestureDetector(
-            onTap: () {},
-            child: SvgPicture.asset(AppAssetPaths.searchIcon),
-          ),
-          SizedBox(width: 10),
-          GestureDetector(
-            onTap: () {},
-            child: SvgPicture.asset(AppAssetPaths.heartIcon),
-          ),
-          SizedBox(width: 10),
-          GestureDetector(
-            onTap: () {},
-            child: SvgPicture.asset(AppAssetPaths.notificationsIcon),
-          ),
-        ],
+        children: [SizedBox(height: 100), _buildChatList()],
       ),
     );
   }
@@ -259,5 +257,9 @@ class _ChatScreenWithBlocState extends BaseScreenState<ChatScreenWithBloc> {
     Navigator.of(
       context,
     ).push(MaterialPageRoute(builder: (context) => ConversationScreen()));
+  }
+
+  void _openNotificationsScreen() {
+    context.push(AppRouter.notificationsScreen);
   }
 }
