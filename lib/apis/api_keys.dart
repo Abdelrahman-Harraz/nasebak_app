@@ -61,4 +61,8 @@ class ApiKeys {
 
   /// search
   static const searchUrl = '$apiKeyUrl/';
+
+  /// setting screen
+  static const settingUrl = '$apiKeyUrl/';
+  static const deleteAccountUrl = '$apiKeyUrl/';
 }
