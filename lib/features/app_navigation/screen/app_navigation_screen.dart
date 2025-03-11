@@ -54,7 +54,7 @@ class _AppNavigationScreenWithBlocState
     const HomeScreen(),
     const ChatScreen(),
     const SubscriptionScreen(),
-    const _AppNavTempBodyWidget(screenName: "Track Recording"),
+    const _AppNavTempBodyWidget(screenName: "Setting screen"),
   ];
 
   @override
