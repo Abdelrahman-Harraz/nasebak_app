@@ -58,4 +58,7 @@ class ApiKeys {
 
   /// notifications
   static const notificationsUrl = '$apiKeyUrl/';
+
+  /// search
+  static const searchUrl = '$apiKeyUrl/';
 }

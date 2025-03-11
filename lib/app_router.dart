@@ -6,6 +6,7 @@ import 'package:nasebak_app/features/otp/screen/otp_screen.dart';
 import 'package:nasebak_app/features/phone_registration/screen/phone_registration_screen.dart';
 import 'package:nasebak_app/features/policy/screen/policy_screen.dart';
 import 'package:nasebak_app/features/promote_profile/screen/promote_profile_screen.dart';
+import 'package:nasebak_app/features/search/screen/search_screen.dart';
 import 'package:nasebak_app/features/update_user_info/screen/update_user_info_screen.dart';
 import 'package:nasebak_app/features/user_info/model/user_info_ui_model.dart';
 import 'package:nasebak_app/features/user_info/screen/user_info_screen.dart';
@@ -25,6 +26,7 @@ class AppRouter {
   static const promoteProfileScreen = "/promote-profile-screen";
   static const notificationsScreen = "/notifications-screen";
   static const userInfoScreen = "/user-info-screen";
+  static const searchScreen = "/search-screen";
 
   static const userInfoModelKey = "user_info_model";
   static const isCurrentUserKey = "is_current_user";
@@ -98,6 +100,7 @@ class AppRouter {
           );
         },
       ),
+      GoRoute(path: searchScreen, builder: (context, state) => SearchScreen()),
     ],
   );
 }

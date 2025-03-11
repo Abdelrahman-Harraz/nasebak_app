@@ -265,6 +265,10 @@ abstract final class AppColors {
   static final promoteProfileFirstContainerBtnBackground = _mexicanRed;
   static final promoteProfileSecondContainerBtnBackground = _spicyMustard;
   static final promoteProfileThirdContainerBtnBackground = _genoa;
+
+  /// search
+  static final bottomSheetBackgroundColor = _mineShaft;
+  static final bottomSheetDrawer = _silverChalice;
 }
 
 ///

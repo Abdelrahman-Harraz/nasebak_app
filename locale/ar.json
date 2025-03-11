@@ -353,5 +353,6 @@
   "book_now" : "احجز الان",
   "no_notifications" :"لا توجد إشعارات",
   "dear_client_no_notifications" :"عزيزنا العميل لا يوجد إشعارات حاليا",
-  "my_profile" : "الملف الشخصي"
+  "my_profile" : "الملف الشخصي",
+  "search" : "البحث"
 }

@@ -395,4 +395,5 @@ class LocalizationKeys {
   static const noNotifications = "no_notifications";
   static const dearClientNoNotifications = "dear_client_no_notifications";
   static const myProfile = "my_profile";
+  static const search = "search";
 }

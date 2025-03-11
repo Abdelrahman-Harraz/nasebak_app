@@ -154,8 +154,7 @@ class _HomeScreenWithBlocState extends BaseScreenState<HomeScreenWithBloc> {
   }
 
   Widget _filterRow() {
-    //! finish it later
-    return FilterRowWidget(isMaleSelected: true);
+    return FilterRowWidget(isMaleSelected: true, onTap: _openSearchScreen);
   }
 
   ///////////////////////////////////////////////////////////
@@ -170,5 +169,9 @@ class _HomeScreenWithBlocState extends BaseScreenState<HomeScreenWithBloc> {
 
   void _openNotificationsScreen() {
     context.push(AppRouter.notificationsScreen);
+  }
+
+  void _openSearchScreen() {
+    context.push(AppRouter.searchScreen);
   }
 }

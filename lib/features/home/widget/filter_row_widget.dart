@@ -5,7 +5,8 @@ import 'package:nasebak_app/res/app_colors.dart';
 
 class FilterRowWidget extends StatefulWidget {
   final bool isMaleSelected;
-  const FilterRowWidget({super.key, required this.isMaleSelected});
+  final void Function()? onTap;
+  const FilterRowWidget({super.key, required this.isMaleSelected, this.onTap});
 
   @override
   State<FilterRowWidget> createState() => _FilterRowWidgetState();
@@ -52,7 +53,10 @@ class _FilterRowWidgetState extends State<FilterRowWidget> {
             });
           }),
           SizedBox(width: 10),
-          SvgPicture.asset(AppAssetPaths.searchIcon),
+          GestureDetector(
+            onTap: widget.onTap,
+            child: SvgPicture.asset(AppAssetPaths.searchIcon),
+          ),
         ],
       ),
     );

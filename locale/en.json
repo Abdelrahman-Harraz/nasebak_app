@@ -349,6 +349,7 @@
   "book_now" : "Book now",
   "no_notifications" : "No Notifications found",
   "dear_client_no_notifications" : "Dear, there is no notifications yet",
-  "my_profile" : "My profile"
+  "my_profile" : "My profile",
+  "search" : "البحث"
 
 }
