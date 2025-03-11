@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nasebak_app/_base/widgets/base_stateful_screen_widget.dart';
@@ -572,14 +571,6 @@ class _SearchScreenWithBlocState extends BaseScreenState<SearchScreenWithBloc> {
     'سلحفاة',
   ];
 
-  final List<String> _position = [
-    'حكومي',
-    'قطاع خاص',
-    'رجل أعمال',
-    'طالبـ / ـة',
-    'متقاعد / ـة',
-    'ابحث عن عمل',
-  ];
   final List<String> _education = [
     'البكالوريوس',
     'الدبلوم',
