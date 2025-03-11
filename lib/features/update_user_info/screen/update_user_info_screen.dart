@@ -205,7 +205,7 @@ class _UpdateUserInfoScreenWithBlocState
                 Padding(
                   padding: const EdgeInsets.only(left: 30),
                   child: InkWell(
-                    onTap: () {},
+                    onTap: _clickSkip,
                     child: Container(
                       width: 99,
                       height: 30,
@@ -530,7 +530,14 @@ class _UpdateUserInfoScreenWithBlocState
                       curve: Curves.easeInOut,
                     );
                   },
-                  label: Text(context.translate(LocalizationKeys.letsStart)),
+                  label: Text(
+                    context.translate(LocalizationKeys.letsStart),
+                    style: context.titleMedium!.copyWith(
+                      fontSize: 23,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -594,7 +601,7 @@ class _UpdateUserInfoScreenWithBlocState
   }
 
   void _showAnimationAndNavigate() {
-    if (_isAnimating) return; // Prevent multiple animations
+    if (_isAnimating) return;
     _isAnimating = true;
 
     _overlayEntry = OverlayEntry(
@@ -611,7 +618,7 @@ class _UpdateUserInfoScreenWithBlocState
                     ..duration = composition.duration
                     ..forward().whenComplete(() {
                       _cleanupAnimation();
-                      context.push(AppRouter.appNavigationScreen);
+                      context.pushReplacement(AppRouter.appNavigationScreen);
                     });
                 },
               ),
@@ -627,5 +634,9 @@ class _UpdateUserInfoScreenWithBlocState
     _overlayEntry = null;
     _isAnimating = false;
     _animationController.reset();
+  }
+
+  void _clickSkip() {
+    context.push(AppRouter.appNavigationScreen);
   }
 }

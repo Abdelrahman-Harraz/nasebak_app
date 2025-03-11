@@ -112,7 +112,14 @@ class MarriageSelectionWidget extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 53, horizontal: 36),
           child: AppElevatedButton(
             onPressed: selectedMarriageId != null ? onNextPressed : null,
-            label: Text(context.translate(LocalizationKeys.next)),
+            label: Text(
+              context.translate(LocalizationKeys.next),
+              style: context.titleMedium!.copyWith(
+                fontSize: 23,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
           ),
         ),
       ],

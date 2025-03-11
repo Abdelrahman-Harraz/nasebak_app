@@ -182,6 +182,6 @@ class _PolicyScreenWithBlocState extends BaseScreenState<PolicyScreenWithBloc> {
   }
 
   void _openUpdateUserInfoScreen() {
-    context.push(AppRouter.updateUserInfoScreen);
+    context.pushReplacement(AppRouter.updateUserInfoScreen);
   }
 }

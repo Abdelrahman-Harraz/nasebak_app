@@ -33,7 +33,7 @@ class AppRouter {
   static GoRouter router = GoRouter(
     debugLogDiagnostics: true,
     //!Change later
-    initialLocation: appNavigationScreen,
+    initialLocation: initialRoute,
     routes: <RouteBase>[
       GoRoute(
         path: appNavigationScreen,
