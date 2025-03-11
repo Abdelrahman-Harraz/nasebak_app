@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/user_info/model/user_info_ui_model.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:nasebak_app/res/app_colors.dart';
@@ -15,25 +17,36 @@ class UserInfoCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 36),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(13),
-          color: Colors.white.withValues(alpha: 0.08),
-          border: Border.all(
-            color: AppColors.userInfoCardBorder.withValues(alpha: 0.20),
-            width: 1,
+      child: GestureDetector(
+        onTap: () {
+          context.push(
+            AppRouter.userInfoScreen,
+            extra: {
+              AppRouter.userInfoModelKey: model,
+              AppRouter.isCurrentUserKey: false,
+            },
+          );
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(13),
+            color: Colors.white.withValues(alpha: 0.08),
+            border: Border.all(
+              color: AppColors.userInfoCardBorder.withValues(alpha: 0.20),
+              width: 1,
+            ),
           ),
-        ),
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildHeader(context),
-            const SizedBox(height: 12),
-            _buildDetails(context),
-            const SizedBox(height: 10),
-            _buildFooter(context),
-          ],
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildHeader(context),
+              const SizedBox(height: 12),
+              _buildDetails(context),
+              const SizedBox(height: 10),
+              _buildFooter(context),
+            ],
+          ),
         ),
       ),
     );

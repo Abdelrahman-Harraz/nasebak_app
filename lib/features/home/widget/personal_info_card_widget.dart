@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/home/model/home_ui_model.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:nasebak_app/res/app_colors.dart';
@@ -14,38 +16,49 @@ class PersonalInfoCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 36),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(13),
-          gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-            colors: [
-              AppColors.homePersonalInfoCardGradient1,
-              AppColors.homePersonalInfoCardGradient2,
+      child: GestureDetector(
+        onTap: () {
+          context.push(
+            AppRouter.userInfoScreen,
+            extra: {
+              AppRouter.userInfoModelKey: model.userInfo,
+              AppRouter.isCurrentUserKey: true,
+            },
+          );
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(13),
+            gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+              colors: [
+                AppColors.homePersonalInfoCardGradient1,
+                AppColors.homePersonalInfoCardGradient2,
+              ],
+            ),
+          ),
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: Image.asset(
+                  AppAssetPaths.personalInfoBackground,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildHeader(context),
+                    const SizedBox(height: 12),
+                    _buildDetails(context),
+                  ],
+                ),
+              ),
             ],
           ),
-        ),
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: Image.asset(
-                AppAssetPaths.personalInfoBackground,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _buildHeader(context),
-                  const SizedBox(height: 12),
-                  _buildDetails(context),
-                ],
-              ),
-            ),
-          ],
         ),
       ),
     );

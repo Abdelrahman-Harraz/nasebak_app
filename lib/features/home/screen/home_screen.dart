@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nasebak_app/_base/widgets/base_stateful_screen_widget.dart';
+import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/home/bloc/home_bloc.dart';
 import 'package:nasebak_app/features/home/bloc/home_repository.dart';
 import 'package:nasebak_app/features/home/model/home_ui_model.dart';
@@ -121,8 +123,8 @@ class _HomeScreenWithBlocState extends BaseScreenState<HomeScreenWithBloc> {
         ),
         SizedBox(width: 12.w),
         GestureDetector(
+          onTap: _openNotificationsScreen,
           child: SvgPicture.asset(AppAssetPaths.notificationsIcon),
-          onTap: () {},
         ),
       ],
     );
@@ -164,5 +166,9 @@ class _HomeScreenWithBlocState extends BaseScreenState<HomeScreenWithBloc> {
 
   void _getAboutUsDataEvent() {
     currentBloc.add(GetHomeData());
+  }
+
+  void _openNotificationsScreen() {
+    context.push(AppRouter.notificationsScreen);
   }
 }

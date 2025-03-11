@@ -168,6 +168,7 @@ abstract final class AppColors {
   static const stepFourTitle = _black;
   static const sliderColor = _outrageousOrange;
   static const sliderThumbColor = _thunderbird;
+  static final userInfoContainerBackground = _white.withValues(alpha: 0.08);
 
   /// Home
   static const homeBackgroundGradient1 = _outrageousOrange;

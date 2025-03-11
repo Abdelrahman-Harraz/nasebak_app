@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nasebak_app/_base/widgets/base_stateful_screen_widget.dart';
+import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/payment/screen/payment_screen.dart';
 import 'package:nasebak_app/features/vip_membership/bloc/vip_membership_bloc.dart';
 import 'package:nasebak_app/features/vip_membership/bloc/vip_membership_repository.dart';
@@ -54,7 +56,7 @@ class _VipMembershipScreenWithBlocState
         scrolledUnderElevation: .1,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: _openNotificationsScreen,
             icon: SvgPicture.asset(AppAssetPaths.notificationsIcon),
           ),
           IconButton(
@@ -239,5 +241,9 @@ class _VipMembershipScreenWithBlocState
             ),
       ),
     );
+  }
+
+  void _openNotificationsScreen() {
+    context.push(AppRouter.notificationsScreen);
   }
 }

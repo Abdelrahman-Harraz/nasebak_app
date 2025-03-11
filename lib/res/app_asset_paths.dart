@@ -40,6 +40,8 @@ abstract final class AppAssetPaths {
   static const ringIcon = "assets/icons/ring_icon.svg";
   static const yellowSmileIcon = "assets/icons/yellow_smile.svg";
   static const rocketIcon = "assets/icons/rocket_icon.svg";
+  static const editIcon = "assets/icons/edit_icon.png";
+  static const lensIcon = "assets/icons/lens_icon.svg";
 
   /// Lottie
   static const rocketAnimation = "assets/lottie/rocket.json";

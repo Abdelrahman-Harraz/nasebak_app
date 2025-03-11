@@ -7,6 +7,8 @@ import 'package:nasebak_app/features/phone_registration/screen/phone_registratio
 import 'package:nasebak_app/features/policy/screen/policy_screen.dart';
 import 'package:nasebak_app/features/promote_profile/screen/promote_profile_screen.dart';
 import 'package:nasebak_app/features/update_user_info/screen/update_user_info_screen.dart';
+import 'package:nasebak_app/features/user_info/model/user_info_ui_model.dart';
+import 'package:nasebak_app/features/user_info/screen/user_info_screen.dart';
 import 'package:nasebak_app/features/vip_membership/screen/vip_membership_screen.dart';
 import 'package:nasebak_app/only_debug/user_debug_model.dart';
 import 'package:nasebak_app/utils/build_type/build_type.dart';
@@ -22,7 +24,10 @@ class AppRouter {
   static const vipMembershipScreen = "/vip-membership-screen";
   static const promoteProfileScreen = "/promote-profile-screen";
   static const notificationsScreen = "/notifications-screen";
+  static const userInfoScreen = "/user-info-screen";
 
+  static const userInfoModelKey = "user_info_model";
+  static const isCurrentUserKey = "is_current_user";
   static GoRouter router = GoRouter(
     debugLogDiagnostics: true,
     //!Change later
@@ -74,6 +79,24 @@ class AppRouter {
       GoRoute(
         path: notificationsScreen,
         builder: (context, state) => NotificationScreen(),
+      ),
+      GoRoute(
+        path: userInfoScreen,
+        builder: (context, state) {
+          final arguments = state.extra as Map<String, dynamic>?;
+          if (arguments == null) {
+            return UserInfoScreen(
+              userInfo: UserInfoUiModel.dummyUserInfo,
+              isCurrentUser: false,
+            );
+          }
+          final userInfo = arguments[userInfoModelKey] as UserInfoUiModel;
+          final isCurrentUser = arguments[isCurrentUserKey] as bool? ?? false;
+          return UserInfoScreen(
+            userInfo: userInfo,
+            isCurrentUser: isCurrentUser,
+          );
+        },
       ),
     ],
   );

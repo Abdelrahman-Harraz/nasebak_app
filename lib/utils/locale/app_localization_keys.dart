@@ -394,4 +394,5 @@ class LocalizationKeys {
   static const bookNow = "book_now";
   static const noNotifications = "no_notifications";
   static const dearClientNoNotifications = "dear_client_no_notifications";
+  static const myProfile = "my_profile";
 }
