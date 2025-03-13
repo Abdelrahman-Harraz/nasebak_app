@@ -9,8 +9,9 @@ import 'package:nasebak_app/features/home/bloc/home_bloc.dart';
 import 'package:nasebak_app/features/home/bloc/home_repository.dart';
 import 'package:nasebak_app/features/home/model/home_ui_model.dart';
 import 'package:nasebak_app/features/home/widget/filter_row_widget.dart';
-import 'package:nasebak_app/features/home/widget/personal_info_card_widget.dart';
+import 'package:nasebak_app/features/home/widget/golden_membership_user_card_widget.dart';
 import 'package:nasebak_app/features/home/widget/user_info_card_widget.dart';
+import 'package:nasebak_app/features/user_info/model/user_info_ui_model.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:nasebak_app/utils/empty/empty_widgets.dart';
 import 'package:nasebak_app/utils/status_bar/statusbar_controller.dart';
@@ -88,12 +89,16 @@ class _HomeScreenWithBlocState extends BaseScreenState<HomeScreenWithBloc> {
   }
 
   Widget _pageContent(HomeUiModel userInfo) {
+    final goldenMembershipUsers =
+        userInfo.userInfo.where((user) => user.goldenMembership!).toList();
+
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _homeHeaderRowWidget(),
-          _personaInfoWidget(userInfo),
+          if (goldenMembershipUsers.isNotEmpty)
+            _goldenMembershipUsersWidget(goldenMembershipUsers),
           _filterRow(),
           _userInfoWidget(userInfo),
 
@@ -134,20 +139,46 @@ class _HomeScreenWithBlocState extends BaseScreenState<HomeScreenWithBloc> {
     return SvgPicture.asset(AppAssetPaths.nasebakLogo, width: 52, height: 52);
   }
 
-  Widget _personaInfoWidget(HomeUiModel userInfo) {
-    return PersonalInfoCardWidget(model: userInfo);
+  Widget _goldenMembershipUsersWidget(List<UserInfoUiModel> goldenUsers) {
+    return SizedBox(
+      height: 170,
+      child:
+          goldenUsers.length == 1
+              ? Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 36),
+                child: IntrinsicWidth(
+                  child: GoldenMembershipUserCardWidget(model: goldenUsers[0]),
+                ),
+              )
+              : ListView.builder(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                itemCount: goldenUsers.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 16),
+                    child: SizedBox(
+                      width: 300,
+                      child: GoldenMembershipUserCardWidget(
+                        model: goldenUsers[index],
+                      ),
+                    ),
+                  );
+                },
+              ),
+    );
   }
 
   Widget _userInfoWidget(HomeUiModel userInfo) {
     return ListView.builder(
       padding: const EdgeInsets.all(0),
       shrinkWrap: true,
-      itemCount: userInfo.otherUserInfo.length,
+      itemCount: userInfo.userInfo.length,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(top: 16),
-          child: UserInfoCardWidget(model: userInfo.otherUserInfo[index]),
+          child: UserInfoCardWidget(model: userInfo.userInfo[index]),
         );
       },
     );

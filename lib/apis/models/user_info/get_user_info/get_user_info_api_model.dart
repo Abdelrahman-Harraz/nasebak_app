@@ -36,6 +36,7 @@ class GetUserInfoApiModel extends Equatable {
   final int? diamondCount;
   final bool? online;
   final int? messageCount;
+  final bool? goldenMembership;
 
   const GetUserInfoApiModel({
     required this.gender,
@@ -72,6 +73,7 @@ class GetUserInfoApiModel extends Equatable {
     this.diamondCount,
     this.online,
     this.messageCount,
+    this.goldenMembership,
   });
 
   factory GetUserInfoApiModel.fromJson(Map<String, dynamic> json) {
@@ -110,6 +112,7 @@ class GetUserInfoApiModel extends Equatable {
       diamondCount: json['diamondCount'],
       online: json['online'],
       messageCount: json['messageCount'],
+      goldenMembership: json['goldenMembership'],
     );
   }
 
@@ -130,5 +133,6 @@ class GetUserInfoApiModel extends Equatable {
     diamondCount,
     online,
     messageCount,
+    goldenMembership,
   ];
 }

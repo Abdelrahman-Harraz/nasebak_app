@@ -36,6 +36,7 @@ class UserInfoUiModel {
   final int? diamondCount;
   final bool? online;
   final int? messageCount;
+  final bool? goldenMembership;
 
   UserInfoUiModel({
     required this.gender,
@@ -72,6 +73,7 @@ class UserInfoUiModel {
     this.diamondCount,
     this.online,
     this.messageCount,
+    this.goldenMembership,
   });
 
   factory UserInfoUiModel.fromApi(GetUserInfoApiModel e) {
@@ -105,6 +107,7 @@ class UserInfoUiModel {
       diamondCount: e.diamondCount,
       online: e.online,
       messageCount: e.messageCount,
+      goldenMembership: e.goldenMembership,
     );
   }
 
@@ -143,5 +146,6 @@ class UserInfoUiModel {
     diamondCount: 100,
     online: true,
     messageCount: 5,
+    goldenMembership: true,
   );
 }
