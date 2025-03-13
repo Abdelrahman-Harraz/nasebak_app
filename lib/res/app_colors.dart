@@ -60,6 +60,7 @@ abstract final class AppColors {
   static const Color _mexicanRed = Color(0xFF9B232D);
   static const Color _spicyMustard = Color(0xFF7E5E10);
   static const Color _genoa = Color(0xFF1A8852);
+  static const Color _dontForget = Color(0xFFFFF2EF);
 
   /// app main theme ...
   static const colorPrimary = _white;
@@ -167,6 +168,7 @@ abstract final class AppColors {
   static const talkAboutBtnText = _white;
   static const stepFourTitle = _black;
   static const sliderColor = _outrageousOrange;
+  static const sliderIActiveColor = _dontForget;
   static const sliderThumbColor = _thunderbird;
   static final userInfoContainerBackground = _white.withValues(alpha: 0.08);
 

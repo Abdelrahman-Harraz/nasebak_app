@@ -10,14 +10,14 @@ import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
 
 class UserInfoStepFourWidget extends StatefulWidget {
   final VoidCallback? onNextPressed;
-  final int currentStep;
+
   final int totalSteps;
   final String userName;
 
   const UserInfoStepFourWidget({
     super.key,
     this.onNextPressed,
-    this.currentStep = 4,
+
     this.totalSteps = 4,
     required this.userName,
   });
@@ -38,6 +38,14 @@ class _UserInfoStepFourWidgetState extends State<UserInfoStepFourWidget> {
     ['كل يوم', 'غالبا', 'أحيانا', 'غير رياضي'],
     ['قطط', 'زواحف', 'سمك', 'سنجاب', 'هامستر', 'طيور', 'سلحفاة'],
   ];
+  int get _currentStep {
+    int step = 0;
+    if (groupOneSelectedIndex != -1) step++;
+    if (groupTwoSelectedIndex != -1) step++;
+    if (groupThreeSelectedIndex != -1) step++;
+    if (groupFourSelections.contains(true)) step++;
+    return step;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -255,7 +263,7 @@ class _UserInfoStepFourWidgetState extends State<UserInfoStepFourWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "${widget.currentStep}/${widget.totalSteps}",
+                "$_currentStep/${widget.totalSteps}",
                 style: context.titleMedium!.copyWith(
                   fontSize: 23,
                   fontWeight: FontWeight.bold,

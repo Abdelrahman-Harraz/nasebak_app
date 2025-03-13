@@ -10,14 +10,12 @@ import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
 
 class UserInfoStepSevenWidget extends StatefulWidget {
   final VoidCallback? onNextPressed;
-  final int currentStep;
   final int totalSteps;
 
   const UserInfoStepSevenWidget({
     super.key,
     this.onNextPressed,
-    this.currentStep = 7,
-    this.totalSteps = 7,
+    this.totalSteps = 5,
   });
 
   @override
@@ -31,6 +29,17 @@ class _UserInfoStepSevenWidgetState extends State<UserInfoStepSevenWidget> {
   int groupThreeSelectedIndex = -1;
   int groupFourSelectedIndex = -1;
   int groupFiveSelectedIndex = -1;
+
+  int get _currentStep {
+    int step = 0;
+    if (groupOneSelectedIndex != -1) step++;
+    if (groupTwoSelectedIndex != -1) step++;
+    if (groupThreeSelectedIndex != -1) step++;
+    if (groupFourSelectedIndex != -1) step++;
+    if (groupFiveSelectedIndex != -1) step++;
+
+    return step;
+  }
 
   final List<List<String>> choices = [
     [
@@ -257,7 +266,7 @@ class _UserInfoStepSevenWidgetState extends State<UserInfoStepSevenWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "${widget.currentStep}/${widget.totalSteps}",
+                "$_currentStep/${widget.totalSteps}",
                 style: context.titleMedium!.copyWith(
                   fontSize: 23,
                   fontWeight: FontWeight.bold,

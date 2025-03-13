@@ -10,14 +10,14 @@ import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
 
 class UserInfoStepFiveWidget extends StatefulWidget {
   final VoidCallback? onNextPressed;
-  final int currentStep;
+
   final int totalSteps;
   final String userName;
 
   const UserInfoStepFiveWidget({
     super.key,
     this.onNextPressed,
-    this.currentStep = 5,
+
     this.totalSteps = 5,
     required this.userName,
   });
@@ -33,6 +33,19 @@ class _UserInfoStepFiveWidgetState extends State<UserInfoStepFiveWidget> {
   int groupFourSelectedIndex = -1;
   double _startValue = 0;
   double _endValue = 10000;
+
+  int get _currentStep {
+    int step = 0;
+    if (groupOneSelectedIndex != -1) step++;
+    if (groupTwoSelectedIndex != -1) step++;
+    if (groupThreeSelectedIndex != -1) step++;
+    if (groupFourSelectedIndex != -1) step++;
+    if (_startValue != 0 || _endValue != 10000) {
+      step++;
+    }
+
+    return step;
+  }
 
   final List<List<String>> choices = [
     [
@@ -232,7 +245,6 @@ class _UserInfoStepFiveWidgetState extends State<UserInfoStepFiveWidget> {
               textAlign: TextAlign.center,
               style: context.titleMedium!.copyWith(
                 fontSize: 17,
-
                 color: AppColors.stepFourTitle,
               ),
             ),
@@ -241,7 +253,6 @@ class _UserInfoStepFiveWidgetState extends State<UserInfoStepFiveWidget> {
               textAlign: TextAlign.center,
               style: context.titleMedium!.copyWith(
                 fontSize: 17,
-
                 color: AppColors.stepFourTitle,
               ),
             ),
@@ -253,18 +264,16 @@ class _UserInfoStepFiveWidgetState extends State<UserInfoStepFiveWidget> {
             sliderTheme: SliderThemeData(
               thumbColor: AppColors.sliderThumbColor,
               thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 15.0),
-
               overlayShape: SliderComponentShape.noOverlay,
             ),
           ),
           child: RangeSlider(
             values: RangeValues(_startValue, _endValue),
-            min: _startValue,
-            max: _endValue,
+            min: 0,
+            max: 10000,
             activeColor: AppColors.sliderColor,
-            inactiveColor: AppColors.sliderColor,
+            inactiveColor: AppColors.sliderIActiveColor,
             divisions: 100,
-
             onChanged: (RangeValues newValues) {
               setState(() {
                 _startValue = newValues.start;
@@ -312,7 +321,7 @@ class _UserInfoStepFiveWidgetState extends State<UserInfoStepFiveWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "${widget.currentStep}/${widget.totalSteps}",
+                "$_currentStep/${widget.totalSteps}",
                 style: context.titleMedium!.copyWith(
                   fontSize: 23,
                   fontWeight: FontWeight.bold,

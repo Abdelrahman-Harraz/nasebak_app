@@ -10,12 +10,10 @@ import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
 
 class UserInfoStepThreeWidget extends StatefulWidget {
   final VoidCallback? onNextPressed;
-  final int currentStep;
   final int totalSteps;
   const UserInfoStepThreeWidget({
     super.key,
     this.onNextPressed,
-    this.currentStep = 3,
     this.totalSteps = 3,
   });
 
@@ -44,6 +42,14 @@ class _UserInfoStepThreeWidgetState extends State<UserInfoStepThreeWidget> {
     'قطري',
     'كويتي',
   ];
+
+  int get _currentStep {
+    int step = 0;
+    if (_selectedCountry != null) step++;
+    if (_selectedCity != null) step++;
+    if (_selectedNationality != null) step++;
+    return step;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -154,7 +160,7 @@ class _UserInfoStepThreeWidgetState extends State<UserInfoStepThreeWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "${widget.currentStep}/${widget.totalSteps}",
+                "$_currentStep/${widget.totalSteps}",
                 style: context.titleMedium!.copyWith(
                   fontSize: 23,
                   fontWeight: FontWeight.bold,

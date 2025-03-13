@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nasebak_app/features/update_user_info/model/marriage_type_model.dart';
+import 'package:nasebak_app/features/widgets/app_buttons/app_elevated_button.dart';
 import 'package:nasebak_app/res/app_colors.dart';
 import 'package:nasebak_app/utils/extensions/extension_localization.dart';
 import 'package:nasebak_app/utils/extensions/extension_theme.dart';
-import 'package:nasebak_app/features/widgets/app_buttons/app_elevated_button.dart';
 import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
 
 class MarriageSelectionWidget extends StatelessWidget {
-  final int? selectedMarriageId;
-  final Function(int?) onMarriageSelected;
+  final Set<int> selectedMarriageIds;
+  final Function(int) onMarriageSelected;
   final VoidCallback onNextPressed;
 
   const MarriageSelectionWidget({
     super.key,
-    required this.selectedMarriageId,
+    required this.selectedMarriageIds,
     required this.onMarriageSelected,
     required this.onNextPressed,
   });
@@ -25,7 +24,7 @@ class MarriageSelectionWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(height: 28.h),
+        SizedBox(height: 28),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 36),
           child: Align(
@@ -49,13 +48,13 @@ class MarriageSelectionWidget extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 20.h),
+        SizedBox(height: 20),
 
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children:
               MarriageTypeModel.marriageType.map((marriageType) {
-                bool isSelected = selectedMarriageId == marriageType.id;
+                bool isSelected = selectedMarriageIds.contains(marriageType.id);
                 return GestureDetector(
                   onTap: () {
                     onMarriageSelected(marriageType.id);
@@ -65,7 +64,7 @@ class MarriageSelectionWidget extends StatelessWidget {
                     child: Container(
                       height: 137,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(7.r),
+                        borderRadius: BorderRadius.circular(7),
                         color:
                             isSelected
                                 ? Colors.white
@@ -107,11 +106,13 @@ class MarriageSelectionWidget extends StatelessWidget {
                 );
               }).toList(),
         ),
+
         const Spacer(),
+
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 53, horizontal: 36),
           child: AppElevatedButton(
-            onPressed: selectedMarriageId != null ? onNextPressed : null,
+            onPressed: selectedMarriageIds.isNotEmpty ? onNextPressed : null,
             label: Text(
               context.translate(LocalizationKeys.next),
               style: context.titleMedium!.copyWith(

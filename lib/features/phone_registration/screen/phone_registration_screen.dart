@@ -225,7 +225,7 @@ class _PhoneRegistrationScreenWithBlocState
             color: AppColors.buttonTextColor,
           ),
         ),
-        onPressed: () {},
+        onPressed: _signAsAGuest,
       ),
     );
   }
@@ -278,5 +278,9 @@ class _PhoneRegistrationScreenWithBlocState
   void _setDebugEmailPasswordAutomatic() {
     _phoneNumber = UserDebugModel.phone;
     _selectedCountryCode = UserDebugModel.country;
+  }
+
+  void _signAsAGuest() {
+    context.pushReplacement(AppRouter.appNavigationScreen);
   }
 }

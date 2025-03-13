@@ -66,7 +66,7 @@ class _UpdateUserInfoScreenWithBlocState
 
   final PageController _pageController = PageController(initialPage: 0);
   int? selectedGenderId;
-  int? selectedMarriageId;
+  Set<int> selectedMarriageIds = {};
 
   int _currentPage = 0;
 
@@ -290,10 +290,14 @@ class _UpdateUserInfoScreenWithBlocState
 
   Widget _marriageTypeSelectionPage() {
     return MarriageSelectionWidget(
-      selectedMarriageId: selectedMarriageId,
-      onMarriageSelected: (int? id) {
+      selectedMarriageIds: selectedMarriageIds,
+      onMarriageSelected: (int id) {
         setState(() {
-          selectedMarriageId = id;
+          if (selectedMarriageIds.contains(id)) {
+            selectedMarriageIds.remove(id);
+          } else {
+            selectedMarriageIds.add(id);
+          }
         });
       },
       onNextPressed: () {

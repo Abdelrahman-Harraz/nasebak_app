@@ -10,13 +10,11 @@ import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
 
 class UserInfoStepSixWidget extends StatefulWidget {
   final VoidCallback? onNextPressed;
-  final int currentStep;
   final int totalSteps;
 
   const UserInfoStepSixWidget({
     super.key,
     this.onNextPressed,
-    this.currentStep = 6,
     this.totalSteps = 6,
   });
 
@@ -31,6 +29,18 @@ class _UserInfoStepSixWidgetState extends State<UserInfoStepSixWidget> {
   double _height = 0;
   double _weight = 0;
   bool? _acceptNationality;
+
+  int get _currentStep {
+    int step = 0;
+    if (groupOneSelectedIndex != -1) step++;
+    if (_age != 18) step++;
+    if (_weight != 0) step++;
+    if (_height != 0) step++;
+    if (tribeTextEditingController.text.isNotEmpty) step++;
+    if (_acceptNationality != null) step++;
+
+    return step;
+  }
 
   final List<List<String>> choices = [
     ['أبيض', 'بياض شامي', 'حنطي', ' حنطي فاتح', 'أسمر'],
@@ -286,7 +296,7 @@ class _UserInfoStepSixWidgetState extends State<UserInfoStepSixWidget> {
             min: min,
             max: max,
             activeColor: AppColors.sliderColor,
-            inactiveColor: AppColors.sliderColor,
+            inactiveColor: AppColors.sliderIActiveColor,
             divisions: (max - min).toInt(),
 
             onChanged: onChanged,
@@ -331,7 +341,7 @@ class _UserInfoStepSixWidgetState extends State<UserInfoStepSixWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "${widget.currentStep}/${widget.totalSteps}",
+                "$_currentStep/${widget.totalSteps}",
                 style: context.titleMedium!.copyWith(
                   fontSize: 23,
                   fontWeight: FontWeight.bold,
