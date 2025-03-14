@@ -4,6 +4,7 @@ import 'package:nasebak_app/features/app_navigation/bloc/app_navigation_bloc.dar
 import 'package:nasebak_app/features/app_navigation/widgets/app_nav_item_widget.dart';
 import 'package:nasebak_app/features/chat/screen/chat_screen.dart';
 import 'package:nasebak_app/features/home/screen/home_screen.dart';
+import 'package:nasebak_app/features/setting/screen/setting_screen.dart';
 import 'package:nasebak_app/features/subscription/screen/subscription_screen.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:nasebak_app/res/app_colors.dart';
@@ -54,7 +55,7 @@ class _AppNavigationScreenWithBlocState
     const HomeScreen(),
     const ChatScreen(),
     const SubscriptionScreen(),
-    const _AppNavTempBodyWidget(screenName: "Setting screen"),
+    const SettingScreen(),
   ];
 
   @override

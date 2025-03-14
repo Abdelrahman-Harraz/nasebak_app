@@ -34,3 +34,12 @@ class LoadedMyProfileSuccessfullyState extends SettingState {
 
   const LoadedMyProfileSuccessfullyState({required this.myProfile});
 }
+
+class ProfileImageUploadedSuccessfullyState extends SettingState {
+  final String profileImage;
+
+  const ProfileImageUploadedSuccessfullyState({required this.profileImage});
+
+  @override
+  List<Object> get props => [profileImage];
+}

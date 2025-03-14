@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:nasebak_app/_base/widgets/base_stateful_screen_widget.dart';
+import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/membership/bloc/membership_bloc.dart';
 import 'package:nasebak_app/features/membership/bloc/membership_repository.dart';
 import 'package:nasebak_app/features/membership/model/membership_ui_model.dart';
@@ -63,7 +65,7 @@ class _MembershipScreenWithBlocState
         scrolledUnderElevation: .1,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: _openNotificationsScreen,
             icon: SvgPicture.asset(AppAssetPaths.notificationsIcon),
           ),
         ],
@@ -108,7 +110,6 @@ class _MembershipScreenWithBlocState
   }
 
   Widget _pageContent(List<MembershipUiModel> subscriptions) {
-    // Safety check to ensure subscriptions has at least 3 items (for middle selection)
     if (subscriptions.isEmpty) {
       return const EmptyWidget();
     }
@@ -124,7 +125,7 @@ class _MembershipScreenWithBlocState
       itemBuilder: (context, index) {
         return AnimatedOpacity(
           duration: Duration(milliseconds: 300),
-          opacity: currentIndex == index ? 1.0 : 0.7, // Dim non-current pages
+          opacity: currentIndex == index ? 1.0 : 0.7,
           child: _buildSubscriptionPage(subscriptions[index]),
         );
       },
@@ -442,5 +443,9 @@ class _MembershipScreenWithBlocState
             (context) => MembershipDetailsScreen(subscription: subscription),
       ),
     );
+  }
+
+  void _openNotificationsScreen() {
+    context.push(AppRouter.notificationsScreen);
   }
 }

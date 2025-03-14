@@ -16,3 +16,9 @@ class DeleteAccountClicked extends SettingEvent {
 class LogOutClickEvent extends SettingEvent {
   const LogOutClickEvent();
 }
+
+class UploadProfileImageEvent extends SettingEvent {
+  final String imagePath;
+
+  const UploadProfileImageEvent(this.imagePath);
+}

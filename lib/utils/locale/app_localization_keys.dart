@@ -396,4 +396,9 @@ class LocalizationKeys {
   static const dearClientNoNotifications = "dear_client_no_notifications";
   static const myProfile = "my_profile";
   static const search = "search";
+  static const mobileNumber = "mobile_number";
+  static const deleteAccount = "delete_account";
+  static const logOut = "log_out";
+  static const deleteAccountConfirmationQuestion =
+      "delete_account_confirmation_questions";
 }

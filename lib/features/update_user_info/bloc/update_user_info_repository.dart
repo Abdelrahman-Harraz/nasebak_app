@@ -33,6 +33,7 @@ class UpdateUserInfoRepository implements BaseUpdateUserInfoRepository {
         marriageType: "",
         description: "",
         conditions: "",
+        mobileNumber: "",
       ),
     );
   }

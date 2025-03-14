@@ -23,6 +23,7 @@ class HomeUiModel extends Equatable {
         UserInfoUiModel(
           id: 1,
           firstName: "عبد الله",
+          mobileNumber: "",
           gender: "Female",
           marriageType: "زواج تقليدي",
           age: 28,
@@ -59,6 +60,7 @@ class HomeUiModel extends Equatable {
         UserInfoUiModel(
           id: 2,
           firstName: "عبد",
+          mobileNumber: "",
           gender: "Female",
           marriageType: "اعزب",
           age: 28,
@@ -95,6 +97,7 @@ class HomeUiModel extends Equatable {
         UserInfoUiModel(
           id: 3,
           firstName: "عبد الله",
+          mobileNumber: "",
           gender: "Female",
           marriageType: "اعزب",
           age: 28,
@@ -131,6 +134,7 @@ class HomeUiModel extends Equatable {
         UserInfoUiModel(
           id: 4,
           firstName: "عبد الله",
+          mobileNumber: "",
           gender: "Female",
           marriageType: "اعزب",
           age: 28,

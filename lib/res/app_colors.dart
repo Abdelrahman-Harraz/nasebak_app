@@ -61,6 +61,9 @@ abstract final class AppColors {
   static const Color _spicyMustard = Color(0xFF7E5E10);
   static const Color _genoa = Color(0xFF1A8852);
   static const Color _dontForget = Color(0xFFFFF2EF);
+  static const Color _brightRed = Color(0xFFB50000);
+  static const Color _rebel = Color(0xFF400E05);
+  static const Color _surfieGreen = Color(0xFF117F77);
 
   /// app main theme ...
   static const colorPrimary = _white;
@@ -271,6 +274,14 @@ abstract final class AppColors {
   /// search
   static final bottomSheetBackgroundColor = _mineShaft;
   static final bottomSheetDrawer = _silverChalice;
+
+  /// Setting
+  static final deleteAccountBtn = _brightRed;
+  static final logOutBtn = _gray;
+  static final warningPopUpGradient1 = _outrageousOrange;
+  static final warningPopUpGradient2 = _rebel;
+  static final yesBtn = _red;
+  static final noBtn = _surfieGreen;
 }
 
 ///

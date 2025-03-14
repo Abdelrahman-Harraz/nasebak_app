@@ -15,6 +15,7 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
     on<DeleteAccountClicked>(_deleteClickEvent);
     on<LogOutClickEvent>(_logOutClickEvent);
     on<GetProfileDataEvent>(_getProfileDataEvent);
+    on<UploadProfileImageEvent>(_uploadProfileImageEvent);
   }
 
   FutureOr<void> _deleteClickEvent(
@@ -36,5 +37,12 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
     Emitter<SettingState> emit,
   ) async {
     emit(await settingRepository.profileData());
+  }
+
+  FutureOr<void> _uploadProfileImageEvent(
+    UploadProfileImageEvent event,
+    Emitter<SettingState> emit,
+  ) {
+    emit(ProfileImageUploadedSuccessfullyState(profileImage: event.imagePath));
   }
 }

@@ -42,6 +42,7 @@ abstract final class AppAssetPaths {
   static const rocketIcon = "assets/icons/rocket_icon.svg";
   static const editIcon = "assets/icons/edit_icon.png";
   static const lensIcon = "assets/icons/lens_icon.svg";
+  static const phoneIcon = "assets/icons/phone_icon.svg";
 
   /// Lottie
   static const rocketAnimation = "assets/lottie/rocket.json";
@@ -117,4 +118,7 @@ abstract final class AppAssetPaths {
 
   /// Notifications
   static const noNotifications = "assets/images/no_notifications_found.png";
+
+  /// Settings
+  static const warningIcon = "assets/icons/warning_icon.svg";
 }

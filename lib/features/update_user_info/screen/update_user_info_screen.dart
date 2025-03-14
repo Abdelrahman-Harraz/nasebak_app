@@ -488,6 +488,7 @@ class _UpdateUserInfoScreenWithBlocState
       firstName: userInfoUiModel.firstName,
       gender: userInfoUiModel.gender,
       marriageType: userInfoUiModel.marriageType,
+      mobileNumber: userInfoUiModel.mobileNumber,
     );
   }
 

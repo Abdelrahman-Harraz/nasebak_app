@@ -6,6 +6,7 @@ class UserInfoUiModel {
   String? userImage;
   String? firstName;
   final String gender;
+  final String mobileNumber;
   final String marriageType;
   final String? conditions;
   final String? description;
@@ -43,6 +44,7 @@ class UserInfoUiModel {
     required this.marriageType,
     required this.id,
     this.conditions,
+    required this.mobileNumber,
     this.description,
     this.firstName,
     this.nationality,
@@ -108,12 +110,14 @@ class UserInfoUiModel {
       online: e.online,
       messageCount: e.messageCount,
       goldenMembership: e.goldenMembership,
+      mobileNumber: e.mobileNumber,
     );
   }
 
   static UserInfoUiModel dummyUserInfo = UserInfoUiModel(
     id: 1,
     firstName: "محمد",
+    mobileNumber: "011223344",
     gender: "ذكر",
     marriageType: "زواج تقليدي",
     conditions: "أبحث عن شخص متدين وملتزم",
@@ -126,7 +130,7 @@ class UserInfoUiModel {
     exerciseFrequency: "3 مرات في الأسبوع",
     pets: ["قطط", "طيور"],
     position: "مهندس برمجيات",
-    income: RangeValues(10000, 15000),
+    income: RangeValues(0, 10000000),
     education: "بكالوريوس في هندسة البرمجيات",
     islam: "ملتزم",
     perspective: "معتدل",
@@ -141,7 +145,7 @@ class UserInfoUiModel {
     look: "وسيم",
     hair: "أسود",
     health: "جيد",
-    userImage: "https://example.com/user_image.jpg",
+    userImage: "",
     verified: true,
     diamondCount: 100,
     online: true,

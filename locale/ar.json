@@ -354,5 +354,9 @@
   "no_notifications" :"لا توجد إشعارات",
   "dear_client_no_notifications" :"عزيزنا العميل لا يوجد إشعارات حاليا",
   "my_profile" : "الملف الشخصي",
-  "search" : "البحث"
+  "search" : "البحث",
+  "mobile_number" : "رقم الجوال",
+  "delete_account" : "حذف الحساب",
+  "log_out" : "تسجيل الخروج",
+  "delete_account_confirmation_questions" :"هل متأكد من حذف حسابك ؟"
 }
