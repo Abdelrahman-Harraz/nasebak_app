@@ -54,7 +54,7 @@ class _ChatScreenWithBlocState extends BaseScreenState<ChatScreenWithBloc> {
 
         actions: [
           IconButton(
-            onPressed: _openNotificationsScreen,
+            onPressed: () {},
             icon: SvgPicture.asset(AppAssetPaths.searchIcon),
           ),
           IconButton(
@@ -62,7 +62,7 @@ class _ChatScreenWithBlocState extends BaseScreenState<ChatScreenWithBloc> {
             icon: SvgPicture.asset(AppAssetPaths.heartIcon),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: _openNotificationsScreen,
             icon: SvgPicture.asset(AppAssetPaths.notificationsIcon),
           ),
         ],

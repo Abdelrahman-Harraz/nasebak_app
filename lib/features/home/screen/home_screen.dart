@@ -170,15 +170,26 @@ class _HomeScreenWithBlocState extends BaseScreenState<HomeScreenWithBloc> {
   }
 
   Widget _userInfoWidget(HomeUiModel userInfo) {
+    final sortedUserInfo =
+        userInfo.userInfo.toList()..sort((a, b) {
+          if (a.online! && !b.online!) {
+            return -1;
+          } else if (!a.online! && b.online!) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+
     return ListView.builder(
       padding: const EdgeInsets.all(0),
       shrinkWrap: true,
-      itemCount: userInfo.userInfo.length,
+      itemCount: sortedUserInfo.length,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(top: 16),
-          child: UserInfoCardWidget(model: userInfo.userInfo[index]),
+          child: UserInfoCardWidget(model: sortedUserInfo[index]),
         );
       },
     );

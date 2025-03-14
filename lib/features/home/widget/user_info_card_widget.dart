@@ -17,36 +17,25 @@ class UserInfoCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 36),
-      child: GestureDetector(
-        onTap: () {
-          context.push(
-            AppRouter.userInfoScreen,
-            extra: {
-              AppRouter.userInfoModelKey: model,
-              AppRouter.isCurrentUserKey: false,
-            },
-          );
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(13),
-            color: Colors.white.withValues(alpha: 0.08),
-            border: Border.all(
-              color: AppColors.userInfoCardBorder.withValues(alpha: 0.20),
-              width: 1,
-            ),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(13),
+          color: Colors.white.withValues(alpha: 0.08),
+          border: Border.all(
+            color: AppColors.userInfoCardBorder.withValues(alpha: 0.20),
+            width: 1,
           ),
-          padding: const EdgeInsets.all(12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _buildHeader(context),
-              const SizedBox(height: 12),
-              _buildDetails(context),
-              const SizedBox(height: 10),
-              _buildFooter(context),
-            ],
-          ),
+        ),
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _buildHeader(context),
+            const SizedBox(height: 12),
+            _buildDetails(context),
+            const SizedBox(height: 10),
+            _buildFooter(context),
+          ],
         ),
       ),
     );
@@ -58,28 +47,39 @@ class UserInfoCardWidget extends StatelessWidget {
       children: [
         Row(
           children: [
-            Stack(
-              clipBehavior: Clip.none,
-              children: [
-                CircleAvatar(
-                  radius: 25,
-                  backgroundImage:
-                      model.userImage == null
-                          ? AssetImage(
-                            AppAssetPaths.personalInfoDummyProfileImage,
-                          )
-                          : NetworkImage(model.userImage!) as ImageProvider,
-                ),
-                Positioned(
-                  top: -5,
-                  right: -5,
-                  child: SvgPicture.asset(
-                    AppAssetPaths.verifiedIcon,
-                    width: 20,
-                    height: 20,
+            GestureDetector(
+              onTap: () {
+                context.push(
+                  AppRouter.userInfoScreen,
+                  extra: {
+                    AppRouter.userInfoModelKey: model,
+                    AppRouter.isCurrentUserKey: false,
+                  },
+                );
+              },
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  CircleAvatar(
+                    radius: 25,
+                    backgroundImage:
+                        model.userImage == null
+                            ? AssetImage(
+                              AppAssetPaths.personalInfoDummyProfileImage,
+                            )
+                            : NetworkImage(model.userImage!) as ImageProvider,
                   ),
-                ),
-              ],
+                  Positioned(
+                    top: -5,
+                    right: -5,
+                    child: SvgPicture.asset(
+                      AppAssetPaths.verifiedIcon,
+                      width: 20,
+                      height: 20,
+                    ),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(width: 8),
             Text(
@@ -95,7 +95,7 @@ class UserInfoCardWidget extends StatelessWidget {
         Row(
           children: [
             Text(
-              model.diamondCount.toString(),
+              formatDiamondCount(model.diamondCount!),
               style: context.headlineSmall?.copyWith(
                 color: AppColors.diamondCountColor,
                 fontSize: 16,
@@ -227,5 +227,18 @@ class UserInfoCardWidget extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String formatDiamondCount(int count) {
+    if (count >= 1000) {
+      double result = count / 1000;
+
+      if (result == result.roundToDouble()) {
+        return '${result.round()}k';
+      } else {
+        return '${result.toStringAsFixed(1)}k';
+      }
+    }
+    return count.toString();
   }
 }

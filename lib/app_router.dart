@@ -87,17 +87,10 @@ class AppRouter {
         builder: (context, state) {
           final arguments = state.extra as Map<String, dynamic>?;
           if (arguments == null) {
-            return UserInfoScreen(
-              userInfo: UserInfoUiModel.dummyUserInfo,
-              isCurrentUser: false,
-            );
+            return UserInfoScreen(userInfo: UserInfoUiModel.dummyUserInfo);
           }
           final userInfo = arguments[userInfoModelKey] as UserInfoUiModel;
-          final isCurrentUser = arguments[isCurrentUserKey] as bool? ?? false;
-          return UserInfoScreen(
-            userInfo: userInfo,
-            isCurrentUser: isCurrentUser,
-          );
+          return UserInfoScreen(userInfo: userInfo);
         },
       ),
       GoRoute(path: searchScreen, builder: (context, state) => SearchScreen()),

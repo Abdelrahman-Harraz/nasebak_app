@@ -5,20 +5,14 @@ import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/user_info/model/user_info_ui_model.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:nasebak_app/res/app_colors.dart';
-import 'package:nasebak_app/utils/empty/empty_widgets.dart';
 import 'package:nasebak_app/utils/extensions/extension_localization.dart';
 import 'package:nasebak_app/utils/extensions/extension_theme.dart';
 import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
 
 class UserInfoScreen extends StatelessWidget {
   final UserInfoUiModel userInfo;
-  final bool isCurrentUser;
 
-  const UserInfoScreen({
-    super.key,
-    required this.userInfo,
-    this.isCurrentUser = false,
-  });
+  const UserInfoScreen({super.key, required this.userInfo});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +25,7 @@ class UserInfoScreen extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          isCurrentUser ? context.translate(LocalizationKeys.myProfile) : "",
+          context.translate(LocalizationKeys.myProfile),
           style: context.headlineMedium?.copyWith(
             fontSize: 18,
             color: Colors.white,
@@ -95,71 +89,67 @@ class UserInfoScreen extends StatelessWidget {
   Widget _buildProfileHeader(BuildContext context) {
     return Stack(
       children: [
-        !isCurrentUser
-            ? Positioned(
-              left: 0,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Column(
+        Positioned(
+          left: 0,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Column(
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: SvgPicture.asset(AppAssetPaths.chattingIcon),
+                ),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: SvgPicture.asset(AppAssetPaths.chattingIcon),
+                    Container(
+                      width: 10,
+                      height: 10,
+                      decoration: BoxDecoration(
+                        color:
+                            userInfo.online!
+                                ? AppColors.onlineColor
+                                : AppColors.offlineColor,
+                        shape: BoxShape.circle,
+                      ),
                     ),
-                    SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                          width: 10,
-                          height: 10,
-                          decoration: BoxDecoration(
-                            color:
-                                userInfo.online!
-                                    ? AppColors.onlineColor
-                                    : AppColors.offlineColor,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                        const SizedBox(width: 8),
-                        Text(
-                          userInfo.online!
-                              ? context.translate(LocalizationKeys.online)
-                              : context.translate(LocalizationKeys.offline),
-                          style: context.bodyMedium?.copyWith(
-                            color:
-                                userInfo.online!
-                                    ? AppColors.onlineColor
-                                    : AppColors.offlineColor,
-                          ),
-                        ),
-                      ],
+                    const SizedBox(width: 8),
+                    Text(
+                      userInfo.online!
+                          ? context.translate(LocalizationKeys.online)
+                          : context.translate(LocalizationKeys.offline),
+                      style: context.bodyMedium?.copyWith(
+                        color:
+                            userInfo.online!
+                                ? AppColors.onlineColor
+                                : AppColors.offlineColor,
+                      ),
                     ),
                   ],
                 ),
+              ],
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                userInfo.diamondCount.toString(),
+                style: context.headlineSmall?.copyWith(
+                  color: AppColors.diamondCountColor,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            )
-            : EmptyWidget(),
-        !isCurrentUser
-            ? Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    userInfo.diamondCount.toString(),
-                    style: context.headlineSmall?.copyWith(
-                      color: AppColors.diamondCountColor,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(width: 5),
-                  Image.asset(AppAssetPaths.diamondIcon, width: 19),
-                ],
-              ),
-            )
-            : EmptyWidget(),
+              const SizedBox(width: 5),
+              Image.asset(AppAssetPaths.diamondIcon, width: 19),
+            ],
+          ),
+        ),
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
