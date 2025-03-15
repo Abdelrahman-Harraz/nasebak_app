@@ -121,7 +121,7 @@ class _PhoneNumberWithCodeFormState extends BaseState<PhoneNumberWithCodeForm>
         child: Row(
           children: [
             Text(
-              "${widget.selectedCountryCode}",
+              widget.selectedCountryCode ?? '+966',
               style: const TextStyle(
                 fontSize: 16,
                 color: AppColors.countryCode,

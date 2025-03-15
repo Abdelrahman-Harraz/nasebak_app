@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -209,18 +211,17 @@ class _MembershipScreenWithBlocState
           child: CircleAvatar(
             radius: 60,
             backgroundImage:
-                model.userImage == null
+                model.userImage == null || model.userImage!.isEmpty
                     ? AssetImage(AppAssetPaths.personalInfoDummyProfileImage)
-                    : NetworkImage(model.userImage!),
+                    : FileImage(File(model.userImage!)),
           ),
         ),
-
         if (model.verified == true)
           Positioned(
             top: 0,
             right: -10,
             child: GestureDetector(
-              onTap: () => _pickImage(model),
+              onTap: () {},
               child: Image.asset(AppAssetPaths.editIcon, width: 30, height: 30),
             ),
           ),
@@ -797,6 +798,9 @@ class _MembershipScreenWithBlocState
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
     if (image != null) {
+      setState(() {
+        model.userImage = image.path;
+      });
       currentBloc.add(UploadProfileImageEvent(image.path));
     }
   }

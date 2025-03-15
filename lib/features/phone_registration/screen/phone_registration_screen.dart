@@ -238,7 +238,15 @@ class _PhoneRegistrationScreenWithBlocState
       context.read<PhoneRegistrationBloc>();
 
   void _getInitCountryCode() {
-    _selectedCountryCode = widget.phoneCode.replaceRange(0, 1, "+");
+    if (widget.phoneCode.isEmpty) {
+      _selectedCountryCode = "+966";
+    } else {
+      _selectedCountryCode =
+          widget.phoneCode.startsWith("+")
+              ? widget.phoneCode
+              : "+${widget.phoneCode}";
+    }
+
     Country country = CountryService().getAll().firstWhere(
       (country) => country.phoneCode == _selectedCountryCode,
       orElse: () => CountryService().findByCode("EG")!,

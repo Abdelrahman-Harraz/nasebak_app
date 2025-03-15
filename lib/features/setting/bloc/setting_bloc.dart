@@ -43,6 +43,7 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
     UploadProfileImageEvent event,
     Emitter<SettingState> emit,
   ) {
+    emit(SettingLoadingState());
     emit(ProfileImageUploadedSuccessfullyState(profileImage: event.imagePath));
   }
 }

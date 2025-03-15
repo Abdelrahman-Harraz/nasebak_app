@@ -52,8 +52,8 @@ class AppRouter {
           final phoneCode =
               isDebugMode()
                   ? UserDebugModel.country
-                  : argument[PhoneRegistrationScreen.argumentPhoneCode]
-                          as String? ??
+                  : (argument[PhoneRegistrationScreen.argumentPhoneCode]
+                          as String?) ??
                       "+966";
 
           return PhoneRegistrationScreen(initialPhoneCode: phoneCode);
