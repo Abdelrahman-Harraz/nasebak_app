@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nasebak_app/features/chat/model/message_model.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
+import 'package:nasebak_app/utils/cached_network_image/app_cached_network_image.dart';
 import 'package:nasebak_app/utils/extensions/extension_theme.dart';
 
 class ChatBubble extends StatelessWidget {
@@ -24,7 +25,8 @@ class ChatBubble extends StatelessWidget {
               backgroundImage:
                   message.imageUrl.isEmpty
                       ? AssetImage(AppAssetPaths.personalInfoDummyProfileImage)
-                      : NetworkImage(message.imageUrl) as ImageProvider,
+                      : AppCachedNetworkImage(imageUrl: message.imageUrl)
+                          as ImageProvider,
             ),
           SizedBox(width: 8),
           Container(

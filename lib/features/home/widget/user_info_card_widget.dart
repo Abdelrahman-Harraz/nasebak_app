@@ -5,6 +5,7 @@ import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/features/user_info/model/user_info_ui_model.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:nasebak_app/res/app_colors.dart';
+import 'package:nasebak_app/utils/cached_network_image/app_cached_network_image.dart';
 import 'package:nasebak_app/utils/extensions/extension_localization.dart';
 import 'package:nasebak_app/utils/extensions/extension_theme.dart';
 import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
@@ -67,7 +68,8 @@ class UserInfoCardWidget extends StatelessWidget {
                             ? AssetImage(
                               AppAssetPaths.personalInfoDummyProfileImage,
                             )
-                            : NetworkImage(model.userImage!) as ImageProvider,
+                            : AppCachedNetworkImage(imageUrl: model.userImage!)
+                                as ImageProvider,
                   ),
                   Positioned(
                     top: -5,

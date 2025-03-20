@@ -43,10 +43,6 @@ class PreferencesManager {
     return await PreferencesUtils.getString(PreferencesKeys.token.name);
   }
 
-  Future<bool> isShowOnboarding() async {
-    return await PreferencesUtils.getBool(PreferencesKeys.showOnboarding.name);
-  }
-
   Future<void> setShowOnboarding() async {
     await PreferencesUtils.setBool(PreferencesKeys.showOnboarding.name, true);
   }
@@ -59,46 +55,12 @@ class PreferencesManager {
     await PreferencesUtils.setInt(PreferencesKeys.userId.name, userId);
   }
 
-  Future<void> setEmail(String data) async {
-    await PreferencesUtils.setString(PreferencesKeys.email.name, data);
-  }
-
-  Future<String?> getEmail() async {
-    return await PreferencesUtils.getString(PreferencesKeys.email.name);
-  }
-
   Future<void> setProfileImage(String data) async {
     await PreferencesUtils.setString(PreferencesKeys.profileImage.name, data);
   }
 
   Future<String?> getProfileImage() async {
     return await PreferencesUtils.getString(PreferencesKeys.profileImage.name);
-  }
-
-  Future<bool> setIsAllowNotifications(bool data) async {
-    return await PreferencesUtils.setBool(
-      PreferencesKeys.isAllowNotifications.name,
-      data,
-    );
-  }
-
-  Future<bool> getIsAllowNotifications() async {
-    return await PreferencesUtils.getBool(
-      PreferencesKeys.isAllowNotifications.name,
-    );
-  }
-
-  Future<void> setScreenStatusWhileRecording(bool data) async {
-    await PreferencesUtils.setBool(
-      PreferencesKeys.screenStatusWhileRecording.name,
-      data,
-    );
-  }
-
-  Future<bool> getScreenStatusWhileRecording() async {
-    return await PreferencesUtils.getBool(
-      PreferencesKeys.screenStatusWhileRecording.name,
-    );
   }
 
   Future<void> setDownloadImagesStatus(bool data) async {
@@ -131,6 +93,5 @@ class PreferencesManager {
     await setToken(token);
     await setUserId(userId);
     await setUserName(userFullName);
-    await setIsAllowNotifications(allowNotification);
   }
 }

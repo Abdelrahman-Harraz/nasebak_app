@@ -10,6 +10,7 @@ import 'package:nasebak_app/features/chat/model/chat_ui_model.dart';
 import 'package:nasebak_app/features/chat/screen/conversation_screen.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:nasebak_app/res/app_colors.dart';
+import 'package:nasebak_app/utils/cached_network_image/app_cached_network_image.dart';
 import 'package:nasebak_app/utils/empty/empty_widgets.dart';
 import 'package:nasebak_app/utils/extensions/extension_theme.dart';
 import 'package:nasebak_app/utils/format/app_date_format.dart';
@@ -53,14 +54,6 @@ class _ChatScreenWithBlocState extends BaseScreenState<ChatScreenWithBloc> {
         scrolledUnderElevation: .1,
 
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(AppAssetPaths.searchIcon),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(AppAssetPaths.heartIcon),
-          ),
           IconButton(
             onPressed: _openNotificationsScreen,
             icon: SvgPicture.asset(AppAssetPaths.notificationsIcon),
@@ -162,7 +155,9 @@ class _ChatScreenWithBlocState extends BaseScreenState<ChatScreenWithBloc> {
                           ? AssetImage(
                             AppAssetPaths.personalInfoDummyProfileImage,
                           )
-                          : NetworkImage(conversation.profileImageUrl)
+                          : AppCachedNetworkImage(
+                                imageUrl: conversation.profileImageUrl,
+                              )
                               as ImageProvider,
                 ),
                 if (conversation.unreadCount > 0)
