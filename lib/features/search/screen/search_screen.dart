@@ -59,10 +59,6 @@ class _SearchScreenWithBlocState extends BaseScreenState<SearchScreenWithBloc> {
             onPressed: _openNotificationsScreen,
             icon: SvgPicture.asset(AppAssetPaths.notificationsIcon),
           ),
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(AppAssetPaths.menuIcon),
-          ),
         ],
       ),
       body: BlocListener<SearchBloc, SearchState>(
@@ -396,82 +392,84 @@ class _SearchScreenWithBlocState extends BaseScreenState<SearchScreenWithBloc> {
       builder: (context) {
         return StatefulBuilder(
           builder:
-              (context, setState) => Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(height: 5),
-                  Container(
-                    width: 50,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: AppColors.bottomSheetDrawer,
-                      borderRadius: BorderRadius.circular(7),
-                    ),
-                  ),
-                  SizedBox(height: 16),
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
-                        child: Text(
-                          key,
-                          style: context.bodyLarge?.copyWith(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+              (context, setState) => SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(height: 5),
+                    Container(
+                      width: 50,
+                      height: 4,
+                      decoration: BoxDecoration(
+                        color: AppColors.bottomSheetDrawer,
+                        borderRadius: BorderRadius.circular(7),
                       ),
-                      const SizedBox(height: 16),
-
-                      ...choices.map((choice) {
-                        return RadioListTile<String>(
-                          value: choice,
-                          groupValue: tempSelectedValue,
-                          title: Text(
-                            choice,
-                            style: context.bodyMedium?.copyWith(
-                              color: Colors.white,
-                            ),
-                          ),
-                          activeColor: Colors.white,
-                          onChanged: (newValue) {
-                            setState(() => tempSelectedValue = newValue);
-                          },
-                        );
-                      }).toList(),
-
-                      const SizedBox(height: 16),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            padding: const EdgeInsets.symmetric(vertical: 12),
-                          ),
-                          onPressed: () {
-                            if (tempSelectedValue != null) {
-                              this.setState(() {
-                                selectedValues[key] = tempSelectedValue!;
-                              });
-                            }
-                            Navigator.pop(context);
-                          },
+                    ),
+                    SizedBox(height: 16),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 30),
                           child: Text(
-                            "تأكيد",
+                            key,
                             style: context.bodyLarge?.copyWith(
                               color: Colors.white,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        const SizedBox(height: 16),
+
+                        ...choices.map((choice) {
+                          return RadioListTile<String>(
+                            value: choice,
+                            groupValue: tempSelectedValue,
+                            title: Text(
+                              choice,
+                              style: context.bodyMedium?.copyWith(
+                                color: Colors.white,
+                              ),
+                            ),
+                            activeColor: Colors.white,
+                            onChanged: (newValue) {
+                              setState(() => tempSelectedValue = newValue);
+                            },
+                          );
+                        }),
+
+                        const SizedBox(height: 16),
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.red,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                            ),
+                            onPressed: () {
+                              if (tempSelectedValue != null) {
+                                this.setState(() {
+                                  selectedValues[key] = tempSelectedValue!;
+                                });
+                              }
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              "تأكيد",
+                              style: context.bodyLarge?.copyWith(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
         );
       },
@@ -562,6 +560,7 @@ class _SearchScreenWithBlocState extends BaseScreenState<SearchScreenWithBloc> {
   ];
   final List<String> _exercise = ['كل يوم', 'غالبا', 'أحيانا', 'غير رياضي'];
   final List<String> _pets = [
+    'لا',
     'قطط',
     'زواحف',
     'سمك',

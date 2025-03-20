@@ -249,7 +249,7 @@ class _UserInfoStepFiveWidgetState extends State<UserInfoStepFiveWidget> {
               ),
             ),
             Text(
-              'إلى ${_endValue.round()}+ ريال',
+              'إلى ${_endValue.round()} ريال',
               textAlign: TextAlign.center,
               style: context.titleMedium!.copyWith(
                 fontSize: 17,
@@ -270,7 +270,7 @@ class _UserInfoStepFiveWidgetState extends State<UserInfoStepFiveWidget> {
           child: RangeSlider(
             values: RangeValues(_startValue, _endValue),
             min: 0,
-            max: 20000,
+            max: 50000,
             activeColor: AppColors.sliderColor,
             inactiveColor: AppColors.sliderIActiveColor,
             divisions: 100,
