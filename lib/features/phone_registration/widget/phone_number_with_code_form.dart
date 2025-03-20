@@ -22,7 +22,7 @@ class PhoneNumberWithCodeForm extends BaseStatefulWidget {
 
   const PhoneNumberWithCodeForm({
     required this.codeTextEditingController,
-    this.disableCountrySelector = true,
+    this.disableCountrySelector = false,
     this.phoneFormKey,
     this.autovalidateMode,
     required this.onSavedPhoneNumber,
@@ -121,7 +121,10 @@ class _PhoneNumberWithCodeFormState extends BaseState<PhoneNumberWithCodeForm>
         child: Row(
           children: [
             Text(
-              widget.selectedCountryCode ?? '+966',
+              (widget.selectedCountryCode?.endsWith('+') == true
+                      ? widget.selectedCountryCode
+                      : '${widget.selectedCountryCode}+') ??
+                  '+966',
               style: const TextStyle(
                 fontSize: 16,
                 color: AppColors.countryCode,

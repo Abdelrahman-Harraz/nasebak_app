@@ -12,8 +12,8 @@ import 'package:nasebak_app/features/update_user_info/widget/about_your_self_wid
 import 'package:nasebak_app/features/update_user_info/widget/gender_selection_widget.dart';
 import 'package:nasebak_app/features/update_user_info/widget/marriage_selection_widget.dart';
 import 'package:nasebak_app/features/update_user_info/widget/user_info_step_five_widget.dart';
+import 'package:nasebak_app/features/update_user_info/widget/user_info_last_step_widget.dart';
 import 'package:nasebak_app/features/update_user_info/widget/user_info_step_four_widget.dart';
-import 'package:nasebak_app/features/update_user_info/widget/user_info_step_seven_widget.dart';
 import 'package:nasebak_app/features/update_user_info/widget/user_info_step_six_widget.dart';
 import 'package:nasebak_app/features/update_user_info/widget/user_info_step_three_widget.dart';
 import 'package:nasebak_app/features/user_info/model/user_info_ui_model.dart';
@@ -159,10 +159,11 @@ class _UpdateUserInfoScreenWithBlocState
                   _marriageTypeSelectionPage(),
                   _aboutYourSelfWidget(),
                   _userInfoStepThreeWidget(),
-                  _userInfoStepFourWidget(),
+
                   _userInfoStepFiveWidget(),
                   _userInfoStepSixWidget(),
-                  _userInfoStepSevenWidget(),
+                  _userInfoStepFourWidget(),
+                  _userInfoLastStepWidget(),
                 ],
               );
             } else {
@@ -331,15 +332,10 @@ class _UpdateUserInfoScreenWithBlocState
     );
   }
 
-  Widget _userInfoStepFourWidget() {
-    return UserInfoStepFourWidget(
-      userName:
-          ("${firstNameTextEditingController.text}, ${context.translate(LocalizationKeys.letsTalkAboutLife)}"),
+  Widget _userInfoLastStepWidget() {
+    return UserInfoLastStepWidget(
       onNextPressed: () {
-        _pageController.nextPage(
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeInOut,
-        );
+        _showNextDialog();
       },
     );
   }
@@ -368,10 +364,15 @@ class _UpdateUserInfoScreenWithBlocState
     );
   }
 
-  Widget _userInfoStepSevenWidget() {
-    return UserInfoStepSevenWidget(
+  Widget _userInfoStepFourWidget() {
+    return UserInfoStepFourWidget(
+      userName:
+          ("${firstNameTextEditingController.text}, ${context.translate(LocalizationKeys.truthContinue)}"),
       onNextPressed: () {
-        _showNextDialog();
+        _pageController.nextPage(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
       },
     );
   }

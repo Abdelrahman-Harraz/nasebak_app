@@ -11,8 +11,6 @@ import 'package:nasebak_app/features/update_user_info/screen/update_user_info_sc
 import 'package:nasebak_app/features/user_info/model/user_info_ui_model.dart';
 import 'package:nasebak_app/features/user_info/screen/user_info_screen.dart';
 import 'package:nasebak_app/features/vip_membership/screen/vip_membership_screen.dart';
-import 'package:nasebak_app/only_debug/user_debug_model.dart';
-import 'package:nasebak_app/utils/build_type/build_type.dart';
 
 class AppRouter {
   static const initialRoute = phoneRegistrationScreen;
@@ -50,11 +48,9 @@ class AppRouter {
         builder: (context, state) {
           final argument = state.extra as Map<String, dynamic>? ?? {};
           final phoneCode =
-              isDebugMode()
-                  ? UserDebugModel.country
-                  : (argument[PhoneRegistrationScreen.argumentPhoneCode]
-                          as String?) ??
-                      "+966";
+              (argument[PhoneRegistrationScreen.argumentPhoneCode]
+                  as String?) ??
+              "+966";
 
           return PhoneRegistrationScreen(initialPhoneCode: phoneCode);
         },

@@ -8,63 +8,42 @@ import 'package:nasebak_app/utils/extensions/extension_localization.dart';
 import 'package:nasebak_app/utils/extensions/extension_theme.dart';
 import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
 
-class UserInfoStepSevenWidget extends StatefulWidget {
+class UserInfoLastStepWidget extends StatefulWidget {
   final VoidCallback? onNextPressed;
+
   final int totalSteps;
 
-  const UserInfoStepSevenWidget({
+  const UserInfoLastStepWidget({
     super.key,
     this.onNextPressed,
-    this.totalSteps = 5,
+
+    this.totalSteps = 4,
   });
 
   @override
-  State<UserInfoStepSevenWidget> createState() =>
-      _UserInfoStepSevenWidgetState();
+  State<UserInfoLastStepWidget> createState() => _UserInfoLastStepWidgetState();
 }
 
-class _UserInfoStepSevenWidgetState extends State<UserInfoStepSevenWidget> {
+class _UserInfoLastStepWidgetState extends State<UserInfoLastStepWidget> {
   int groupOneSelectedIndex = -1;
   int groupTwoSelectedIndex = -1;
   int groupThreeSelectedIndex = -1;
-  int groupFourSelectedIndex = -1;
-  int groupFiveSelectedIndex = -1;
+  List<bool> groupFourSelections = List.generate(8, (_) => false);
 
+  final List<List<String>> choices = [
+    ['لا أشرب', 'احيانا', 'من فترة لأخرى', 'أحيانا في الليل', 'بشكل متكرر'],
+    ['غير مدخن', 'غير منتظم', 'بانتظام', 'أحاول تركه'],
+    ['كل يوم', 'غالبا', 'أحيانا', 'غير رياضي'],
+    ['قطط', 'زواحف', 'سمك', 'سنجاب', 'هامستر', 'طيور', 'سلحفاة', 'لا'],
+  ];
   int get _currentStep {
     int step = 0;
     if (groupOneSelectedIndex != -1) step++;
     if (groupTwoSelectedIndex != -1) step++;
     if (groupThreeSelectedIndex != -1) step++;
-    if (groupFourSelectedIndex != -1) step++;
-    if (groupFiveSelectedIndex != -1) step++;
-
+    if (groupFourSelections.contains(true)) step++;
     return step;
   }
-
-  final List<List<String>> choices = [
-    [
-      'أعزب',
-      'عزباء',
-      'أرمل',
-      'أرملة',
-      'متزوج',
-      'متزوجة',
-      'بكر',
-      'مطلق',
-      'مطلقة',
-    ],
-    ['مع والدهم', 'مع والدتهم', 'ليس لدي أطفال', 'لدي أطفال وسيظلون معي'],
-    [
-      'جميلـ / ـة',
-      'وسيم',
-      'متوسط / ـة الجمال',
-      'مقبولـ / ـة',
-      'عاديـ / ـة',
-      'أقل من العادي',
-    ],
-    ['ناعم', 'مجعد', 'كيرلي', 'طويل', 'قصير'],
-    ['سليمـ / ـة', 'ذوي احتياجات خاصة', 'مرض مزمن', 'عقيمـ / ـة'],
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -82,53 +61,34 @@ class _UserInfoStepSevenWidgetState extends State<UserInfoStepSevenWidget> {
               children: [
                 SizedBox(height: 17),
                 _buildChoiceSection(
-                  AppAssetPaths.ringIcon,
-                  context.translate(LocalizationKeys.maritalStatus),
+                  AppAssetPaths.cupIcon,
+                  context.translate(LocalizationKeys.doYouDrink),
                   choices[0],
                   (index) => setState(() => groupOneSelectedIndex = index),
                   groupOneSelectedIndex,
                 ),
-                SizedBox(height: 22),
-                Divider(),
-                SizedBox(height: 16),
                 _buildChoiceSection(
-                  AppAssetPaths.babyCarIcon,
-                  context.translate(LocalizationKeys.haveKids),
+                  AppAssetPaths.smokeIcon,
+                  context.translate(LocalizationKeys.smokeCount),
                   choices[1],
                   (index) => setState(() => groupTwoSelectedIndex = index),
                   groupTwoSelectedIndex,
                 ),
-                SizedBox(height: 22),
-                Divider(),
-                SizedBox(height: 16),
                 _buildChoiceSection(
-                  AppAssetPaths.faceIcon,
-                  context.translate(LocalizationKeys.look),
+                  AppAssetPaths.gymIcon,
+                  context.translate(LocalizationKeys.exerciseCount),
                   choices[2],
                   (index) => setState(() => groupThreeSelectedIndex = index),
                   groupThreeSelectedIndex,
                 ),
-                SizedBox(height: 22),
-                Divider(),
-                SizedBox(height: 16),
-                _buildChoiceSection(
-                  AppAssetPaths.hairIcon,
-                  context.translate(LocalizationKeys.hair),
+                _buildMultiSelectSection(
+                  AppAssetPaths.pawIcon,
+                  context.translate(LocalizationKeys.havePets),
                   choices[3],
-                  (index) => setState(() => groupFourSelectedIndex = index),
-                  groupFourSelectedIndex,
+                  groupFourSelections,
+                  (index, selected) =>
+                      setState(() => groupFourSelections[index] = selected),
                 ),
-                SizedBox(height: 22),
-                Divider(),
-                SizedBox(height: 16),
-                _buildChoiceSection(
-                  AppAssetPaths.bedIcon,
-                  context.translate(LocalizationKeys.health),
-                  choices[4],
-                  (index) => setState(() => groupFiveSelectedIndex = index),
-                  groupFiveSelectedIndex,
-                ),
-
                 SizedBox(height: 16),
               ],
             ),
@@ -222,6 +182,48 @@ class _UserInfoStepSevenWidgetState extends State<UserInfoStepSevenWidget> {
                 borderRadius: BorderRadius.circular(13),
                 side: BorderSide(
                   color: selectedIndex == index ? Colors.red : Colors.grey,
+                  width: 1,
+                ),
+              ),
+            );
+          }),
+        ),
+        SizedBox(height: 22),
+        Divider(),
+        SizedBox(height: 16),
+      ],
+    );
+  }
+
+  Widget _buildMultiSelectSection(
+    String icon,
+    String title,
+    List<String> choices,
+    List<bool> selections,
+    Function(int, bool) onSelected,
+  ) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildTitle(icon, title),
+        SizedBox(height: 16),
+        Wrap(
+          spacing: 10,
+          children: List.generate(choices.length, (index) {
+            return FilterChip(
+              label: Text(
+                choices[index],
+                style: const TextStyle(color: Colors.black),
+              ),
+              selected: selections[index],
+              onSelected: (selected) => onSelected(index, selected),
+              showCheckmark: false,
+              backgroundColor: Colors.white,
+              selectedColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(11),
+                side: BorderSide(
+                  color: selections[index] ? Colors.red : Colors.grey,
                   width: 1,
                 ),
               ),

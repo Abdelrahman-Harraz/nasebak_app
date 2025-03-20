@@ -10,15 +10,13 @@ import 'package:nasebak_app/utils/locale/app_localization_keys.dart';
 
 class UserInfoStepFourWidget extends StatefulWidget {
   final VoidCallback? onNextPressed;
-
   final int totalSteps;
   final String userName;
 
   const UserInfoStepFourWidget({
     super.key,
     this.onNextPressed,
-
-    this.totalSteps = 4,
+    this.totalSteps = 5,
     required this.userName,
   });
 
@@ -30,22 +28,44 @@ class _UserInfoStepFourWidgetState extends State<UserInfoStepFourWidget> {
   int groupOneSelectedIndex = -1;
   int groupTwoSelectedIndex = -1;
   int groupThreeSelectedIndex = -1;
-  List<bool> groupFourSelections = List.generate(7, (_) => false);
+  int groupFourSelectedIndex = -1;
+  int groupFiveSelectedIndex = -1;
 
-  final List<List<String>> choices = [
-    ['لا أشرب', 'احيانا', 'من فترة لأخرى', 'أحيانا في الليل', 'بشكل متكرر'],
-    ['غير مدخن', 'غير منتظم', 'بانتظام', 'أحاول تركه'],
-    ['كل يوم', 'غالبا', 'أحيانا', 'غير رياضي'],
-    ['قطط', 'زواحف', 'سمك', 'سنجاب', 'هامستر', 'طيور', 'سلحفاة'],
-  ];
   int get _currentStep {
     int step = 0;
     if (groupOneSelectedIndex != -1) step++;
     if (groupTwoSelectedIndex != -1) step++;
     if (groupThreeSelectedIndex != -1) step++;
-    if (groupFourSelections.contains(true)) step++;
+    if (groupFourSelectedIndex != -1) step++;
+    if (groupFiveSelectedIndex != -1) step++;
+
     return step;
   }
+
+  final List<List<String>> choices = [
+    [
+      'أعزب',
+      'عزباء',
+      'أرمل',
+      'أرملة',
+      'متزوج',
+      'متزوجة',
+      'بكر',
+      'مطلق',
+      'مطلقة',
+    ],
+    ['مع والدهم', 'مع والدتهم', 'ليس لدي أطفال', 'لدي أطفال وسيظلون معي'],
+    [
+      'جميلـ / ـة',
+      'وسيم',
+      'متوسط / ـة الجمال',
+      'مقبولـ / ـة',
+      'عاديـ / ـة',
+      'أقل من العادي',
+    ],
+    ['ناعم', 'مجعد', 'كيرلي', 'طويل', 'قصير'],
+    ['سليمـ / ـة', 'ذوي احتياجات خاصة', 'مرض مزمن', 'عقيمـ / ـة'],
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -63,34 +83,53 @@ class _UserInfoStepFourWidgetState extends State<UserInfoStepFourWidget> {
               children: [
                 SizedBox(height: 17),
                 _buildChoiceSection(
-                  AppAssetPaths.cupIcon,
-                  context.translate(LocalizationKeys.doYouDrink),
+                  AppAssetPaths.ringIcon,
+                  context.translate(LocalizationKeys.maritalStatus),
                   choices[0],
                   (index) => setState(() => groupOneSelectedIndex = index),
                   groupOneSelectedIndex,
                 ),
+                SizedBox(height: 22),
+                Divider(),
+                SizedBox(height: 16),
                 _buildChoiceSection(
-                  AppAssetPaths.smokeIcon,
-                  context.translate(LocalizationKeys.smokeCount),
+                  AppAssetPaths.babyCarIcon,
+                  context.translate(LocalizationKeys.haveKids),
                   choices[1],
                   (index) => setState(() => groupTwoSelectedIndex = index),
                   groupTwoSelectedIndex,
                 ),
+                SizedBox(height: 22),
+                Divider(),
+                SizedBox(height: 16),
                 _buildChoiceSection(
-                  AppAssetPaths.gymIcon,
-                  context.translate(LocalizationKeys.exerciseCount),
+                  AppAssetPaths.faceIcon,
+                  context.translate(LocalizationKeys.look),
                   choices[2],
                   (index) => setState(() => groupThreeSelectedIndex = index),
                   groupThreeSelectedIndex,
                 ),
-                _buildMultiSelectSection(
-                  AppAssetPaths.pawIcon,
-                  context.translate(LocalizationKeys.havePets),
+                SizedBox(height: 22),
+                Divider(),
+                SizedBox(height: 16),
+                _buildChoiceSection(
+                  AppAssetPaths.hairIcon,
+                  context.translate(LocalizationKeys.hair),
                   choices[3],
-                  groupFourSelections,
-                  (index, selected) =>
-                      setState(() => groupFourSelections[index] = selected),
+                  (index) => setState(() => groupFourSelectedIndex = index),
+                  groupFourSelectedIndex,
                 ),
+                SizedBox(height: 22),
+                Divider(),
+                SizedBox(height: 16),
+                _buildChoiceSection(
+                  AppAssetPaths.bedIcon,
+                  context.translate(LocalizationKeys.health),
+                  choices[4],
+                  (index) => setState(() => groupFiveSelectedIndex = index),
+                  groupFiveSelectedIndex,
+                ),
+
                 SizedBox(height: 16),
               ],
             ),
@@ -177,48 +216,6 @@ class _UserInfoStepFourWidgetState extends State<UserInfoStepFourWidget> {
                 borderRadius: BorderRadius.circular(13),
                 side: BorderSide(
                   color: selectedIndex == index ? Colors.red : Colors.grey,
-                  width: 1,
-                ),
-              ),
-            );
-          }),
-        ),
-        SizedBox(height: 22),
-        Divider(),
-        SizedBox(height: 16),
-      ],
-    );
-  }
-
-  Widget _buildMultiSelectSection(
-    String icon,
-    String title,
-    List<String> choices,
-    List<bool> selections,
-    Function(int, bool) onSelected,
-  ) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _buildTitle(icon, title),
-        SizedBox(height: 16),
-        Wrap(
-          spacing: 10,
-          children: List.generate(choices.length, (index) {
-            return FilterChip(
-              label: Text(
-                choices[index],
-                style: const TextStyle(color: Colors.black),
-              ),
-              selected: selections[index],
-              onSelected: (selected) => onSelected(index, selected),
-              showCheckmark: false,
-              backgroundColor: Colors.white,
-              selectedColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(11),
-                side: BorderSide(
-                  color: selections[index] ? Colors.red : Colors.grey,
                   width: 1,
                 ),
               ),

@@ -32,7 +32,7 @@ class _UserInfoStepFiveWidgetState extends State<UserInfoStepFiveWidget> {
   int groupThreeSelectedIndex = -1;
   int groupFourSelectedIndex = -1;
   double _startValue = 0;
-  double _endValue = 10000;
+  double _endValue = 20000;
 
   int get _currentStep {
     int step = 0;
@@ -40,7 +40,7 @@ class _UserInfoStepFiveWidgetState extends State<UserInfoStepFiveWidget> {
     if (groupTwoSelectedIndex != -1) step++;
     if (groupThreeSelectedIndex != -1) step++;
     if (groupFourSelectedIndex != -1) step++;
-    if (_startValue != 0 || _endValue != 10000) {
+    if (_startValue != 0 || _endValue != 20000) {
       step++;
     }
 
@@ -249,7 +249,7 @@ class _UserInfoStepFiveWidgetState extends State<UserInfoStepFiveWidget> {
               ),
             ),
             Text(
-              'إلى ${_endValue.round()} ريال',
+              'إلى ${_endValue.round()}+ ريال',
               textAlign: TextAlign.center,
               style: context.titleMedium!.copyWith(
                 fontSize: 17,
@@ -270,7 +270,7 @@ class _UserInfoStepFiveWidgetState extends State<UserInfoStepFiveWidget> {
           child: RangeSlider(
             values: RangeValues(_startValue, _endValue),
             min: 0,
-            max: 10000,
+            max: 20000,
             activeColor: AppColors.sliderColor,
             inactiveColor: AppColors.sliderIActiveColor,
             divisions: 100,

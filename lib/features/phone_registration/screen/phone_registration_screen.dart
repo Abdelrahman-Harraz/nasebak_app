@@ -88,6 +88,7 @@ class _PhoneRegistrationScreenWithBlocState
   @override
   Widget baseScreenBuild(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       body: BlocListener<PhoneRegistrationBloc, PhoneRegistrationState>(
         listener: (context, state) {
           if (state is PhoneRegistrationLoadingState) {
@@ -238,23 +239,20 @@ class _PhoneRegistrationScreenWithBlocState
       context.read<PhoneRegistrationBloc>();
 
   void _getInitCountryCode() {
-    if (widget.phoneCode.isEmpty) {
-      _selectedCountryCode = "+966";
-    } else {
-      _selectedCountryCode =
-          widget.phoneCode.startsWith("+")
-              ? widget.phoneCode
-              : "+${widget.phoneCode}";
-    }
+    _selectedCountryCode = "+966";
 
     Country country = CountryService().getAll().firstWhere(
       (country) => country.phoneCode == _selectedCountryCode,
-      orElse: () => CountryService().findByCode("EG")!,
+      orElse: () => CountryService().findByCode("SA")!,
     );
+
     _onSelectCountryCode(country);
   }
 
   void _onSelectCountryCode(Country country) {
+    setState(() {
+      _selectedCountryCode = country.phoneCode;
+    });
     currentBloc.add(ChangCountryCodeEvent(country: country));
   }
 
@@ -268,7 +266,10 @@ class _PhoneRegistrationScreenWithBlocState
   }
 
   void _updateCountryCodeValues(Country country) {
-    _selectedCountryCode = country.phoneCode;
+    _selectedCountryCode =
+        country.phoneCode.endsWith('+')
+            ? country.phoneCode
+            : '${country.phoneCode}+';
   }
 
   void _continueClicked() {
