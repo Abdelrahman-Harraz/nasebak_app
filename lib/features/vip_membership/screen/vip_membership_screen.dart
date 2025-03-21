@@ -59,10 +59,6 @@ class _VipMembershipScreenWithBlocState
             onPressed: _openNotificationsScreen,
             icon: SvgPicture.asset(AppAssetPaths.notificationsIcon),
           ),
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(AppAssetPaths.menuIcon),
-          ),
         ],
       ),
       body: BlocListener<VipMembershipBloc, VipMembershipState>(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:nasebak_app/app_router.dart';
 import 'package:nasebak_app/res/app_asset_paths.dart';
 import 'package:nasebak_app/res/app_colors.dart';
 import 'package:nasebak_app/utils/extensions/extension_localization.dart';
@@ -86,7 +88,9 @@ class _PaymentScreenState extends State<PaymentScreen> {
         foregroundColor: AppColors.colorPrimary,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              _openNotificationsScreen(context);
+            },
             icon: SvgPicture.asset(AppAssetPaths.notificationsIcon),
           ),
           IconButton(
@@ -553,6 +557,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
         ),
       ),
     );
+  }
+
+  void _openNotificationsScreen(BuildContext context) {
+    context.push(AppRouter.notificationsScreen);
   }
 }
 
